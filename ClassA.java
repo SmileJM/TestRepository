@@ -4,5 +4,6 @@ public calss ClassA {
     System.out.println("uesr2가 작성");
     System.out.println("uesr2가 작성");
     System.out.println("uesr2가 작성");
+    System.out.println("uesr2가 작성");
   }
 }
