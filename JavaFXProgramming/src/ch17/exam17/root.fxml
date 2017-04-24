@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="150.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch17.exam17.RootController">
+   <children>
+      <CheckBox fx:id="cb1" layoutX="14.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleChkAction" text="안경" />
+      <CheckBox fx:id="cb2" layoutX="14.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleChkAction" text="모자" />
+      <ImageView fx:id="checkImageView" fitHeight="150.0" fitWidth="100.0" layoutX="72.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/geek.gif" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnClose" alignment="CENTER" layoutX="189.0" layoutY="112.0" mnemonicParsing="false" textAlignment="CENTER">
+            <graphic>
+                <ImageView fitWidth="20.0" preserveRatio="true">
+                   <image>
+                       <Image url="@images/exit.png" />
+                   </image>
+                </ImageView>
+            </graphic>
+        </Button>
+      <Separator layoutX="205.0" layoutY="13.0" orientation="VERTICAL" prefHeight="81.0" prefWidth="5.0" />
+      <RadioButton fx:id="rb1" userData="BubbleChart" layoutX="220.0" layoutY="28.0" mnemonicParsing="false" selected="true" text="BubleChart">
+         <toggleGroup>
+            <ToggleGroup fx:id="rbGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rb2" userData="BarChart" layoutX="220.0" layoutY="55.0" mnemonicParsing="false" text="BarChart" toggleGroup="$rbGroup" />
+      <RadioButton fx:id="rb3" userData="AreaChart" layoutX="220.0" layoutY="86.0" mnemonicParsing="false" text="AreaChart" toggleGroup="$rbGroup" />
+      <ImageView fx:id="radioImageView" fitHeight="100.0" fitWidth="100.0" layoutX="313.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/BubbleChart.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

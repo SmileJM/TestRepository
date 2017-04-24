@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="220.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch17.exam25.RootController">
+   <children>
+      <StackPane prefHeight="220.0" prefWidth="360.0">
+         <children>
+            <ImageView fitHeight="220.0" fitWidth="360.0" pickOnBounds="true">
+               <image>
+                  <Image url="@media/audio.png" />
+               </image>
+            </ImageView>
+            <MediaView fx:id="mediaView" fitHeight="220.0" fitWidth="360.0" preserveRatio="false" />
+            <Slider fx:id="progressSlider" StackPane.alignment="BOTTOM_CENTER" />
+         </children>
+      </StackPane>
+      <Button fx:id="btnPlay" disable="true" layoutX="377.0" layoutY="14.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="137.0" text="PLAY" />
+      <Button fx:id="btnPause" disable="true" layoutX="377.0" layoutY="37.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="137.0" text="PAUSE" />
+      <Button fx:id="btnStop" disable="true" layoutX="377.0" layoutY="60.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="137.0" text="STOP" />
+      <Slider fx:id="sliderVolume" layoutX="376.0" layoutY="184.0" prefHeight="24.0" prefWidth="137.0" showTickMarks="true" />
+      <Label layoutX="377.0" layoutY="167.0" text="볼륨" />
+      <Label layoutX="374.0" layoutY="95.0" text="시간" />
+      <ProgressBar fx:id="progressBar" layoutX="376.0" layoutY="120.0" prefHeight="10.0" prefWidth="100.0" progress="0.0" />
+      <ProgressIndicator fx:id="progressIndicator" layoutX="490.0" layoutY="118.0" progress="0.0" />
+      <Label fx:id="labelTime" alignment="CENTER" layoutX="376.0" layoutY="141.0" prefHeight="15.0" prefWidth="100.0" />
+   </children>
+</AnchorPane>

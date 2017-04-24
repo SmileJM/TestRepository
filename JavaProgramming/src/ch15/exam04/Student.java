@@ -1,0 +1,26 @@
+package ch15.exam04;
+
+public class Student {
+	public int sno;
+	public String name;
+	public Student(int sno, String name) {
+		this.sno = sno;
+		this.name = name;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if( obj instanceof Student) {
+			Student student = (Student) obj;
+			if(student.name.equals(name) && (student.sno==sno)){
+				return true;
+			}
+		}
+		return false;
+	}
+	@Override
+	public int hashCode() {
+		return name.hashCode() + sno;
+	}
+	
+}

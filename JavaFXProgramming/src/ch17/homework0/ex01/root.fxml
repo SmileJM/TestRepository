@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch17.homework3.ex01.RootController">
+    <children>
+        <Separator layoutX="221.0" layoutY="19.0" orientation="VERTICAL" prefHeight="106.0" prefWidth="4.0" />
+        <CheckBox fx:id="btn1" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleChkAction" text="안녕" />
+        <CheckBox fx:id="btn2" layoutX="14.0" layoutY="56.0" mnemonicParsing="false" onAction="#handleChkAction" text="모자" />
+        <RadioButton fx:id="radio1" layoutX="239.0" layoutY="19.0" mnemonicParsing="false" text="BubbleChart" userData="BubbleChart">
+            <toggleGroup>
+                <ToggleGroup fx:id="radioGroup" />
+            </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="radio2" layoutX="239.0" layoutY="56.0" mnemonicParsing="false" text="BarChart" toggleGroup="$radioGroup" userData="BarChart" />
+        <RadioButton fx:id="radio3" layoutX="239.0" layoutY="92.0" mnemonicParsing="false" text="AreaChart" toggleGroup="$radioGroup" userData="AreaChart" />
+        <ImageView fx:id="btnImageView" fitHeight="100.0" fitWidth="100.0" layoutX="77.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/geek.gif" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="radioImageView" fitHeight="100.0" fitWidth="100.0" layoutX="336.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/BubbleChart.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="btnClose" layoutX="194.0" layoutY="136.0" mnemonicParsing="false">
+            <graphic>
+                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/exit.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+    </children>
+</AnchorPane>

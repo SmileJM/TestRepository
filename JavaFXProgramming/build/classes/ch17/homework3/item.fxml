@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<HBox prefHeight="70.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label id="txtRank" contentDisplay="CENTER" prefHeight="70.0" prefWidth="20.0" text="순위" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgView" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/game01.png" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="70.0" prefWidth="170.0" spacing="5.0">
+         <children>
+            <Label id="txtName" text="이름">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <Label id="txtCompany" text="제작사">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imgScore" fitHeight="20.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/star10.png" />
+               </image>
+            </ImageView>
+         </children>
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+      </VBox>
+   </children>
+</HBox>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch17.exam15.RootController">
+   <children>
+      <Label layoutX="25.0" layoutY="18.0" text="textArea1" />
+      <Label layoutX="25.0" layoutY="108.0" text="textArea2" />
+      <TextArea fx:id="textArea1" layoutX="11.0" layoutY="36.0" prefHeight="65.0" prefWidth="289.0">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TextArea>
+      <TextArea fx:id="textArea2" layoutX="11.0" layoutY="125.0" prefHeight="65.0" prefWidth="289.0">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TextArea>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</AnchorPane>
