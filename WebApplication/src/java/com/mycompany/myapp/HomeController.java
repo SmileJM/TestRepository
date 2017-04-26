@@ -24,4 +24,12 @@ public class HomeController {
     public String cssExam02() {
         return "css/exam02";  
     }
+    @RequestMapping("/css/exam03")
+    public String cssExam03() {
+        return "css/exam03";  
+    }
+    @RequestMapping("/javascript/exam01")
+    public String javascriptExam01() {
+        return "javascript/exam01";  
+    }
 }
