@@ -16,4 +16,8 @@ public class HomeController {
         return "html";
         // 리턴 값이 .jsp 파일과 관계가 있음        
     }
+    @RequestMapping("/css/exam01")
+    public String cssExam01() {
+        return "css/exam01";  
+    }
 }

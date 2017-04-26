@@ -5,7 +5,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 
-public class AppMain extends Application{
+public class AppMain extends Application {
 
     public AppMain() {
         System.out.println(Thread.currentThread().getName() + " Constructor");
@@ -24,12 +24,12 @@ public class AppMain extends Application{
         Map<String, String> map = params.getNamed();
         String ip = map.get("ip");
         String port = map.get("port");
-        
+
         System.out.println(ip);
         System.out.println(port);
-        
-    }   
-    
+
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
         System.out.println(Thread.currentThread().getName() + " start");
@@ -41,9 +41,8 @@ public class AppMain extends Application{
     public void stop() throws Exception {
         System.out.println(Thread.currentThread().getName() + " stop");
     }
-    
+
     public static void main(String[] args) {
-        
         launch(args);
         Platform.exit();
     }
