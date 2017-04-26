@@ -32,4 +32,16 @@ public class HomeController {
     public String javascriptExam01() {
         return "javascript/exam01";  
     }
+    @RequestMapping("javascript/exam02")
+    public String javascriptExam02() {
+        return "javascript/exam02";
+    }
+    @RequestMapping("javascript/exam03")
+    public String javascriptExam03() {
+        return "javascript/exam03";
+    }
+    @RequestMapping("javascript/exam04")
+    public String javascriptExam04() {
+        return "javascript/exam04";
+    }
 }
