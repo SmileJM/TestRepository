@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox id="AnchorPane" prefHeight="80.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.kjm2.ItemController">
+   <children>
+      <Label fx:id="lblRoom" prefHeight="80.0" prefWidth="250.0" text="Room">
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTemp" alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="150.0" text="Temp" textAlignment="RIGHT">
+         <padding>
+            <Insets right="30.0" />
+         </padding>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</HBox>
