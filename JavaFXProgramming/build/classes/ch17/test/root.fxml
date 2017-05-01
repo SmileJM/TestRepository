@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch17.test.RootController">
+   <children>
+      <StackPane prefHeight="284.0" prefWidth="593.0">
+         <children>
+            <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn prefWidth="174.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="167.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/on1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TableColumn>
+                <TableColumn minWidth="0.0" prefWidth="186.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="192.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@images/off1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TableColumn>
+                  <TableColumn minWidth="0.0" prefWidth="430.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/off.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TableColumn>
+              </columns>
+            </TableView>
+         </children>
+      </StackPane>
+      <ImageView fx:id="imageView" fitHeight="254.0" fitWidth="593.0" layoutY="31.0" pickOnBounds="true">
+         <image>
+            <Image url="@images/sky.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
