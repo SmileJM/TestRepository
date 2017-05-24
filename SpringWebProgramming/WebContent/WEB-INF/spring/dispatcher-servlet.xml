@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	
+	<!-- @ 어노테이션을 사용하여 개발 할 수 있도록 설정 -->
+	<mvc:annotation-driven/>
+
+	<!-- 어떤 패키지부터 @어노테이션을 찾아서 사용할 것인지 설정 -->
+	<context:component-scan base-package="com.mycompany.myapp"/>
+	
+	<!-- Controller 가 필요 없는 정적 리소스 폴더 -->
+	<mvc:resources mapping="/resources/**" location="/resources/"/>
+	
+	<!-- 스프링 관리 객체 등록 -->
+	<bean 	id="viewResolver"
+				class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+				p:prefix="/WEB-INF/views/"
+				p:suffix=".jsp"/>				
+				
+	<bean	id="multipartResolver"
+				class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />		
+	
+	<!-- 아이디를 생략하게 되면 클래스 명의 앞글자를 소문자로 한 이름이 ID가 됨 (exam10Dao2Imple) -->
+	<bean 	id="exam10Dao2"
+				class="com.mycompany.myapp.dao.Exam10Dao2Impl" />
+				
+	<!-- 고전적 Setter 주입 -->
+	<bean 	id="exam10Service4"
+				class="com.mycompany.myapp.service.Exam10Service4Impl" 
+				p:exam10Dao-ref="exam10Dao2"/>
+	<!-- p:exam10Dao 하면 숫자, 문자 같은 값이 와야 함 / 	p:exam10Dao-ref 참조 변수가 옴 -->
+	
+<!-- 	<bean 	id="exam10Service4"
+				class="com.mycompany.myapp.service.Exam10Service4Impl">
+				<property name="exam10Dao" ref="exam10Dao2"></property>
+	</bean> 	 -->			
+	
+	<!-- 고전적 생성자 주입 -->
+	<bean 	id="exam10Service5"
+				class="com.mycompany.myapp.service.Exam10Service5Impl"> 				
+		<constructor-arg ref="exam10Dao2"></constructor-arg>
+	</bean>
+
+</beans>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+	<context-param>
+		<param-name>key1</param-name>
+		<param-value>value1</param-value>
+	</context-param>
+	<listener>
+		<listener-class>listener.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- CharacterEncodingFilter 등록 및 URL 매핑 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>filter.CharacterEncodingFilter</filter-class>
+		<!-- 어떤 정보가 필요할 때는 init-param을 통해서 얻을 수 있음 -->
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<!-- <url-pattern>/*</url-pattern> filter에서는 모든 요청 시 /* 을 해야 함 servelt의 
+			경우는 / 임 -->
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- DispathcerServlet 등록 및 URL 매핑 -->
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>name1</param-name>
+			<param-value>value1</param-value>
+		</init-param>
+		<init-param>
+			<param-name>name2</param-name>
+			<param-value>value2</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+</web-app>
