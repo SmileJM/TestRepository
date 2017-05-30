@@ -1,0 +1,299 @@
+[33mcommit a74c16ac1bd67f35f6866284261c231f30bc3fbe[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Tue May 30 17:56:01 2017 +0900
+
+    DB insert
+
+[33mcommit 07ba634c609ef51f12f70db1742df8525ec90eea[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Thu May 25 18:07:17 2017 +0900
+
+    가스센서, PCA9685
+
+[33mcommit f9180d344d1232e081afb95d5cf1c86cf392644d[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Wed May 24 17:53:08 2017 +0900
+
+    센서 조도, 온도, flame
+
+[33mcommit 88fa2ab97dcac7dbbcdac4e27ee21281874546d1[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Wed May 24 14:36:38 2017 +0900
+
+    리다이렉트
+
+[33mcommit 100867f01765f68a714bca18a75fea5aaa48c101[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Wed May 24 11:32:43 2017 +0900
+
+    git 파일 추가
+
+[33mcommit fea233bdedfc8320f8438335176b583a36ee2fcf[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon May 1 22:00:38 2017 +0900
+
+    프로젝트 테스트 태양이동
+
+[33mcommit 14dc29bb50db93c33f91eaaa628a28ccba5644cb[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Sun Apr 30 03:14:40 2017 +0900
+
+    프로젝트 테스트
+
+[33mcommit 94cc16323c748f5a0236d7194960080fa235f697[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Sat Apr 29 13:54:11 2017 +0900
+
+    JSP study
+
+[33mcommit 0d8736be1ad1d0a9e5eebd0a067f93bb0ef4659a[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Thu Apr 27 16:32:04 2017 +0900
+
+    JavaScript , jQuery, JSON, AJAX
+
+[33mcommit 93f4facacc29a4bbb169058ee8082215dcd08647[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Wed Apr 26 12:34:42 2017 +0900
+
+    WebApplication 프로젝트 라이브러리 추가
+
+[33mcommit 4c3a2eb9de376156af08a00952cc2aabf22183d1[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Wed Apr 26 11:03:52 2017 +0900
+
+    CSS 3번째
+
+[33mcommit cc2112cb0e08f302e4cfafdfb89000a170d7374b[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Wed Apr 26 10:30:23 2017 +0900
+
+    CSS 2번째
+
+[33mcommit b4f2f89b7866a37e3f37be330efd01960033b585[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Wed Apr 26 09:48:16 2017 +0900
+
+    CSS 블록 인라인 태그
+
+[33mcommit 8ef1f702f48d5217085b46ff692986bf9d37ec3f[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Tue Apr 25 15:16:05 2017 +0900
+
+    Spring 처음
+
+[33mcommit c7cf1af0e23345f5e21318b47ca6a3c05fe0dd84[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 14:42:28 2017 +0900
+
+    레이아웃파일 생성
+
+[33mcommit 98b5538a3d2c1e5feebd83567a7211b4e8d1a925[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 14:41:22 2017 +0900
+
+    수정
+
+[33mcommit 1978b2376cf24b06846f18d7796b4417259122ed[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 14:40:15 2017 +0900
+
+    JavaApplication 프로젝트 생성
+
+[33mcommit 9e2fe8dbb14a8933ff312a64d449b41314e9a71b[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 14:13:50 2017 +0900
+
+    기존 프로젝트 추가
+
+[33mcommit 14e0ece3a7b7cf1f292058c0d3e8d016a5fd3211[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 14:09:30 2017 +0900
+
+    수정
+
+[33mcommit 02d7c75039af14efbf0f40a712fec0dab5152136[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 14:08:00 2017 +0900
+
+    연습파일 삭제
+
+[33mcommit 5e6f99191c12e2762cec20ad2fbe28b62775e4e7[m
+Merge: ef03b26 802dc1c
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 12:45:42 2017 +0900
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       ClassA.java
+
+[33mcommit ef03b26a897b2aa1a18087dfc446ed9605a4b3ab[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 12:43:39 2017 +0900
+
+    수정함
+
+[33mcommit 802dc1cef7152c7935f3f2d8cd3f03020b6b02bf[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 12:41:11 2017 +0900
+
+    수정함
+
+[33mcommit da6b2939b2542e0523f2751a3f83dbfed0dbaa8b[m
+Merge: d924724 72f2c6b
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 12:35:26 2017 +0900
+
+    ㅎㅎ
+
+[33mcommit 72f2c6b6fd6a0621ec578819ab26938a863bc03e[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 12:32:32 2017 +0900
+
+    삭제
+
+[33mcommit 83034cd55f3eeccb8dc7cfb6ec2cabd61b9c3ab4[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 12:31:41 2017 +0900
+
+    ㅋㅋ
+
+[33mcommit fadfee15ae0873b9003a52f10112d1280b8eed15[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 12:30:46 2017 +0900
+
+    수정함
+
+[33mcommit d9247244767f318682f9a0c506dfa6ba18c30f23[m
+Merge: 6a6a6dc 4db1ca7
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 12:29:40 2017 +0900
+
+    ww
+
+[33mcommit 66feda3860a12cc7c040c59a432a6bffd369f385[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 12:28:07 2017 +0900
+
+    ㅎㅎ
+
+[33mcommit 6a6a6dcd24e0f003852a2e82c9c20a620cb0d976[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 12:22:56 2017 +0900
+
+    수정
+
+[33mcommit cdd33af58a1e961462768ad84368ede83d024e8c[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 12:20:51 2017 +0900
+
+    수정함
+
+[33mcommit 4db1ca7892c3e1e67b8a7ab749faf7a237271366[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 12:18:42 2017 +0900
+
+    수정
+
+[33mcommit d92ab12f2b9993cc53e42f3701e4b41f93c92531[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 12:11:58 2017 +0900
+
+    ClassA 수정함
+
+[33mcommit 34a4c74a9a25013a1915a097346fa976abac2eac[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 11:57:48 2017 +0900
+
+    ClassB 생성
+
+[33mcommit 1a4c6b8090d5ce7f718e38d6c880f5657a63b413[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 11:53:45 2017 +0900
+
+    ClassA.java 생성
+
+[33mcommit 795c6dd6419aa2436ea755a5f61beb4ff8aaaa30[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 11:39:00 2017 +0900
+
+    HelloWorld.java 삭제
+
+[33mcommit 410f3dcaa3816f95e3d9db290a3ba3608c10de24[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 11:36:35 2017 +0900
+
+    HelloWorld.java 새로 생성
+
+[33mcommit e0d6136913b1405164b20296e158c609779d6d0d[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 11:15:43 2017 +0900
+
+    Test4 추가
+
+[33mcommit 3bc62b480ea9c495cf01384ed7c12e0ffd600059[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 11:03:42 2017 +0900
+
+    Test3 추가
+
+[33mcommit 8e71f595a09dd87ff57728ddc58f2323f85a9843[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 10:53:37 2017 +0900
+
+    HelloWorld.java 파일 삭제
+
+[33mcommit a09a52cf5f6137df38680b42f5503c63daff4432[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 10:51:22 2017 +0900
+
+    main() 메소드 추가
+
+[33mcommit 4f797bc5188c77a496bc980e596955d189506baa[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 10:50:36 2017 +0900
+
+    main() 메소드 추가
+    
+    ??
+
+[33mcommit 8d59e1b06663083d8f39750be07335accb758b27[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 10:41:43 2017 +0900
+
+    HelloWorld.java 파일 생성
+
+[33mcommit 11907477ef145fd915b5f5da4b4e626fede26656[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 10:36:44 2017 +0900
+
+    Test2 추
+
+[33mcommit ab42e667275b98f87467d228b1fabc7a847cd1e6[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 10:32:23 2017 +0900
+
+    Test1 추
+
+[33mcommit 5e8432e151764a7f2667356d44988e606c29eecc[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 10:27:40 2017 +0900
+
+    Revert "Revert "Initial commit""
+    
+    This reverts commit eabf6c20117e6a7aabbec853c1d802768095eeef.
+
+[33mcommit eabf6c20117e6a7aabbec853c1d802768095eeef[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 10:27:31 2017 +0900
+
+    Revert "Initial commit"
+    
+    This reverts commit 40a885ae34da500c390d019361fd52ede81d3da2.
+
+[33mcommit 40a885ae34da500c390d019361fd52ede81d3da2[m
+Author: SmileJM <lovelyeu@hanmail.net>
+Date:   Mon Apr 24 09:35:37 2017 +0900
+
+    Initial commit

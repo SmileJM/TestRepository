@@ -80,8 +80,21 @@
 			<artifactId>log4j-core</artifactId>
 			<version>2.8.2</version>
 		</dependency>
-
+		<!-- Oracle JDBC 드라이버 -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.4.0-atlassian-hosted</version>
+		</dependency>
 	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>atlassian</id>
+			<name>Atlassian Repository</name>
+			<url>https://maven.atlassian.com/3rdparty</url>
+		</repository>
+	</repositories>
 
 	<!-- 프로젝트를 빌드할 때 사용할 정보 설정, 수정할 필요가 없는 부분(자바 버전 제외) -->
 	<build>

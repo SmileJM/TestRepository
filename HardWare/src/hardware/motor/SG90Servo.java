@@ -6,6 +6,7 @@ import com.pi4j.io.gpio.GpioPinPwmOutput;
 import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.RaspiPin;
 import com.pi4j.wiringpi.Gpio;
+import java.io.IOException;
 
 public class SG90Servo {
 
@@ -45,14 +46,29 @@ public class SG90Servo {
         int step = (int) (minStep + (angle * (maxStep - minStep) / 180.0));
         pin.setPwm(step);
     }
-    
-    public static void main(String[] args) throws InterruptedException {
-        SG90Servo test = new SG90Servo(RaspiPin.GPIO_01, 8, 24);
-        for(int i=0; i<=180; i+=10) {
-            test.setAngle(i);
-            Thread.sleep(500);
+
+    public static void main(String[] args) throws InterruptedException, IOException {
+        SG90Servo test = new SG90Servo(RaspiPin.GPIO_01, 8, 25);
+//        for(int i=0; i<=180; i+=10) {
+//            test.setAngle(i);
+//            Thread.sleep(500);
+//        }
+
+        while (true) {
+            test.setAngle(00);
+            Thread.sleep(1000);
+
+            test.setAngle(90);
+            Thread.sleep(1000);
+
+            test.setAngle(180);
+            Thread.sleep(1000);
+
+            test.setAngle(0);
+            Thread.sleep(1000);
+
+            test.setAngle(90);
+            System.in.read();
         }
-        test.setAngle(0);
-        Thread.sleep(1000);
     }
 }
