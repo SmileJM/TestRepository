@@ -19,20 +19,21 @@
 	type="text/javascript"></script>
 </head>
 <body>
-	<h4>게시물 목록</h4>
-	<div style="text-align: center">
-		<table class="table table-bordered" style="width: 700px">
+	<div style="width: 700px; text-align: center">
+		<h4>게시물 목록</h4>
+		<table class="table table-bordered"
+			style="width: 700px; text-align: center">
 			<tr class="success">
-				<td>번호</td>
-				<td>제목</td>
-				<td>글쓴이</td>
-				<td>날짜</td>
-				<td>조회수</td>
+				<td style="width: 20%">번호</td>
+				<td style="width: 20%">제목</td>
+				<td style="width: 20%">글쓴이</td>
+				<td style="width: 20%">날짜</td>
+				<td style="width: 20%">조회수</td>
 			</tr>
 			<c:forEach var="b" items="${list}">
 				<tr>
 					<td>${b.bno}</td>
-					<td>${b.btitle}</td>
+					<td><a href="exam05Detail?bno=${b.bno}">${b.btitle}</a></td>
 					<td>${b.bwriter}</td>
 					<td>${b.bdate}</td>
 					<td>${b.bhitcount}</td>
@@ -46,7 +47,8 @@
 			</c:if>
 			<c:forEach var="i" begin="${startPageNo}" end="${endPageNo}">			
 				&nbsp;
-				<a href="exam05?pageNo=${i}" <c:if test="${pageNo==i}">style="font-weight: bold; color: red"</c:if>>${i}</a>
+				<a href="exam05?pageNo=${i}"
+					<c:if test="${pageNo==i}">style="font-weight: bold; color: red"</c:if>>${i}</a>
 				&nbsp;
 			</c:forEach>
 
@@ -54,6 +56,9 @@
 				<a href="exam05?pageNo=${endPageNo+1}">[다음]</a>
 			</c:if>
 			<a href="exam05?pageNo=${totalPageNo}">[맨끝]</a>
+		</div>
+		<div style="margin-top: 10px; width: 700; text-align: right">
+			<a href="exam02" class="btn btn-success">글쓰기</a>
 		</div>
 	</div>
 </body>

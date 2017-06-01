@@ -25,7 +25,7 @@ public class Exam12ServiceImpl implements Exam12Service {
 		List<Exam12Board> list = dao.boardSelectAll();
 		return list;
 	}
-	
+
 	@Override
 	public List<Exam12Board> boardListPage(int pageNo, int rowsPerPage) {
 		List<Exam12Board> list = dao.boardSelectPage(pageNo, rowsPerPage);
@@ -36,6 +36,36 @@ public class Exam12ServiceImpl implements Exam12Service {
 	public int boardTotalRows() {
 		int totalRows = dao.boardCountAll();
 		return totalRows;
+	}
+
+	@Override
+	public Exam12Board getBoard(int bno) {
+		Exam12Board board = dao.boardSelectByBno(bno);
+		board.setBhitcount(board.getBhitcount() + 1);
+		dao.boardUpdateBhitcount(bno, board.getBhitcount());
+		return board;
+	}
+
+	@Override
+	public String boardCheckBpassword(int bno, String bpassword) {
+		String result = "fail";
+		Exam12Board board = dao.boardSelectByBno(bno);
+		if (board.getBpassword().equals(bpassword)) {
+			result = "success";
+		}
+		return result;
+	}
+
+	@Override
+	public void boardUpdate(Exam12Board board) {
+		dao.boardUpdate(board);
+
+	}
+
+	@Override
+	public void boardDelete(int bno) {
+		dao.boardDelete(bno);
+
 	}
 
 	@Override
@@ -53,6 +83,34 @@ public class Exam12ServiceImpl implements Exam12Service {
 	public int memberTotalRows() {
 		int count = dao.memberCountAll();
 		return count;
+	}
+
+	@Override
+	public Exam12Member getMember(String mid) {
+		Exam12Member member = dao.memberSelectByMid(mid);
+		return member;
+	}
+
+	@Override
+	public String memberCheckBpassword(String mid, String mpassword) {
+		String result = "fail";
+		Exam12Member member = dao.memberSelectByMid(mid);
+		if (member.getMpassword().equals(mpassword)) {
+			result = "success";
+		}
+		return result;
+	}
+
+	@Override
+	public void memberUpdate(Exam12Member member) {
+		dao.memberUpdate(member);
+		
+	}
+
+	@Override
+	public void memberDelete(String mid) {
+		dao.memberDelete(mid);
+		
 	}
 
 }

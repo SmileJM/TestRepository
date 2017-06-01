@@ -21,7 +21,7 @@
 <body>
 	<h4>게시물 작성</h4>
 	<hr />
-	<form method="post" action="exam02" style="padding: 0px 20px"
+	<form method="post" exam02" style="padding: 0px 20px"
 		enctype="multipart/form-data">
 		<div class="form-group">
 			<div class="input-group">

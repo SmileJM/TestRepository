@@ -17,26 +17,35 @@
 <script
 	src="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/js/bootstrap.min.js"
 	type="text/javascript"></script>
+	<script>
+		function fileChange() {
+			if($("#battach")[0].files.length != 0) {
+				var originalfilename = $("#battach")[0].files[0].name;
+				$("#spanFileName").text(originalfilename);
+			}
+		}
+	</script>
 </head>
 <body>
-	<h4>게시물 작성</h4>
+	<h4>게시물 수정</h4>
 	<hr />
 	<form method="post" style="padding: 0px 20px"
 		enctype="multipart/form-data">
+		<input type="hidden" name="bno" value="${board.bno}" />
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-user"></span>
-				</span> <input type="text" class="form-control" placeholder="아이디"
-					name="mid" />
+				</span> <input type="text" class="form-control" placeholder="제목"
+					name="btitle" value="${board.btitle}"/>
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-tag"></span>
-				</span> <input type="text" class="form-control" placeholder="이름"
-					name="mname" />
+				</span> <input type="text" class="form-control" placeholder="작성자"
+					name="bwriter"  value="${board.bwriter}" readonly/>
 			</div>
 		</div>
 		<div class="form-group">
@@ -44,52 +53,33 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-lock"></span>
 				</span> <input type="password" class="form-control" placeholder="비밀번호"
-					name="mpassword" />
+					name="bpassword"  value="${board.bpassword}"/>
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-lock"></span>
-				</span> <input type="text" class="form-control" placeholder="전화번호"
-					name="mtel" />
+				</span>
+				<textArea rows="5" cols="30" class="form-control" placeholder="내용"
+					name="bcontent">${board.bcontent}</textArea>
 			</div>
 		</div>
 		<div class="form-group">
-			<div class="input-group">
+			<div class="input-group" style="height: 47px;">
 				<span class="input-group-addon"> <span
-					class="glyphicon glyphicon-lock"></span>
-				</span> <input type="email" class="form-control" placeholder="이메일"
-					name="memail" />
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="input-group">
-				<span class="input-group-addon"> <span
-					class="glyphicon glyphicon-lock"></span>
-				</span> <input type="number" class="form-control" placeholder="나이"
-					name="mage" />
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="input-group">
-				<span class="input-group-addon"> <span
-					class="glyphicon glyphicon-lock"></span>
-				</span> <input type="text" class="form-control" placeholder="주소"
-					name="maddress" />
+					class="glyphicon glyphicon-camera">
+					</span>
+				</span> 
+				<div class="form-control"  style="height: 47px;">
+					<span id="spanFileName">${board.boriginalfilename}</span>
+					<label for="battach" class="btn btn-default">변경</label>
+					<input id="battach" type="file" style="visibility: hidden;" name="battach" onchange="fileChange()" multiple />			
+				</div>
 			</div>
 		</div>
 		
-		<div class="form-group">
-			<div class="input-group">
-				<span class="input-group-addon"> <span
-					class="glyphicon glyphicon-camera"></span>
-				</span> <input type="file" class="form-control" placeholder="선택"
-					name="mattach" />
-			</div>
-		</div>
-
-		<input type="submit" class="btn btn-info" value="가입" />
+		<input type="submit" class="btn btn-info" value="수정하기" />
 	</form>
 </body>
 </html>

@@ -17,9 +17,55 @@
 <script
 	src="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/js/bootstrap.min.js"
 	type="text/javascript"></script>
+<script>
+	function hanleBtnUpdate() {
+		var mpassword = $("#mpassword").val();	
+		if (mpassword== "") {
+			$("#mpassword").attr("placeholder", "비밀번호를 입력하세요!");
+			$("#mpassword").css("border-color", "red");
+			return ;
+		} 
+		$.ajax({
+			url: "exam06CheckMpassword",
+			method: "post",
+			data: {"mid":"${member.mid}", "mpassword":mpassword},
+			success: function(data) {
+				if(data.result == "success") {
+					location.href="exam06Update?mid=${member.mid}";
+				} else {
+					$("#mpassword").val("");
+					$("#mpassword").attr("placeholder", "비밀번호를 입력하세요!");
+					$("#mpassword").css("border-color", "red");
+				}
+			}
+		});
+	}
+	function hanleBtnDelete() {
+		var mpassword = $("#mpassword").val();	
+		if (mpassword== "") {
+			$("#mpassword").attr("placeholder", "비밀번호를 입력하세요!");
+			$("#mpassword").css("border-color", "red");
+			return ;
+		} 
+		$.ajax({
+			url: "exam06CheckMpassword",
+			method: "post",
+			data: {"mid":"${member.mid}", "mpassword":mpassword},
+			success: function(data) {
+				if(data.result == "success") {
+					location.href="exam06Delete?mid=${member.mid}";
+				} else {
+					$("#mpassword").val("");
+					$("#mpassword").attr("placeholder", "비밀번호를 입력하세요!");
+					$("#mpassword").css("border-color", "red");
+				}
+			}
+		});
+	}
+</script>
 </head>
 <body>
-	<h4>게시물 작성</h4>
+	<h4>회원 상세 보기</h4>
 	<hr />
 	<form method="post" style="padding: 0px 20px"
 		enctype="multipart/form-data">
@@ -28,7 +74,7 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-user"></span>
 				</span> <input type="text" class="form-control" placeholder="아이디"
-					name="mid" />
+					name="mid" value="${member.mid }" readOnly />
 			</div>
 		</div>
 		<div class="form-group">
@@ -36,7 +82,7 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-tag"></span>
 				</span> <input type="text" class="form-control" placeholder="이름"
-					name="mname" />
+					name="mname" value="${member.mname }" readOnly />
 			</div>
 		</div>
 		<div class="form-group">
@@ -44,7 +90,7 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-lock"></span>
 				</span> <input type="password" class="form-control" placeholder="비밀번호"
-					name="mpassword" />
+					name="mpassword" id="mpassword" />
 			</div>
 		</div>
 		<div class="form-group">
@@ -52,7 +98,7 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-lock"></span>
 				</span> <input type="text" class="form-control" placeholder="전화번호"
-					name="mtel" />
+					name="mtel" value="${member.mtel }" readOnly />
 			</div>
 		</div>
 		<div class="form-group">
@@ -60,7 +106,7 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-lock"></span>
 				</span> <input type="email" class="form-control" placeholder="이메일"
-					name="memail" />
+					name="memail" value="${member.memail }" readOnly />
 			</div>
 		</div>
 		<div class="form-group">
@@ -68,7 +114,7 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-lock"></span>
 				</span> <input type="number" class="form-control" placeholder="나이"
-					name="mage" />
+					name="mage" value="${member.mage }" readOnly />
 			</div>
 		</div>
 		<div class="form-group">
@@ -76,20 +122,22 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-lock"></span>
 				</span> <input type="text" class="form-control" placeholder="주소"
-					name="maddress" />
+					name="maddress" value="${member.maddress }" readOnly />
 			</div>
 		</div>
-		
+
 		<div class="form-group">
 			<div class="input-group">
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-camera"></span>
-				</span> <input type="file" class="form-control" placeholder="선택"
-					name="mattach" />
+				</span> 
+				<a href="#" class="form-control" >${member.moriginalfilename}</a>
+					
 			</div>
 		</div>
-
-		<input type="submit" class="btn btn-info" value="가입" />
+		<a class="btn btn-success" href="exam06">목록</a> 
+		<input onclick="hanleBtnUpdate()" type="button" class="btn btn-warning" href="exam06" value=" 수정" /> 
+		<input onclick="hanleBtnDelete()"	type="button" class="btn btn-info" href="exam06" value=" 삭제" />
 	</form>
 </body>
 </html>
