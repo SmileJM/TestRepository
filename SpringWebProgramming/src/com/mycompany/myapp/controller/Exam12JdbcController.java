@@ -2,10 +2,13 @@ package com.mycompany.myapp.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -242,8 +245,9 @@ public class Exam12JdbcController {
 				
 	}
 
-	@RequestMapping(value = "/jdbc/exam06Update", method = RequestMethod.GET)
+	@RequestMapping(value = "/jdbc/exam06Update", method = RequestMethod.GET )
 	public String exam06UpdateGet(String mid, Model model) {
+		
 		Exam12Member member = service.getMember(mid);
 		model.addAttribute("member", member);
 		return "jdbc/exam06Update";
@@ -267,9 +271,11 @@ public class Exam12JdbcController {
 		return "redirect:/jdbc/exam06Detail?mid=" + member.getMid();
 	}
 	@RequestMapping("/jdbc/exam06Delete")
-	public String exam06Delete(String mid) {
+	public String exam06Delete(String mid) throws IOException {
 		service.memberDelete(mid);
-		return "redirect:/jdbc/exam06";
+		
+//		return "redirect:/jdbc/exam06";
+		return URLEncoder.encode("redirect:/jdbc/exam06", "UTF-8");
 	}
 	
 }

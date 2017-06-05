@@ -74,7 +74,7 @@ public class RgbLedDigital {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        RgbLedDigital test = new RgbLedDigital(RaspiPin.GPIO_27, RaspiPin.GPIO_28, RaspiPin.GPIO_29);
+        RgbLedDigital test = new RgbLedDigital(RaspiPin.GPIO_04, RaspiPin.GPIO_05, RaspiPin.GPIO_06);
 //        test.green();
         while (true) {            
 //        for (int i = 0; i < 3; i++) {
