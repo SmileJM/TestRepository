@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.myapp.dto.Exam12Board;
+import com.mycompany.myapp.dto.Exam12ImageBoard;
 import com.mycompany.myapp.dto.Exam12Member;
 
 @Component
@@ -688,6 +689,435 @@ public class Exam12DaoImpl implements Exam12Dao {
 			}
 		}		
 	}
+/////////////////////////////////////////////
+
+	@Override
+	public int imageBoardInsert(Exam12ImageBoard imageboard) {		
+		int bno = -1;
+		try {
+			// JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");
+
+			// 연결 문자열 작성
+			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+
+			// 연결 객체 얻기
+			conn = DriverManager.getConnection(url, "iotuser", "iot12345");
+			LOGGER.info("연결 성공");
+
+			// SQL 작성
+			String sql = "insert into imageboard ";
+			sql += "(bno, BTITLE, BCONTENT, BWRITER, BDATE, BPASSWORD, BHITCOUNT, BLIKECOUNT, BORIGINALFILENAME, BSAVEDFILENAME, BFILECONTENT) ";
+			sql += "values ";
+			// 매개변수화된 SQL 문
+			sql += "(board_bno_seq.nextval, ?, ?, ?, sysdate, ?, 0, 0, ?, ?, ?) ";
+
+			PreparedStatement pstmt = conn.prepareStatement(sql, new String[] { "bno" });
+
+			pstmt.setString(1, imageboard.getBtitle());
+			pstmt.setString(2, imageboard.getBcontent());
+			pstmt.setString(3, imageboard.getBwriter());
+			pstmt.setString(4, imageboard.getBpassword());
+			pstmt.setString(5, imageboard.getBoriginalfilename());
+			pstmt.setString(6, imageboard.getBsavedfilename());
+			pstmt.setString(7, imageboard.getBfilecontent());
+
+			// SQL 문을 전송해서 실행
+			pstmt.executeUpdate();
+
+			ResultSet rs = pstmt.getGeneratedKeys();
+			rs.next();
+			// 1번째 컬럼의 값 읽기
+			bno = rs.getInt(1);
+
+			pstmt.close();
+			LOGGER.info("행 추가 성공");
+
+			// 자동 커밋이 이루어짐
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 끊기
+			try {
+				conn.close();
+				LOGGER.info("연결 끊기");
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return bno;
+	}
+	
+	
+	@Override
+	public List<Exam12ImageBoard> imageBoardSelectPage(int pageNo, int rowsPerPage) {
+		List<Exam12ImageBoard> list = new ArrayList<>();
+		try {
+			// JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");
+
+			// 연결 문자열 작성
+			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+
+			// 연결 객체 얻기
+			conn = DriverManager.getConnection(url, "iotuser", "iot12345");
+
+			// SQL 작성
+			String sql = "select * ";
+			sql += "from ( ";
+			sql += "	select rownum as r, bno, boriginalfilename, btitle, bwriter, bdate, bhitcount, blikecount ";
+			sql += "	from ( ";
+			sql += "		select bno, boriginalfilename, btitle, bwriter, bdate, bhitcount, blikecount from imageboard order by bno desc ";
+			sql += "	) ";
+			sql += "	where rownum<=? ";
+			sql += ") ";
+			sql += "where r >=? ";
+
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, (pageNo * rowsPerPage));
+			pstmt.setInt(2, ((pageNo - 1) * rowsPerPage + 1));
+
+			// SQL 문을 전송해서 실행
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Exam12ImageBoard board = new Exam12ImageBoard();
+
+				board.setBno(rs.getInt("bno"));
+				board.setBoriginalfilename(rs.getString("boriginalfilename"));
+				board.setBtitle(rs.getString("btitle"));
+				board.setBwriter(rs.getString("bwriter"));
+				board.setBdate(rs.getDate("bdate"));
+				board.setBhitcount(rs.getInt("bhitcount"));
+				board.setBlikecount(rs.getInt("blikecount"));
+				list.add(board);
+			}
+			rs.close();
+			pstmt.close();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 끊기
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	
+	@Override
+	public int imageBoardCountAll() {
+		int count = 0;
+		
+		try {
+			// JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");			
+			// 연결 문자열 작성
+			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+			// 연결 객체 얻기
+			conn = DriverManager.getConnection(url, "iotuser", "iot12345");
+			// SQL 작성
+			String sql = "select count(*) from imageBoard ";
+
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+
+			// SQL 문을 전송해서 실행
+			ResultSet rs = pstmt.executeQuery();
+			rs.next();
+
+			count = rs.getInt(1);
+
+			rs.close();
+			pstmt.close();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return count;
+	}
+
+	@Override
+	public Exam12ImageBoard imageBoardSelectByBno(int bno) {
+		Exam12ImageBoard board = null;
+		try {
+			// JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");
+
+			// 연결 문자열 작성
+			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+
+			// 연결 객체 얻기
+			conn = DriverManager.getConnection(url, "iotuser", "iot12345");
+			LOGGER.info("연결 성공");
+
+			// SQL 작성
+			String sql = "select * from imageboard where bno=?";
+
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			// SQL 문을 전송해서 실행
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				board = new Exam12ImageBoard();
+				board.setBno(rs.getInt("bno"));
+				board.setBtitle(rs.getString("btitle"));
+				board.setBwriter(rs.getString("bwriter"));
+				board.setBdate(rs.getDate("bdate"));
+				board.setBpassword(rs.getString("bpassword"));
+				board.setBhitcount(rs.getInt("bhitcount"));
+				board.setBcontent(rs.getString("bcontent"));
+				board.setBlikecount(rs.getInt("blikecount"));
+				board.setBoriginalfilename(rs.getString("boriginalfilename"));
+				board.setBsavedfilename(rs.getString("bsavedfilename"));
+				board.setBfilecontent(rs.getString("bfilecontent"));
+			}
+			rs.close();
+			pstmt.close();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 끊기
+			try {
+				conn.close();
+				LOGGER.info("연결 끊기");
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return board;
+	}
+
+	@Override
+	public void imageBoardUpdateBhitcount(int bno, int bhitcount) {
+		try {
+			// JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");
+
+			// 연결 문자열 작성
+			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+
+			// 연결 객체 얻기
+			conn = DriverManager.getConnection(url, "iotuser", "iot12345");
+
+			// SQL 작성
+			String sql = "update imageboard set bhitcount=? where bno=? ";
+
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bhitcount);
+			pstmt.setInt(2, bno);
+			// SQL 문을 전송해서 실행
+			pstmt.executeUpdate();
+			pstmt.close();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 끊기
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
+	}
+
+	@Override
+	public void imageBoardDelete(int bno) {
+		try {
+			// JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");
+
+			// 연결 문자열 작성
+			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+
+			// 연결 객체 얻기
+			conn = DriverManager.getConnection(url, "iotuser", "iot12345");
+
+			// SQL 작성
+			String sql = "delete from imageboard where bno=? ";
+
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+
+			// SQL 문을 전송해서 실행
+			pstmt.executeUpdate();
+			pstmt.close();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 끊기
+			try {
+				conn.close();
+				LOGGER.info("연결 끊기");
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+	@Override
+	public void imageBoardUpdate(Exam12ImageBoard board) {
+		try {
+			// JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");
+
+			// 연결 문자열 작성
+			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+
+			// 연결 객체 얻기
+			conn = DriverManager.getConnection(url, "iotuser", "iot12345");
+
+			// SQL 작성
+			String sql;
+			if (board.getBoriginalfilename() != null) {
+				sql = "update imageboard set btitle=?, bcontent=?, bpassword=?, bdate=sysdate, boriginalfilename=?, bsavedfilename=?, bfilecontent=? where bno=? ";
+			} else {
+				sql = "update imageboard set btitle=?, bcontent=?, bpassword=?, bdate=sysdate where bno=? ";
+			}
+
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, board.getBtitle());
+			pstmt.setString(2, board.getBcontent());
+			pstmt.setString(3, board.getBpassword());
+			if (board.getBoriginalfilename() != null) {
+				pstmt.setString(4, board.getBoriginalfilename());
+				pstmt.setString(5, board.getBsavedfilename());
+				pstmt.setString(6, board.getBfilecontent());
+				pstmt.setInt(7, board.getBno());
+			} else {
+				pstmt.setInt(4, board.getBno());
+			}
+			// SQL 문을 전송해서 실행
+			pstmt.executeUpdate();
+			pstmt.close();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 끊기
+			try {
+				conn.close();
+				LOGGER.info("연결 끊기");
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
+	}
+
+	@Override
+	public void imageBoardUpdateBlikecount(int bno, int blikecount) {
+		try {
+			// JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");
+
+			// 연결 문자열 작성
+			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+
+			// 연결 객체 얻기
+			conn = DriverManager.getConnection(url, "iotuser", "iot12345");
+
+			// SQL 작성
+			String sql = "update imageboard set blikecount=? where bno=? ";
+
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, blikecount);
+			pstmt.setInt(2, bno);
+			// SQL 문을 전송해서 실행
+			pstmt.executeUpdate();
+			pstmt.close();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 끊기
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
+		
+	}
+
+	@Override
+	public List<Exam12ImageBoard> imageBoardSelectPage(int pageNo, int rowsPerPage, String btitle) {
+		List<Exam12ImageBoard> list = new ArrayList<>();
+		try {
+			// JDBC Driver 클래스 로딩
+			Class.forName("oracle.jdbc.OracleDriver");
+
+			// 연결 문자열 작성
+			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+
+			// 연결 객체 얻기
+			conn = DriverManager.getConnection(url, "iotuser", "iot12345");
+
+			// SQL 작성
+			String sql = "select * ";
+			sql += "from ( ";
+			sql += "	select rownum as r, bno, boriginalfilename, btitle, bwriter, bdate, bhitcount, blikecount ";
+			sql += "	from ( ";
+			sql += "		select bno, boriginalfilename, btitle, bwriter, bdate, bhitcount, blikecount from imageboard order by bno desc ";
+			sql += "	) ";
+			sql += "	where rownum<=? and btitle like '%?%' ";
+			sql += ") ";
+			sql += "where r >=? ";
+	System.out.println(btitle);
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, (pageNo * rowsPerPage));
+			pstmt.setString(2, btitle);
+			pstmt.setInt(3, ((pageNo - 1) * rowsPerPage + 1));
+			
+
+			// SQL 문을 전송해서 실행
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Exam12ImageBoard board = new Exam12ImageBoard();
+
+				board.setBno(rs.getInt("bno"));
+				board.setBoriginalfilename(rs.getString("boriginalfilename"));
+				board.setBtitle(rs.getString("btitle"));
+				board.setBwriter(rs.getString("bwriter"));
+				board.setBdate(rs.getDate("bdate"));
+				board.setBhitcount(rs.getInt("bhitcount"));
+				board.setBlikecount(rs.getInt("blikecount"));
+				list.add(board);
+			}
+			rs.close();
+			pstmt.close();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 끊기
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
 
 	public static void main(String[] args) {
 		Exam12DaoImpl test = new Exam12DaoImpl();
@@ -722,5 +1152,24 @@ public class Exam12DaoImpl implements Exam12Dao {
 //		 member.setMfilecontent("image/png");
 //		 test.memberInsert(member);
 //		 }
+		for(int i=1; i<10; i++) {
+			Exam12ImageBoard board = new Exam12ImageBoard();
+			board.setBtitle("김소현"+i);
+			board.setBoriginalfilename("sohyun00"+i+".jpg");
+			board.setBcontent("김소현");
+			board.setBpassword("123");
+			board.setBwriter("smile");
+			test.imageBoardInsert(board);
+			
+		}
+//		for(int i=1; i<10; i++) {
+//			Exam12ImageBoard board = new Exam12ImageBoard();
+//			board.setBtitle("음식"+i);
+//			board.setBoriginalfilename("food00"+i+".jpg");
+//			board.setBcontent("음식");
+//			board.setBpassword("123");
+//			board.setBwriter("sky");
+//			test.imageBoardInsert(board);
+//		}
 	}
 }
