@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.myapp.dto.Exam12Board;
@@ -20,83 +21,33 @@ import com.mycompany.myapp.dto.Exam12ImageBoard;
 import com.mycompany.myapp.dto.Exam12Member;
 
 @Component
-public class Exam12DaoImpl implements Exam12Dao {
-	private static final Logger LOGGER = LoggerFactory.getLogger(Exam12DaoImpl.class);
+public class Exam12DaoImpl2 implements Exam12Dao {
+	private static final Logger LOGGER = LoggerFactory.getLogger(Exam12DaoImpl2.class);
 
 	@Autowired
-	private DataSource datasource;
-
+	private JdbcTemplate jdbcTemplate;
+	
 	Connection conn;
-
 	@Override
 	public int boardInsert(Exam12Board board) {
 		int bno = -1;
-		try {
-			// JDBC Driver 클래스 로딩
-			// Class.forName("oracle.jdbc.OracleDriver");
-
-			// 연결 문자열 작성
-			// String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-
-			// 연결 객체 얻기
-			// conn = DriverManager.getConnection(url, "iotuser", "iot12345");
-			conn = datasource.getConnection();
-			LOGGER.info("연결 성공");
-
-			// SQL 작성
-			String sql = "insert into board ";
-			sql += "(bno, BTITLE, BCONTENT, BWRITER, BDATE, BPASSWORD, BHITCOUNT, BORIGINALFILENAME, BSAVEDFILENAME, BFILECONTENT) ";
-			sql += "values ";
-			// 매개변수화된 SQL 문
-			sql += "(board_bno_seq.nextval, ?, ?, ?, sysdate, ?, 0, ?, ?, ?) ";
-
-			// SQL 문을 전송해서 실행, 완전한 SQL 문일 때만 사용 가능한
-			// Statement stmt = conn.createStatement();
-			// executeUpdate - DB의 상태를 변경해라
-			// stmt.executeUpdate(sql);
-			// stmt.close();
-
-			// Statement.RETURN_GENERATED_KEYS - 구문실행 후 자동으로 생성된 키를 리턴해 달라
-			// (mysql, mssql은 되지만 oracle은 안됨)
-			// 테이블 정의시 컬럼의 속성으로 자동 증가를 지정할 수 있는 DB일 경우(MySQL, MSSQL)
-			// PreparedStatement pstmt = conn.prepareStatement(sql,
-			// Statement.RETURN_GENERATED_KEYS);
-			// Oracle일 경우 Sequence 외부 객체로 자동 증가값을 얻기 때문에 다음과 같이 지정
-			// oracle의 경우 conn.prepareStatement(sql, new String[] {"bno"});
-			PreparedStatement pstmt = conn.prepareStatement(sql, new String[] { "bno" });
-
-			pstmt.setString(1, board.getBtitle());
-			pstmt.setString(2, board.getBcontent());
-			pstmt.setString(3, board.getBwriter());
-			pstmt.setString(4, board.getBpassword());
-			pstmt.setString(5, board.getBoriginalfilename());
-			pstmt.setString(6, board.getBsavedfilename());
-			pstmt.setString(7, board.getBfilecontent());
-
-			// SQL 문을 전송해서 실행
-			pstmt.executeUpdate();
-
-			ResultSet rs = pstmt.getGeneratedKeys();
-			rs.next();
-			// 1번째 컬럼의 값 읽기
-			bno = rs.getInt(1);
-
-			pstmt.close();
-			LOGGER.info("행 추가 성공");
-
-			// 자동 커밋이 이루어짐
-
-		}catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			// 연결 끊기
-			try {
-				conn.close();
-				LOGGER.info("연결 끊기");
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+		// SQL 작성
+		String sql = "insert into board ";
+		sql += "(bno, BTITLE, BCONTENT, BWRITER, BDATE, BPASSWORD, BHITCOUNT, BORIGINALFILENAME, BSAVEDFILENAME, BFILECONTENT) ";
+		sql += "values ";
+		sql += "(board_bno_seq.nextval, ?, ?, ?, sysdate, ?, 0, ?, ?, ?) ";
+		
+		jdbcTemplate.update(
+				sql,
+				board.getBtitle(),
+				board.getBcontent(),
+				board.getBwriter(),
+				board.getBpassword(),
+				board.getBoriginalfilename(),
+				board.getBsavedfilename(),
+				board.getBfilecontent()
+		);
+		
 		return bno;
 	}
 
@@ -1123,7 +1074,7 @@ public class Exam12DaoImpl implements Exam12Dao {
 	}
 
 	public static void main(String[] args) {
-		Exam12DaoImpl test = new Exam12DaoImpl();
+		Exam12DaoImpl2 test = new Exam12DaoImpl2();
 		// for (int i = 1; i <= 100; i++) {
 		// Exam12Board board = new Exam12Board();
 		// board.setBtitle("제목" + i);

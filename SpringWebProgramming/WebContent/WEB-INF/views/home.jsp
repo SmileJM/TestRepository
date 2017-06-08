@@ -93,6 +93,14 @@
 		<a href="redirect/list" class="btn btn-primary">게시물 목록</a>
 		<a href="redirect/write" class="btn btn-primary">게시물 쓰기</a>
 		
+		<h4>상태유지</h4>
+		<a href="cookie/exam01" class="btn btn-primary">클라이언트 쿠키 저장</a>
+		<a href="cookie/exam02" class="btn btn-primary">클라이언트 쿠키 읽기</a>
+		<a href="cookie/exam03" class="btn btn-primary">클라이언트 쿠키 제거</a>
+		<a href="session/exam04" class="btn btn-primary">서버 세션 저장</a>
+		<a href="session/exam05" class="btn btn-primary">서버 세션 읽기</a>
+		<a href="session/exam06" class="btn btn-primary">서버 세션 제거</a>
+		
 		<h4>JDBC</h4>
 		<a href="jdbc/exam01" class="btn btn-primary">게시물 쓰기</a>
 		<a href="jdbc/exam02" class="btn btn-primary">게시물 작성</a>

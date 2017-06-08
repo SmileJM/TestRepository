@@ -8,6 +8,7 @@ import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
 
 public class DCMotor {
+
     // Field
     // 정방향/역방향 제어
     private GpioPinDigitalOutput out1;  // RaspiPin.GPIO_00 
@@ -59,22 +60,22 @@ public class DCMotor {
 
         motorA.forward();
         motorB.forward();
-        motorA.setSpeed(3000);
-        motorA.setSpeed(3000);
-        Thread.sleep(3000);
-        motorA.stop();
-        motorB.stop();
-//        for (int i = 500; i < 1096; i+=5) {
-//            motorA.setSpeed(i);
-//           motorA.setSpeed(i);
-//            Thread.sleep(10);
-//        }
-//        Thread.sleep(1000);
-//        for (int i = 1096; i > 400; i-=5) {
-//            motorA.setSpeed(i);
-//            motorB.setSpeed(i);
-//            Thread.sleep(10);
-//        }
+//        motorA.setSpeed(3000);
+//        motorA.setSpeed(3000);
+//        Thread.sleep(3000);
+//        motorA.stop();
+//        motorB.stop();
+        for (int i = 600; i < 4096; i += 5) {
+            motorA.setSpeed(i);
+            motorB.setSpeed(i);
+            Thread.sleep(10);
+        }
+        Thread.sleep(1000);
+        for (int i = 4096; i > 600; i -= 5) {
+            motorA.setSpeed(i);
+            motorB.setSpeed(i);
+            Thread.sleep(10);
+        }
 
     }
 }

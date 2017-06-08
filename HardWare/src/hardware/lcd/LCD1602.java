@@ -164,16 +164,11 @@ public class LCD1602 {
 
     public static void main(String[] args) throws Exception {
         LCD1602 lcd1602 = new LCD1602(0x27);
-
         lcd1602.write(0, 0, "Current Time");
         SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
-        for (int i = 0; i < 10; i++) {
+        while(true) {
             lcd1602.write(1, 0, formatter.format(new Date()));
             Thread.sleep(1000);
         }
-        lcd1602.clear();
-        displayIPaddress(lcd1602);
-        Thread.sleep(5000);
-
     }
 }

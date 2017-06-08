@@ -56,14 +56,15 @@ public class RgbLedPWM {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         RgbLedPWM test = new RgbLedPWM(RaspiPin.GPIO_04, RaspiPin.GPIO_05, RaspiPin.GPIO_06);
-
-        test.ledColorSet(255, 0, 0);        Thread.sleep(500);
-        test.ledColorSet(0, 255, 0);        Thread.sleep(500);
-        test.ledColorSet(0, 0, 255);        Thread.sleep(500);
-        test.ledColorSet(255, 255, 0);     Thread.sleep(500);
-        test.ledColorSet(255, 0, 255);     Thread.sleep(500);
-        test.ledColorSet(0, 255, 255);     Thread.sleep(500);
-        test.ledColorSet(255, 255, 255);  Thread.sleep(500);
-        test.ledColorSet(0, 0, 0);           Thread.sleep(500);
+        while(true){
+            test.ledColorSet(255, 0, 0);        Thread.sleep(500);
+            test.ledColorSet(0, 255, 0);        Thread.sleep(500);
+            test.ledColorSet(0, 0, 255);        Thread.sleep(500);
+            test.ledColorSet(255, 255, 0);     Thread.sleep(500);
+            test.ledColorSet(255, 0, 255);     Thread.sleep(500);
+            test.ledColorSet(0, 255, 255);     Thread.sleep(500);
+            test.ledColorSet(255, 255, 255);  Thread.sleep(500);
+            test.ledColorSet(0, 0, 0);           Thread.sleep(500);
+        }
     }
 }

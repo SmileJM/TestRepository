@@ -9,6 +9,8 @@ import com.pi4j.io.gpio.RaspiPin;
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 import hardware.converter.PCF8591;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GasSensor {
 
@@ -37,29 +39,40 @@ public class GasSensor {
     }
 
     public static void main(String[] args) throws Exception {
-        PCF8591 pcf8591 = new PCF8591(0x48, PCF8591.AIN0);
-        GasSensor test = new GasSensor(pcf8591, RaspiPin.GPIO_00);
+        PCF8591 pcf8591 = new PCF8591(0x48, PCF8591.AIN2);
+        GasSensor test = new GasSensor(pcf8591, RaspiPin.GPIO_23);
 
         // How1: Digital  값을 이용해서 처리 (DO 의 상태 감지)
-        test.setGpioPinListenerDigital(new GpioPinListenerDigital() {
-            @Override
-            public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-                if (event.getState() == PinState.LOW) {
-                    System.out.println("###################: 가스 검출");
-                } else {
-                    System.out.println("###################: 정상 상태");
-                }
-            }
-        });
+//        test.setGpioPinListenerDigital(new GpioPinListenerDigital() {
+//            @Override
+//            public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
+//                if (event.getState() == PinState.LOW) {
+//                    System.out.println("###################: 가스 검출");
+//                    try {
+//                        Thread.sleep(1000);
+//                    } catch (InterruptedException ex) {
+//                    }
+//                } else {
+//                    System.out.println("###################: 정상 상태");
+//                    try {
+//                        Thread.sleep(1000);
+//                    } catch (InterruptedException ex) {
+//                    }
+//                }
+//
+//            }
+//        });
 
         // How2: Analog  값을 이용해서 처리
         while (true) {
             double value = test.getValue();
             System.out.println(value);
-            if (value > 100) {
-
+            if (value > 200) {
+                System.out.println("###################: 가스 검출");
+            } else {
+                System.out.println("###################: 정상 상태");
             }
             Thread.sleep(1000);
-        }   
+        }
     }
 }
