@@ -281,7 +281,7 @@ public class Exam12JdbcController {
 	public String exam06Delete(String mid) throws IOException {
 		service.memberDelete(mid);
 		
-		return URLEncoder.encode("redirect:/jdbc/exam06", "UTF-8");
+		return "redirect:/jdbc/exam06";
 	}
 	
 	/*  -------------------------------------------------------------------
