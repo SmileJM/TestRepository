@@ -1124,22 +1124,22 @@ public class Exam12DaoImpl implements Exam12Dao {
 
 	public static void main(String[] args) {
 		Exam12DaoImpl test = new Exam12DaoImpl();
-		// for (int i = 1; i <= 100; i++) {
-		// Exam12Board board = new Exam12Board();
-		// board.setBtitle("제목" + i);
-		// board.setBcontent("내용" + i);
-		// board.setBwriter("홍길동");
-		// board.setBpassword("12345");
-		// board.setBoriginalfilename("a.png");
-		// board.setBsavedfilename("a444555.png");
-		// board.setBfilecontent("image/png");
-		// int bno = test.boardInsert(board);
-		// LOGGER.info("추가된 행의 bno: " + bno);
-		// }
-		// List<Exam12Board> list = test.boardSelectPage(2, 10);
-		// for (Exam12Board data : list) {
-		// LOGGER.info(data.getBtitle());
-		// }
+		 for (int i = 1; i <= 100; i++) {
+		 Exam12Board board = new Exam12Board();
+		 board.setBtitle("제목" + i);
+		 board.setBcontent("내용" + i);
+		 board.setBwriter("홍길동");
+		 board.setBpassword("12345");
+		 board.setBoriginalfilename("a.png");
+		 board.setBsavedfilename("a444555.png");
+		 board.setBfilecontent("image/png");
+		 int bno = test.boardInsert(board);
+		 LOGGER.info("추가된 행의 bno: " + bno);
+		 }
+		 List<Exam12Board> list = test.boardSelectPage(2, 10);
+		 for (Exam12Board data : list) {
+		 LOGGER.info(data.getBtitle());
+		 }
 
 		// for(int i=1; i<=100; i++) {
 		// Exam12Member member = new Exam12Member();
@@ -1155,16 +1155,16 @@ public class Exam12DaoImpl implements Exam12Dao {
 		// member.setMfilecontent("image/png");
 		// test.memberInsert(member);
 		// }
-		for (int i = 1; i < 10; i++) {
-			Exam12ImageBoard board = new Exam12ImageBoard();
-			board.setBtitle("김소현" + i);
-			board.setBoriginalfilename("sohyun00" + i + ".jpg");
-			board.setBcontent("김소현");
-			board.setBpassword("123");
-			board.setBwriter("smile");
-			test.imageBoardInsert(board);
-
-		}
+//		for (int i = 1; i < 10; i++) {
+//			Exam12ImageBoard board = new Exam12ImageBoard();
+//			board.setBtitle("김소현" + i);
+//			board.setBoriginalfilename("sohyun00" + i + ".jpg");
+//			board.setBcontent("김소현");
+//			board.setBpassword("123");
+//			board.setBwriter("smile");
+//			test.imageBoardInsert(board);
+//
+//		}
 		// for(int i=1; i<10; i++) {
 		// Exam12ImageBoard board = new Exam12ImageBoard();
 		// board.setBtitle("음식"+i);
