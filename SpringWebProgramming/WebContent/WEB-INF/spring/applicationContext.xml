@@ -23,7 +23,7 @@
 	<!-- MyBatis 설정 -->
 	<!-- mybatis도 설정파일이 있는데 설정파일이라고 하지 않고 mapper.xml 이라고 함 테이블과 자바 객체와 매핑해주기 
 		때문에 테이블당 하나의 xml이 매핑이 됨 -->
-<!-- 		
+ 		
 	<bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" /> 
 		<property name="mapperLocations" value="/WEB-INF/mybatis/*.xml" />
@@ -32,5 +32,5 @@
 	<bean name="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory" />
 	</bean>
- -->
+
  </beans>

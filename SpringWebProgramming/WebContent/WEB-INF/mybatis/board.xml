@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 두 파일의 똑같은 insert를 구별하기 위한 것이 namespace -->
+<mapper namespace="board">
+	<!-- id는 insert 태그를 찾기 위한 식별명 -->
+	<insert id="insert" parameterType="com.mycompany.myapp.dto.Exam12Board">
+		<!-- parameterType 은 가지고 있는 객체를 mybatis를 통해서 테이블에 넣을 것인데, 그 객체가 무엇인지 알려주는 
+			것 / 어떤 객체를 넣을 것인지 -->
+		<selectKey keyProperty="bno" resultType="int" order="AFTER">
+			select board_bno_seq.currval from dual
+			<!-- select를 하기 위해서 뒤에 from 테이블 명이 필요한데 from dual 은 실제 테이블의 값이 아니기 때문에 
+				가상의 테이블 이름을 준 것 -->
+		</selectKey>
+		insert into board
+		(bno, BTITLE, BCONTENT, BWRITER, BDATE, BPASSWORD,
+		BHITCOUNT, BORIGINALFILENAME, BSAVEDFILENAME, BFILECONTENT)
+		values
+		(board_bno_seq.nextval, #{btitle}, #{bcontent}, #{bwriter}, sysdate,
+		#{bpassword}, 0, #{boriginalfilename}, #{bsavedfilename},
+		#{bfilecontent})
+		<!-- mybatis 에서는 ? 를 쓰지 않고 #{} 를 사용함 -->
+		<!-- board 객체의 btitle의 값을 ${btitle} 에 넣으라는 것 -->
+	</insert>
+	<select id="selectAll" resultType="com.mycompany.myapp.dto.Exam12Board">
+		<!-- resultType 은 실행하고 나서 결과를 받을 타입임 -->
+		select bno as bid, btitle, bwriter as bowner, bdate, bhitcount from
+		board order
+		by bno desc
+	</select>
+	<!-- <resultMap id="selectAllResultMap" type="com.mycompany.myapp.dto.Exam12Board"> 
+		<result column="bid" property="bno" /> <result column="bowner" property="bwriter" 
+		/> </resultMap> <select id="selectAll" resultType="com.mycompany.myapp.dto.Exam12Board" 
+		resultMap="selectAllResultMap"> select bno as bid, btitle, bwriter as bowner, 
+		bdate, bhitcount from board order by bno desc </select> -->
+
+	<!-- parameterType 을 map으로 하는 이유는 여러개의 파라미터를 전달하기 위해서 -->
+	<select id="selectByPage" parameterType="map"
+		resultType="com.mycompany.myapp.dto.Exam12Board">
+		select *
+		from ( select rownum as r, bno, btitle, bwriter,
+		bdate, bhitcount
+		from (
+		select bno, btitle, bwriter, bdate, bhitcount
+		from board order by bno desc
+		)
+		where rownum &lt;= #{endNum}
+		)where r
+		&gt;=#{startNum}
+	</select>
+
+	<select id="countAll" resultType="int">
+		select count(*) from board
+	</select>
+
+	<select id="selectByBno" resultType="com.mycompany.myapp.dto.Exam12Board"
+		parameterType="int">
+		select * from board where bno=#{bno}
+	</select>
+
+	<update id="updateBhitcount" parameterType="map">
+		update board set
+		bhitcount=#{bhitcount} where bno=#{bno}
+	</update>
+
+	<update id="update" parameterType="com.mycompany.myapp.dto.Exam12Board">
+		<if test="boriginalfilename != null">
+			update board set btitle=#{btitle}, bcontent=#{bcontent},
+			bpassword=#{bpassword},
+			bdate=sysdate,
+			boriginalfilename=#{boriginalfilename},
+			bsavedfilename=#{bsavedfilename}, bfilecontent=#{bfilecontent}
+			where
+			bno=#{bno}
+		</if>
+		<if test="boriginalfilename == null">
+			update board set btitle=#{btitle}, bcontent=#{bcontent},
+			bpassword=#{bpassword}, bdate=sysdate where
+			bno=#{bno}
+		</if>
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete from board where bno=#{bno}
+	</delete>
+</mapper>
