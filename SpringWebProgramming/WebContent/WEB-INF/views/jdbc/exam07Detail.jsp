@@ -66,7 +66,7 @@
 			});
 		}
 		function handleBtnLike() {
-			location.href="exam07Like?type=${param.type }&bno=${board.bno}";
+			location.href="exam07Like?type=${param.type }&bno=${board.bno}";		
 		}
 	</script>
 </head>
@@ -79,7 +79,7 @@
 		<input type="hidden"  name="type" value="${param.type}"/>
 		<div class="form-group">
 			<div class="input-group">
-				<input type="text" class="form-control" placeholder="번호"	name="bno" value="${board.bno}" style="background-color: white; width:50px;]" readonly/>
+				<input type="text" class="form-control" placeholder="번호"	name="bno"  value="${board.bno}" style="background-color: white; width:50px;]" readonly/>
 				<span class="input-group-addon"> <span class="glyphicon glyphicon-user"></span></span>
 				<input type="text" class="form-control" placeholder="작성자"	name="bwriter"  value="${board.bwriter}" style="background-color: white;" readonly/>
 				<span class="input-group-addon"> <span class="glyphicon glyphicon-heart"></span></span>

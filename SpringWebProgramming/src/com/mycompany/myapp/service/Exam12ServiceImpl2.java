@@ -175,14 +175,4 @@ public class Exam12ServiceImpl2 implements Exam12Service {
 		dao.imageBoardUpdateBlikecount(bno, board.getBlikecount());
 		return board;
 	}
-
-	@Override
-	public List<Exam12ImageBoard> getImageBoardSearch(int pageNo, int rowsPerPage, String btitle) {
-		List<Exam12ImageBoard> list = dao.imageBoardSelectPage(pageNo, rowsPerPage, btitle);
-		return list;
-	}
-
-
-	
-
 }

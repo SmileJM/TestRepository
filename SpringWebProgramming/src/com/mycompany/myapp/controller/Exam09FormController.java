@@ -65,7 +65,7 @@ public class Exam09FormController {
         // 실제 저장될 파일의 경로를 넣어야 함
         File file = new File(realPath);
         attach.transferTo(file);
-
+        System.out.println(servletContext.getRealPath("/WEB-INF/upload/" + fileName));
         System.out.println("fileName: " + fileName);
         System.out.println("contentType: " + contentType);
         System.out.println("fileSize: " + fileSize);
@@ -100,7 +100,7 @@ public class Exam09FormController {
         File file = new File(servletContext.getRealPath("/WEB-INF/upload/" + fileName));
         long fileSize = file.length();
         response.addHeader("Content-Length", String.valueOf(fileSize));
-        
+
         // 응답 HTTP 본문에 파일 데이터 추가
         OutputStream os = response.getOutputStream();
         FileInputStream fis = new FileInputStream(file);

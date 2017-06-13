@@ -52,7 +52,7 @@ public class CoapResource02 extends CoapResource {
         if (kind.equals("ultrasonicsensor")) {
             servoMotor.setAngle(angle);
             try {
-                Thread.sleep(300);
+                Thread.sleep(500);
             } catch (InterruptedException ex) {
             }
             exchange.respond("distance: " + distance + "cm");
@@ -73,7 +73,7 @@ public class CoapResource02 extends CoapResource {
         if (kind.equals("ultrasonicsensor")) {
             servoMotor.setAngle(angle);
             try {
-                Thread.sleep(300);
+                Thread.sleep(500);
             } catch (InterruptedException ex) {
             }
             exchange.respond("distance: " + distance + "cm");

@@ -291,7 +291,7 @@ public class Exam12DaoImpl2 implements Exam12Dao {
 
 		final String sql = "insert into imageboard "
 				+ "(bno, BTITLE, BCONTENT, BWRITER, BDATE, BPASSWORD, BHITCOUNT, BLIKECOUNT, BORIGINALFILENAME, BSAVEDFILENAME, BFILECONTENT) "
-				+ "values " + "(board_bno_seq.nextval, ?, ?, ?, sysdate, ?, 0, 0, ?, ?, ?) ";
+				+ "values " + "(imageboard_bno_seq.nextval, ?, ?, ?, sysdate, ?, 0, 0, ?, ?, ?) ";
 
 		PreparedStatementCreator psc = new PreparedStatementCreator() {
 			@Override
@@ -410,37 +410,37 @@ public class Exam12DaoImpl2 implements Exam12Dao {
 		jdbcTemplate.update(sql, blikecount, bno);
 	}
 
-	@Override
-	public List<Exam12ImageBoard> imageBoardSelectPage(int pageNo, int rowsPerPage, String btitle) {
-
-		String sql = "select * ";
-		sql += "from ( ";
-		sql += "	select rownum as r, bno, boriginalfilename, btitle, bwriter, bdate, bhitcount, blikecount ";
-		sql += "	from ( ";
-		sql += "		select bno, boriginalfilename, btitle, bwriter, bdate, bhitcount, blikecount from imageboard order by bno desc ";
-		sql += "	) ";
-		sql += "	where rownum<=? and btitle like '%?%' ";
-		sql += ") ";
-		sql += "where r >=? ";
-
-		RowMapper<Exam12ImageBoard> rowMapper = new RowMapper<Exam12ImageBoard>() {
-			@Override
-			public Exam12ImageBoard mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Exam12ImageBoard board = new Exam12ImageBoard();
-				board.setBno(rs.getInt("bno"));
-				board.setBoriginalfilename(rs.getString("boriginalfilename"));
-				board.setBtitle(rs.getString("btitle"));
-				board.setBwriter(rs.getString("bwriter"));
-				board.setBdate(rs.getDate("bdate"));
-				board.setBhitcount(rs.getInt("bhitcount"));
-				board.setBlikecount(rs.getInt("blikecount"));
-				return board;
-			}
-		};
-		List<Exam12ImageBoard> list = jdbcTemplate.query(sql, rowMapper, pageNo * rowsPerPage,
-				(pageNo - 1) * rowsPerPage + 1);
-		return list;
-	}
+//	@Override
+//	public List<Exam12ImageBoard> imageBoardSelectPage(int pageNo, int rowsPerPage, String btitle) {
+//
+//		String sql = "select * ";
+//		sql += "from ( ";
+//		sql += "	select rownum as r, bno, boriginalfilename, btitle, bwriter, bdate, bhitcount, blikecount ";
+//		sql += "	from ( ";
+//		sql += "		select bno, boriginalfilename, btitle, bwriter, bdate, bhitcount, blikecount from imageboard order by bno desc ";
+//		sql += "	) ";
+//		sql += "	where rownum<=? and btitle like '%?%' ";
+//		sql += ") ";
+//		sql += "where r >=? ";
+//
+//		RowMapper<Exam12ImageBoard> rowMapper = new RowMapper<Exam12ImageBoard>() {
+//			@Override
+//			public Exam12ImageBoard mapRow(ResultSet rs, int rowNum) throws SQLException {
+//				Exam12ImageBoard board = new Exam12ImageBoard();
+//				board.setBno(rs.getInt("bno"));
+//				board.setBoriginalfilename(rs.getString("boriginalfilename"));
+//				board.setBtitle(rs.getString("btitle"));
+//				board.setBwriter(rs.getString("bwriter"));
+//				board.setBdate(rs.getDate("bdate"));
+//				board.setBhitcount(rs.getInt("bhitcount"));
+//				board.setBlikecount(rs.getInt("blikecount"));
+//				return board;
+//			}
+//		};
+//		List<Exam12ImageBoard> list = jdbcTemplate.query(sql, rowMapper, pageNo * rowsPerPage,
+//				(pageNo - 1) * rowsPerPage + 1);
+//		return list;
+//	}
 
 	public static void main(String[] args) {
 		Exam12DaoImpl2 test = new Exam12DaoImpl2();

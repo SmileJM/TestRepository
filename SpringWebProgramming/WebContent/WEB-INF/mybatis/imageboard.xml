@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="imageBoard">
+
+	<insert id="insert" parameterType="com.mycompany.myapp.dto.Exam12ImageBoard">
+		<selectKey keyProperty="bno" resultType="int" order="AFTER">
+			select
+			imageboard_bno_seq.currval from dual
+		</selectKey>
+		insert into imageboard (bno,
+		btitle, BCONTENT, BWRITER, BDATE,
+		BPASSWORD,
+		BHITCOUNT, BLIKECOUNT,
+		BORIGINALFILENAME, BSAVEDFILENAME,
+		BFILECONTENT)
+		values
+		(imageboard_bno_seq.nextval, #{btitle},
+		#{bcontent},
+		#{bwriter}, sysdate,
+		#{bpassword}, 0, 0,
+		#{boriginalfilename},
+		#{bsavedfilename},
+		#{bfilecontent})
+	</insert>
+
+	<select id="selectPage" parameterType="map"
+		resultType="com.mycompany.myapp.dto.Exam12ImageBoard">
+		select * from ( select rownum as r, bno, boriginalfilename,
+		btitle, bwriter,
+		bdate, bhitcount, blikecount
+		from ( select bno,
+		boriginalfilename, btitle, bwriter, bdate, bhitcount,
+		blikecount from
+		imageboard order by bno desc
+		) where rownum &lt;=#{endNum}) where r
+		&gt;=#{startNum}
+	</select>
+	<select id="countAll" resultType="int">
+		select count(*) from imageBoard
+	</select>
+	<select id="selectByBno"  parameterType="int" resultType="com.mycompany.myapp.dto.Exam12ImageBoard">
+		select * from imageboard where bno=#{bno}
+	</select>
+	
+	<update id="updateBhitcount" parameterType="map">
+	update imageboard set bhitcount=#{bhitcount} where bno=#{bno}
+	</update>
+	
+	<delete id="delete">
+	delete from imageboard where bno=#{bno}
+	</delete>
+	
+	<update id="update" parameterType="com.mycompany.myapp.dto.Exam12ImageBoard">
+	<if test="boriginalfilename != null">
+	update imageboard set btitle=#{btitle}, bcontent=#{bcontent}, bpassword=#{bpassword}, bdate=sysdate, boriginalfilename=#{boriginalfilename}, 
+	bsavedfilename=#{bsavedfilename}, bfilecontent=#{bfilecontent} where bno=#{bno}
+	</if>
+	<if test="boriginalfilename == null">
+	update imageboard set btitle=#{btitle}, bcontent=#{bcontent}, bpassword=#{bpassword}, bdate=sysdate where bno=#{bno}
+	</if>
+	</update>
+	
+	<update id="updateBlikecount" parameterType="map">
+	update imageboard set blikecount=#{blikecount} where bno=#{bno}
+	</update>
+</mapper>

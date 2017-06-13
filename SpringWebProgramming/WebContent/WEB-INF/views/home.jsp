@@ -113,5 +113,11 @@
 		<a href="jdbc/exam07List?type=1" class="btn btn-primary">리스트 보기</a>
 		
 		<!-- <img src="http://192.168.3.50:50001/?action=stream" /> -->
+		
+		<h4>AOP</h4>
+		<a href="jdbc/exam05" class="btn btn-primary">실행시간 체크</a>
+		<a href="aop/exam01" class="btn btn-primary">로그인 없이 볼 수 있는 내용</a>
+		<a href="aop/exam02Write" class="btn btn-primary">글쓰기</a>
+		<a href="aop/exam02Update" class="btn btn-primary">수정하기</a>
 	</body>
 </html>

@@ -34,7 +34,7 @@ public interface Exam12Dao {
 	public void imageBoardDelete(int bno);
 	public void imageBoardUpdate(Exam12ImageBoard board);
 	public void imageBoardUpdateBlikecount(int bno, int blikecount);
-	public List<Exam12ImageBoard> imageBoardSelectPage(int pageNo, int rowsPerPage, String btitle);
+//	public List<Exam12ImageBoard> imageBoardSelectPage(int pageNo, int rowsPerPage, String btitle);
 	
 
 

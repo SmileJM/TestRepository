@@ -715,7 +715,7 @@ public class Exam12DaoImpl implements Exam12Dao {
 			sql += "(bno, BTITLE, BCONTENT, BWRITER, BDATE, BPASSWORD, BHITCOUNT, BLIKECOUNT, BORIGINALFILENAME, BSAVEDFILENAME, BFILECONTENT) ";
 			sql += "values ";
 			// 매개변수화된 SQL 문
-			sql += "(board_bno_seq.nextval, ?, ?, ?, sysdate, ?, 0, 0, ?, ?, ?) ";
+			sql += "(imageboard_bno_seq.nextval, ?, ?, ?, sysdate, ?, 0, 0, ?, ?, ?) ";
 
 			PreparedStatement pstmt = conn.prepareStatement(sql, new String[] { "bno" });
 
@@ -1062,65 +1062,65 @@ public class Exam12DaoImpl implements Exam12Dao {
 
 	}
 
-	@Override
-	public List<Exam12ImageBoard> imageBoardSelectPage(int pageNo, int rowsPerPage, String btitle) {
-		List<Exam12ImageBoard> list = new ArrayList<>();
-		try {
-			// JDBC Driver 클래스 로딩
-			Class.forName("oracle.jdbc.OracleDriver");
-
-			// 연결 문자열 작성
-			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-
-			// 연결 객체 얻기
-			conn = DriverManager.getConnection(url, "iotuser", "iot12345");
-
-			// SQL 작성
-			String sql = "select * ";
-			sql += "from ( ";
-			sql += "	select rownum as r, bno, boriginalfilename, btitle, bwriter, bdate, bhitcount, blikecount ";
-			sql += "	from ( ";
-			sql += "		select bno, boriginalfilename, btitle, bwriter, bdate, bhitcount, blikecount from imageboard order by bno desc ";
-			sql += "	) ";
-			sql += "	where rownum<=? and btitle like '%?%' ";
-			sql += ") ";
-			sql += "where r >=? ";
-			System.out.println(btitle);
-			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, (pageNo * rowsPerPage));
-			pstmt.setString(2, btitle);
-			pstmt.setInt(3, ((pageNo - 1) * rowsPerPage + 1));
-
-			// SQL 문을 전송해서 실행
-			ResultSet rs = pstmt.executeQuery();
-			while (rs.next()) {
-				Exam12ImageBoard board = new Exam12ImageBoard();
-
-				board.setBno(rs.getInt("bno"));
-				board.setBoriginalfilename(rs.getString("boriginalfilename"));
-				board.setBtitle(rs.getString("btitle"));
-				board.setBwriter(rs.getString("bwriter"));
-				board.setBdate(rs.getDate("bdate"));
-				board.setBhitcount(rs.getInt("bhitcount"));
-				board.setBlikecount(rs.getInt("blikecount"));
-				list.add(board);
-			}
-			rs.close();
-			pstmt.close();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			// 연결 끊기
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return list;
-	}
+//	@Override
+//	public List<Exam12ImageBoard> imageBoardSelectPage(int pageNo, int rowsPerPage, String btitle) {
+//		List<Exam12ImageBoard> list = new ArrayList<>();
+//		try {
+//			// JDBC Driver 클래스 로딩
+//			Class.forName("oracle.jdbc.OracleDriver");
+//
+//			// 연결 문자열 작성
+//			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+//
+//			// 연결 객체 얻기
+//			conn = DriverManager.getConnection(url, "iotuser", "iot12345");
+//
+//			// SQL 작성
+//			String sql = "select * ";
+//			sql += "from ( ";
+//			sql += "	select rownum as r, bno, boriginalfilename, btitle, bwriter, bdate, bhitcount, blikecount ";
+//			sql += "	from ( ";
+//			sql += "		select bno, boriginalfilename, btitle, bwriter, bdate, bhitcount, blikecount from imageboard order by bno desc ";
+//			sql += "	) ";
+//			sql += "	where rownum<=? and btitle like '%?%' ";
+//			sql += ") ";
+//			sql += "where r >=? ";
+//			System.out.println(btitle);
+//			PreparedStatement pstmt = conn.prepareStatement(sql);
+//			pstmt.setInt(1, (pageNo * rowsPerPage));
+//			pstmt.setString(2, btitle);
+//			pstmt.setInt(3, ((pageNo - 1) * rowsPerPage + 1));
+//
+//			// SQL 문을 전송해서 실행
+//			ResultSet rs = pstmt.executeQuery();
+//			while (rs.next()) {
+//				Exam12ImageBoard board = new Exam12ImageBoard();
+//
+//				board.setBno(rs.getInt("bno"));
+//				board.setBoriginalfilename(rs.getString("boriginalfilename"));
+//				board.setBtitle(rs.getString("btitle"));
+//				board.setBwriter(rs.getString("bwriter"));
+//				board.setBdate(rs.getDate("bdate"));
+//				board.setBhitcount(rs.getInt("bhitcount"));
+//				board.setBlikecount(rs.getInt("blikecount"));
+//				list.add(board);
+//			}
+//			rs.close();
+//			pstmt.close();
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			// 연결 끊기
+//			try {
+//				conn.close();
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		return list;
+//	}
 
 	public static void main(String[] args) {
 		Exam12DaoImpl test = new Exam12DaoImpl();

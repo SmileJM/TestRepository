@@ -38,7 +38,7 @@ public interface Exam12Service {
 	public void imageBoardDelete(int bno);
 	public void imageBoardUpdate(Exam12ImageBoard board);
 	public Exam12ImageBoard getImageBoardLike(int bno);
-	public List<Exam12ImageBoard> getImageBoardSearch(int pageNo, int rowsPerPage, String btitle);
+//	public List<Exam12ImageBoard> getImageBoardSearch(int pageNo, int rowsPerPage, String btitle);
 	
 
 }

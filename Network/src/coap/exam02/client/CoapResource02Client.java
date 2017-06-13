@@ -14,7 +14,9 @@ public class CoapResource02Client {
 
     // Constructor
     public CoapResource02Client() {
-        this.coapClient = new CoapClient();
+        coapClient = new CoapClient();
+//        coapClient.useCONs();
+//        coapClient.useNONs();
     }
 
     // Method
@@ -41,11 +43,11 @@ public class CoapResource02Client {
         coapClient.setURI("coap://192.168.3.50/resource02");
         CoapResponse response = coapClient.post(json, MediaTypeRegistry.APPLICATION_JSON);
         if (response == null) {
-            return get(angle);
+            return post(angle);
         } else if (response.getCode() == CoAP.ResponseCode.CONTENT) {
             return response.getResponseText();
         } else {
-            return get(angle);
+            return post(angle);
         }    
     }
 
