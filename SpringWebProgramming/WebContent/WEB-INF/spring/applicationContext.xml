@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 	<!-- Connection Pool(DataSource) 설정 -->
 	<bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -32,5 +34,13 @@
 	<bean name="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory" />
 	</bean>
+	
+	<!-- Transaction 설정 -->
+	<bean 	id="transactionManager"  
+				class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+				<property name="dataSource" ref="dataSource"/> <!-- 커밋 롤백을 하는 곳이 DB이기 때문에  -->
+	</bean>
+	<tx:annotation-driven/>
+	<!-- @Transactional 을 사용할 수 있게 해줌 -->
 
  </beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="account">
+	<select id="selectByAno" resultType="com.mycompany.myapp.dto.Exam15Account"
+		parameterType="string">
+		select * from account where ano=#{ano}
+	</select>
+
+	<update id="update" parameterType="com.mycompany.myapp.dto.Exam15Account">
+		update account set abalance=#{abalance} where ano=#{ano}
+	</update>
+</mapper>

@@ -16,12 +16,25 @@
 				가상의 테이블 이름을 준 것 -->
 		</selectKey>
 		insert into board
-		(bno, BTITLE, BCONTENT, BWRITER, BDATE, BPASSWORD,
-		BHITCOUNT, BORIGINALFILENAME, BSAVEDFILENAME, BFILECONTENT)
-		values
-		(board_bno_seq.nextval, #{btitle}, #{bcontent}, #{bwriter}, sysdate,
-		#{bpassword}, 0, #{boriginalfilename}, #{bsavedfilename},
-		#{bfilecontent})
+		<if test="boriginalfilename !=null">
+			(bno, BTITLE, BCONTENT, BWRITER, BDATE, BPASSWORD,
+			BHITCOUNT , BORIGINALFILENAME, BSAVEDFILENAME, BFILECONTENT)
+			values
+			(board_bno_seq.nextval, #{btitle}, #{bcontent}, #{bwriter},
+			sysdate,
+			#{bpassword}, 0
+			, #{boriginalfilename}, #{bsavedfilename},
+			#{bfilecontent})
+		</if>
+		<if test="boriginalfilename ==null">
+			(bno, BTITLE, BCONTENT, BWRITER, BDATE, BPASSWORD,
+			BHITCOUNT)
+			values
+			(board_bno_seq.nextval, #{btitle}, #{bcontent},
+			#{bwriter},
+			sysdate,
+			#{bpassword}, 0)
+		</if>
 		<!-- mybatis 에서는 ? 를 쓰지 않고 #{} 를 사용함 -->
 		<!-- board 객체의 btitle의 값을 ${btitle} 에 넣으라는 것 -->
 	</insert>
@@ -84,6 +97,7 @@
 	</update>
 
 	<delete id="delete" parameterType="int">
-		delete from board where bno=#{bno}
+		delete from board where
+		bno=#{bno}
 	</delete>
 </mapper>

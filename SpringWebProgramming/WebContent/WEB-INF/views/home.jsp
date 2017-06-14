@@ -119,5 +119,8 @@
 		<a href="aop/exam01" class="btn btn-primary">로그인 없이 볼 수 있는 내용</a>
 		<a href="aop/exam02Write" class="btn btn-primary">글쓰기</a>
 		<a href="aop/exam02Update" class="btn btn-primary">수정하기</a>
+		
+		<h4>Transaction</h4>
+		<a href="transaction/exam01" class="btn btn-primary">트랜잭션 테스트</a>
 	</body>
 </html>
