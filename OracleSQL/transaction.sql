@@ -23,3 +23,6 @@ select * from account;
 update account set abalance = abalance - 10000 where ano = '111-111';
 update account set abalance = abalance + 10000 where ano = '222-222';
 select * from account;
+
+delete board;
+commit;
