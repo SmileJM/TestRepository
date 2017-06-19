@@ -6,6 +6,7 @@ import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
+import java.io.IOException;
 
 public class ActiveBuzzer {
 
@@ -36,13 +37,15 @@ public class ActiveBuzzer {
         return status;
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         ActiveBuzzer activeBuzzer = new ActiveBuzzer(RaspiPin.GPIO_24);
-        for( int i=0; i<5; i++) {
-            activeBuzzer.on();   
-            Thread.sleep(1000);
-            activeBuzzer.off();
-            Thread.sleep(1000);
-        }
+//        for( int i=0; i<5; i++) {
+//            activeBuzzer.on();   
+//            Thread.sleep(1000);
+//            activeBuzzer.off();
+//            Thread.sleep(1000);
+//        }
+        activeBuzzer.off();
+        System.in.read();
     }
 }
