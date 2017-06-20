@@ -5,7 +5,9 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
@@ -50,4 +52,12 @@
 	</bean>
 	<!-- AOP -->
 	<aop:aspectj-autoproxy/>
+	
+	<!-- WebSocket URL Mapping -->
+	<!-- 컨텍스트/websocket/echo 으로 요청하면 실행한다는 것 -->
+	<websocket:handlers>
+		<websocket:mapping handler="echoHandler" path="/websocket/echo"/>
+		<websocket:mapping handler="measureHandler" path="/websocket/measure"/>
+		<websocket:mapping handler="chatHandler" path="/websocket/chat"/>
+	</websocket:handlers>
 </beans>

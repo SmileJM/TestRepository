@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="gassensor">
+	<select id="selectByALL" resultType="com.mycompany.myapp.dto.GasSensor">
+		select gno, gvalue, gdate from gassensor
+	</select>
+	<!-- keyColumn : 테이블의 primary 키 컬럼명이 무엇인지 -->
+	<!-- com.mycompany.myapp.dto.GasSensor에서 값을 가져와서 keyColumn 값을 keyProperty 객체에 넣어줌 -->
+	<insert
+			id="insert"
+			parameterType="com.mycompany.myapp.dto.GasSensor"
+			useGeneratedKeys="true"			
+			keyColumn="gno" 
+			keyProperty="gno">
+			insert into gassensor(gvalue, gdate) values (#{gvalue}, now());
+	</insert>
+</mapper>
