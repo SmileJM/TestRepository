@@ -68,7 +68,8 @@ public class UltrasonicSensor {
         // 100 이상 튀는 값이 있을 경우 다시 측정
         if (again == false && Math.abs(previousDistance - distance) > 100) {
             again = true;
-            getDistance(); getDistance(); // dummy read
+            getDistance();
+            getDistance(); // dummy read
             distance = getDistance();
         } else {
             again = false;

@@ -49,11 +49,13 @@ public class SG90ServoPCA9685Step {
 
         for (int i = 10; i <= 170; i += 10) {
             servo.setAngle(i);
+            System.out.println(i);
             Thread.sleep(500);
 
         }
         for (int i = 170; i >= 10; i -= 10) {
             servo.setAngle(i);
+            System.out.println(i);
             Thread.sleep(500);
         }
         servo.setAngle(90);
