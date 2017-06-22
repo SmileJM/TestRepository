@@ -1,6 +1,10 @@
 package sensingcar.coap.server.resource;
 
 import hardware.lcd.LCD1602;
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.util.Enumeration;
 import org.eclipse.californium.core.CoapResource;
 import org.eclipse.californium.core.server.resources.CoapExchange;
 import org.json.JSONObject;
@@ -19,7 +23,7 @@ public class LcdResource extends CoapResource {
     public LcdResource() throws Exception {
         super("lcd");
         lcd = new LCD1602(0x27);
-        setText("RPI-15-2", "192.168.3.50");
+        setText("RPI-15-2", getIPaddress());
     }
 
     // Method
@@ -58,5 +62,26 @@ public class LcdResource extends CoapResource {
             String responseJson = responseJsonObject.toString();
             exchange.respond(responseJson);
         }
+    }
+
+    // 아이피를 동적으로 얻어서 사용해야 할 경우에 이렇게 해야함
+    public String getIPaddress() throws Exception {
+        String wlan0 = "";
+        //  Enumeration 요즘은 잘 사용되지 않는 타입 / iterator 가 나오기 전까지
+        Enumeration<NetworkInterface> niEnum = NetworkInterface.getNetworkInterfaces();
+        while (niEnum.hasMoreElements()) {
+            NetworkInterface ni = niEnum.nextElement();
+            String displayName = ni.getDisplayName();
+            if (displayName.equals("wlan0")) {
+                Enumeration<InetAddress> iaEnum = ni.getInetAddresses();
+                while (iaEnum.hasMoreElements()) {
+                    InetAddress ia = iaEnum.nextElement();
+                    if (ia instanceof Inet4Address) {
+                        wlan0 = ia.getHostAddress();
+                    }
+                }
+            }
+        }
+        return wlan0;
     }
 }

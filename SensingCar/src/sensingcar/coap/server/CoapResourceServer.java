@@ -12,10 +12,13 @@ import sensingcar.coap.server.resource.BackTireResource;
 import sensingcar.coap.server.resource.BuzzerResource;
 import sensingcar.coap.server.resource.CameraResource;
 import sensingcar.coap.server.resource.FrontTireResource;
+import sensingcar.coap.server.resource.GasSensorResource;
 import sensingcar.coap.server.resource.LaserEmitterResource;
 import sensingcar.coap.server.resource.LcdResource;
+import sensingcar.coap.server.resource.PhotoresistorSensorResource;
 import sensingcar.coap.server.resource.RGBLedResource;
 import sensingcar.coap.server.resource.ThermistorSensorResource;
+import sensingcar.coap.server.resource.TrackingSensorResource;
 import sensingcar.coap.server.resource.UltrasonicSensorResource;
 
 public class CoapResourceServer {
@@ -49,6 +52,9 @@ public class CoapResourceServer {
         coapServer.add(new LcdResource());
         coapServer.add(new UltrasonicSensorResource());
         coapServer.add(new ThermistorSensorResource());
+        coapServer.add(new PhotoresistorSensorResource());
+        coapServer.add(new TrackingSensorResource());
+        coapServer.add(new GasSensorResource());
     }
 
     // Method

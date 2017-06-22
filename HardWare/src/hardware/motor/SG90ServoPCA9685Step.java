@@ -46,20 +46,33 @@ public class SG90ServoPCA9685Step {
     public static void main(String[] args) throws Exception {
         PCA9685 pca9685 = PCA9685.getInstance();
         SG90ServoPCA9685Step servo = new SG90ServoPCA9685Step(pca9685, PCA9685.PWM_00);
+        SG90ServoPCA9685Step servo1 = new SG90ServoPCA9685Step(pca9685, PCA9685.PWM_11);
+        SG90ServoPCA9685Step servo2 = new SG90ServoPCA9685Step(pca9685, PCA9685.PWM_14);
+        SG90ServoPCA9685Step servo3 = new SG90ServoPCA9685Step(pca9685, PCA9685.PWM_15);
+        while (true) {
+            for (int i = 30; i <= 150; i += 10) {
+                servo.setAngle(i);
+//                servo1.setAngle(i);
+//                servo2.setAngle(i);
+//                servo3.setAngle(i);
+//            servo1.setAngle(i);
+                System.out.println(i);
+                Thread.sleep(500);
 
-        for (int i = 10; i <= 170; i += 10) {
-            servo.setAngle(i);
-            System.out.println(i);
-            Thread.sleep(500);
-
+            }
+            for (int i = 150; i >= 30; i -= 10) {
+                servo.setAngle(i);
+//                servo1.setAngle(i);
+//                servo2.setAngle(i);
+//                servo3.setAngle(i);
+//            servo1.setAngle(i);
+                System.out.println(i);
+                Thread.sleep(500);
+            }
         }
-        for (int i = 170; i >= 10; i -= 10) {
-            servo.setAngle(i);
-            System.out.println(i);
-            Thread.sleep(500);
-        }
-        servo.setAngle(90);
-        System.in.read();
+//        servo.setAngle(90);
+//        servo1.setAngle(90);
+//        System.in.read();
     }
 
 }
