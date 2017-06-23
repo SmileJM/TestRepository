@@ -16,7 +16,7 @@ public class ThermistorSensorResource extends CoapResource {
 
     private ThermistorSensor thermistorSensor;
     private PCF8591 pcf8591;
-    private double currTemporature;
+    private double currTemperature;
 
     // Constructor
     public ThermistorSensorResource() throws Exception {
@@ -33,7 +33,7 @@ public class ThermistorSensorResource extends CoapResource {
             public void run() {
                 while (true) {
                     try {
-                        currTemporature = thermistorSensor.getValue();
+                        currTemperature = thermistorSensor.getValue();
                         changed();
                         Thread.sleep(1000);
                     } catch (Exception e) {
@@ -50,7 +50,7 @@ public class ThermistorSensorResource extends CoapResource {
     @Override
     public void handleGET(CoapExchange exchange) {
         JSONObject responseJsonObject = new JSONObject();
-        responseJsonObject.put("temporature", String.valueOf(currTemporature));
+        responseJsonObject.put("temperature", String.valueOf(currTemperature));
         String responseJson = responseJsonObject.toString();
         exchange.respond(responseJson);
     }
@@ -68,7 +68,7 @@ public class ThermistorSensorResource extends CoapResource {
             }
             JSONObject responseJsonObject = new JSONObject();
             responseJsonObject.put("result", "success");
-            responseJsonObject.put("temperature", String.valueOf(currTemporature));
+            responseJsonObject.put("temperature", String.valueOf(currTemperature));
             String responseJson = responseJsonObject.toString();
             exchange.respond(responseJson);
         } catch (Exception e) {

@@ -1,13 +1,13 @@
 function camera(command, leftright, updown) {
-	var json = {"command":"change", "leftright":leftright, "updown":updown};
+	var json = {"command":command, "leftright":leftright, "updown":updown};
 
 	$.ajax({
 		url:"http://" + location.host + "/SensingCarRemoteWebControl/camera",
 		data: json,
 		method: "post",
 		success: function(data) {
-			if(data.result == "success") {
-				$("#cameraStatus").html("leftright=" + data.leftright + "; updown=" + data.updown);
+			if(data.result == "success") {			
+				$("#cameraStatus").html("leftright: " + data.leftright + "º / updown: " + data.updown +"º");
 				$("#btnLeftright180").attr("onclick", "camera('change', '180', '" + data.updown + "')");
 				$("#btnLeftright135").attr("onclick", "camera('change', '135', '" + data.updown + "')");
 				$("#btnLeftright90").attr("onclick", "camera('change', '90', '" + data.updown + "')");

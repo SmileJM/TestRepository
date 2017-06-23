@@ -99,8 +99,8 @@ public class UltrasonicSensorResource extends CoapResource {
             }
             JSONObject responseJsonObject = new JSONObject();
             responseJsonObject.put("result", "success");
-            responseJsonObject.put("angle", currAngle);
-            responseJsonObject.put("distance", currDistance);
+            responseJsonObject.put("angle", String.valueOf(currAngle));
+            responseJsonObject.put("distance", String.valueOf(currDistance));
             String responseJson = responseJsonObject.toString();
             exchange.respond(responseJson);
         } catch (Exception e) {

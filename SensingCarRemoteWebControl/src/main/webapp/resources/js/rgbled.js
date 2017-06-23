@@ -1,5 +1,5 @@
 function rgbled(command, red, green, blue) {
-	var json = {"command":"change", "red":red, "green":green, "blue":blue };
+	var json = {"command":command, "red":red, "green":green, "blue":blue };
 	$.ajax({
 		url : "http://" + location.host + "/SensingCarRemoteWebControl/rgbled",
 		data : json,
