@@ -41,10 +41,10 @@ public class TrackingSensorHandler extends TextWebSocketHandler implements Appli
 			public void onLoad(CoapResponse response) {
 				String json = response.getResponseText();
 				JSONObject jsonObject = new JSONObject(json);
-				String color = jsonObject.getString("color");
+				String tracking = jsonObject.getString("tracking");
 				jsonObject = new JSONObject();
 				jsonObject.put("time", getUTCTime(new Date().getTime()));
-				jsonObject.put("color", color);
+				jsonObject.put("tracking", tracking);
 				json = jsonObject.toString();
 				try {
 					for (WebSocketSession session : list) {

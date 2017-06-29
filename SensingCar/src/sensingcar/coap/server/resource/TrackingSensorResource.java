@@ -41,6 +41,7 @@ public class TrackingSensorResource extends CoapResource {
                         } else if (pinState == PinState.LOW) {
                             currColor = "white";
                         }
+                        System.out.println(currColor);
                         changed();
                         Thread.sleep(1000);
                     } catch (Exception e) {
@@ -69,9 +70,10 @@ public class TrackingSensorResource extends CoapResource {
     @Override
     public void handleGET(CoapExchange exchange) {
         JSONObject responseJsonObject = new JSONObject();
-        responseJsonObject.put("color", currColor);
+        responseJsonObject.put("tracking", currColor);
         String responseJson = responseJsonObject.toString();
         exchange.respond(responseJson);
+        
     }
 
     // 관찰 요청을 하지 않는 클라이언트를 위해서
@@ -87,7 +89,7 @@ public class TrackingSensorResource extends CoapResource {
             }
             JSONObject responseJsonObject = new JSONObject();
             responseJsonObject.put("result", "success");
-            responseJsonObject.put("color", currColor);
+            responseJsonObject.put("tracking", currColor);
             String responseJson = responseJsonObject.toString();
             exchange.respond(responseJson);
         } catch (Exception e) {

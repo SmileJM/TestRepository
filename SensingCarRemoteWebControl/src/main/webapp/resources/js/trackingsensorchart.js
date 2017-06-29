@@ -57,11 +57,11 @@ function requestTrackingSensorData() {
 		/*항상 20개의 x값만 나오도록 / 20개가 넘어가면 쉬프트가 되어 20개만 보이도록*/
 		var shift = series.data.length > 20;
 		/*addPoint > 점에 대한 정보 x, y 축의 값 / shift 이동 > 데이터 추가 작업*/
-		if(data.color == "white"){
+		if(data.tracking == "white"){
 			color = 1;
 		} else {
 			color = 0;
 		}		
-		series.addPoint([data.time, color], true, shift);
+		series.addPoint([data.time, tracking], true, shift);
 	};
 }

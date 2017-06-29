@@ -31,7 +31,7 @@
                 android:layout_height="25dp"
                 android:layout_weight="1"
                 android:text="반복 연습이 필요"
-                android:textSize="10sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <ImageView
