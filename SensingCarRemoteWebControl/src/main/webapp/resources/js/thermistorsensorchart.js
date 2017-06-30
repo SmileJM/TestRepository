@@ -14,7 +14,8 @@ $(function() {
 				/* load 이벤트 발생시 실행, 로드 되었을 때 */
 				/* requestThermistorSensorData 는 함수 */
 				load : requestThermistorSensorData
-			}
+			},
+			animation: Highcharts.svg
 		},
 		/* 라인마다 색을 다르게 하기 위해서 순서에 맞게 배열로 값을 지정 */
 		colors : [ 'cyan' ],
@@ -29,8 +30,8 @@ $(function() {
 			minRange : 20*1000
 		},
 		yAxis : {
-//			minPadding : 0.2,
-//			maxPadding : 0.2,
+			minPadding : 0.2,
+			maxPadding : 0.2,
 			title : {
 				text : "온도(ºC)",
 				margin : 30

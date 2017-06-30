@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         frameLayout.addView(reviewList);
         for (int i = 1; i <= 10; i++) {
             Review item = new Review();
-            item.setPhoto(R.drawable.member1);
+            item.setPhoto(getResources().getIdentifier("member"+i,"drawable",getPackageName()));
             item.setTitle("ListView와 Adapter");
             item.setStar(R.drawable.star10);
             item.setContent("Adapter는 item XML을 Inflation 해서 데이터를 세팅한 후 ListView에 제공하는 역할을 합니다.");
