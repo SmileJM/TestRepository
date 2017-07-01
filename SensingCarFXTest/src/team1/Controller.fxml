@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -29,13 +32,53 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="296.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">
                      <children>
-                        <Slider fx:id="frontTireSlider" layoutX="61.0" layoutY="275.0" max="120.0" min="60.0" value="90.0" />
-                        <Button fx:id="frontTireClearBtn" layoutX="370.0" layoutY="267.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #DD4B39;" textFill="WHITE">
+                        <Slider fx:id="sliderFrontTire" layoutX="206.0" layoutY="251.0" max="120.0" min="60.0" value="90.0" />
+                        <Button fx:id="btnFrontTireClear" layoutX="472.0" layoutY="159.0" prefHeight="39.0" prefWidth="121.0" style="-fx-background-color: #2ECCFA;" text="HADE ON" textFill="WHITE">
                            <font>
-                              <Font name="Roboto Medium" size="14.0" />
+                              <Font size="20.0" />
                            </font>
                         </Button>
-                        <Circle fill="DODGERBLUE" layoutX="131.0" layoutY="129.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label fx:id="lblFrontTireAngle" layoutX="441.0" layoutY="246.0" text="Label">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Group fx:id="circleFrontControl" layoutX="276.0" layoutY="133.0">
+                           <children>
+                              <Circle fill="DODGERBLUE" opacity="0.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Arc layoutX="15.0" layoutY="-15.0" length="270.0" radiusX="100.0" radiusY="100.0" rotate="90.0" startAngle="45.0" stroke="TRANSPARENT" strokeType="INSIDE" type="ROUND">
+                                 <fill>
+                                    <RadialGradient centerX="0.8295454545454546" centerY="0.49514563106796117" focusDistance="-0.12195121951219523" radius="0.39024390243902446">
+                                       <stops>
+                                          <Stop color="WHITE" />
+                                          <Stop color="WHITE" offset="0.9962962962962963" />
+                                          <Stop color="#563fd9" offset="1.0" />
+                                       </stops>
+                                    </RadialGradient>
+                                 </fill>
+                              </Arc>
+                              <Label layoutX="-36.0" layoutY="-70.0" rotate="180.0" text="TEAM 1" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Group>
+                        <Button layoutX="472.0" layoutY="78.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="121.0" style="-fx-background-color: #FAAC58;" text="HANDLE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnHandleL" layoutX="137.0" layoutY="241.0" mnemonicParsing="false" style="-fx-background-color: #F781D8;" text="L">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnHandleR" layoutX="376.0" layoutY="241.0" mnemonicParsing="false" style="-fx-background-color: #F781D8;" text="R">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
                      </children></AnchorPane>
               </content>
             </Tab>
@@ -43,47 +86,52 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="14.0" layoutY="77.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
+                        <Button layoutX="155.0" layoutY="199.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="441.0" layoutY="77.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #DD4B39;" textFill="WHITE">
+                        <Button layoutX="220.0" layoutY="199.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="320.0" layoutY="77.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #00C0EF;" textFill="WHITE">
+                        <Button layoutX="287.0" layoutY="199.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="79.0" layoutY="77.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
+                        <Button layoutX="155.0" layoutY="239.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="146.0" layoutY="77.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
+                        <Button layoutX="220.0" layoutY="239.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="14.0" layoutY="117.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
+                        <Button layoutX="287.0" layoutY="239.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
                            <font>
                               <Font name="Roboto Medium" size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="79.0" layoutY="117.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
+                        <Button layoutX="489.0" layoutY="159.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #DD4B39;" text="■" textFill="WHITE">
                            <font>
-                              <Font name="Roboto Medium" size="14.0" />
+                              <Font size="24.0" />
                            </font>
                         </Button>
-                        <Button layoutX="146.0" layoutY="117.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
+                        <Button layoutX="489.0" layoutY="104.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #2E64FE;" text="▲" textFill="WHITE">
                            <font>
-                              <Font name="Roboto Medium" size="14.0" />
+                              <Font size="24.0" />
                            </font>
                         </Button>
-                        <Slider layoutX="239.0" layoutY="7.0" orientation="VERTICAL" />
+                        <Slider layoutX="436.0" layoutY="104.0" orientation="VERTICAL" prefHeight="155.0" prefWidth="18.0" />
+                        <Button layoutX="489.0" layoutY="217.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #FAAC58;" text="▼" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
                      </children></AnchorPane>
               </content>
             </Tab>

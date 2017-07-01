@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private String ipAddress = "192.168.0.5";
 
 	@RequestMapping("/")
 	public String home(Model model) {
@@ -37,7 +38,7 @@ public class HomeController {
 		jsonObject.put("command", "status");
 		json = jsonObject.toString();
 
-		coapClient.setURI("coap://192.168.3.50/camera");
+		coapClient.setURI("coap://" + ipAddress + "/camera");
 		coapResponse = coapClient.post(json, MediaTypeRegistry.APPLICATION_JSON);
 		json = coapResponse.getResponseText();
 
@@ -51,7 +52,7 @@ public class HomeController {
 		jsonObject.put("command", "status");
 		json = jsonObject.toString();
 
-		coapClient.setURI("coap://192.168.3.50/rgbled");
+		coapClient.setURI("coap://" + ipAddress + "/rgbled");
 		coapResponse = coapClient.post(json, MediaTypeRegistry.APPLICATION_JSON);
 		json = coapResponse.getResponseText();
 
@@ -66,7 +67,7 @@ public class HomeController {
 		jsonObject.put("command", "status");
 		json = jsonObject.toString();
 
-		coapClient.setURI("coap://192.168.3.50/laseremitter");
+		coapClient.setURI("coap://" + ipAddress + "/laseremitter");
 		coapResponse = coapClient.post(json, MediaTypeRegistry.APPLICATION_JSON);
 		json = coapResponse.getResponseText();
 
@@ -79,7 +80,7 @@ public class HomeController {
 		jsonObject.put("command", "status");
 		json = jsonObject.toString();
 
-		coapClient.setURI("coap://192.168.3.50/buzzer");
+		coapClient.setURI("coap://" + ipAddress + "/buzzer");
 		coapResponse = coapClient.post(json, MediaTypeRegistry.APPLICATION_JSON);
 		json = coapResponse.getResponseText();
 
@@ -92,7 +93,7 @@ public class HomeController {
 		jsonObject.put("command", "status");
 		json = jsonObject.toString();
 
-		coapClient.setURI("coap://192.168.3.50/ultrasonicsensor");
+		coapClient.setURI("coap://" + ipAddress + "/ultrasonicsensor");
 		coapResponse = coapClient.post(json, MediaTypeRegistry.APPLICATION_JSON);
 		json = coapResponse.getResponseText();
 
@@ -106,7 +107,7 @@ public class HomeController {
 		jsonObject.put("command", "status");
 		json = jsonObject.toString();
 
-		coapClient.setURI("coap://192.168.3.50/lcd");
+		coapClient.setURI("coap://" + ipAddress + "/lcd");
 		coapResponse = coapClient.post(json, MediaTypeRegistry.APPLICATION_JSON);
 		json = coapResponse.getResponseText();
 
@@ -120,7 +121,7 @@ public class HomeController {
 		jsonObject.put("command", "status");
 		json = jsonObject.toString();
 
-		coapClient.setURI("coap://192.168.3.50/fronttire");
+		coapClient.setURI("coap://" + ipAddress + "/fronttire");
 		coapResponse = coapClient.post(json, MediaTypeRegistry.APPLICATION_JSON);
 		json = coapResponse.getResponseText();
 
@@ -133,7 +134,7 @@ public class HomeController {
 		jsonObject.put("command", "status");
 		json = jsonObject.toString();
 
-		coapClient.setURI("coap://192.168.3.50/backtire");
+		coapClient.setURI("coap://" + ipAddress + "/backtire");
 		coapResponse = coapClient.post(json, MediaTypeRegistry.APPLICATION_JSON);
 		json = coapResponse.getResponseText();
 
@@ -141,7 +142,7 @@ public class HomeController {
 		model.addAttribute("backtireDirection", jsonObject.getString("direction"));
 		model.addAttribute("backtireSpeed", jsonObject.getString("speed"));
 
-//		model.addAttribute("cameraUrl", "http://192.168.3.50:50001?action=stream");
+		model.addAttribute("cameraUrl", "http://" + ipAddress + ":50001?action=stream");
 		coapClient.shutdown();
 
 		return "controlpanel";
@@ -157,7 +158,7 @@ public class HomeController {
 		String reqJson = jsonObject.toString();
 
 		CoapClient coapClient = new CoapClient();
-		coapClient.setURI("coap://192.168.3.50/camera");
+		coapClient.setURI("coap://" + ipAddress + "/camera");
 		CoapResponse coapResponse = coapClient.post(reqJson, MediaTypeRegistry.APPLICATION_JSON);
 		String resJson = coapResponse.getResponseText();
 		coapClient.shutdown();
@@ -180,7 +181,7 @@ public class HomeController {
 		String reqJson = jsonObject.toString();
 
 		CoapClient coapClient = new CoapClient();
-		coapClient.setURI("coap://192.168.3.50/rgbled");
+		coapClient.setURI("coap://" + ipAddress + "/rgbled");
 		CoapResponse coapResponse = coapClient.post(reqJson, MediaTypeRegistry.APPLICATION_JSON);
 		String resJson = coapResponse.getResponseText();
 		coapClient.shutdown();
@@ -201,7 +202,7 @@ public class HomeController {
 		String reqJson = jsonObject.toString();
 
 		CoapClient coapClient = new CoapClient();
-		coapClient.setURI("coap://192.168.3.50/laseremitter");
+		coapClient.setURI("coap://" + ipAddress + "/laseremitter");
 		CoapResponse coapResponse = coapClient.post(reqJson, MediaTypeRegistry.APPLICATION_JSON);
 		String resJson = coapResponse.getResponseText();
 		coapClient.shutdown();
@@ -222,7 +223,7 @@ public class HomeController {
 		String reqJson = jsonObject.toString();
 
 		CoapClient coapClient = new CoapClient();
-		coapClient.setURI("coap://192.168.3.50/buzzer");
+		coapClient.setURI("coap://" + ipAddress + "/buzzer");
 		CoapResponse coapResponse = coapClient.post(reqJson, MediaTypeRegistry.APPLICATION_JSON);
 		String resJson = coapResponse.getResponseText();
 		coapClient.shutdown();
@@ -243,7 +244,7 @@ public class HomeController {
 		String reqJson = jsonObject.toString();
 
 		CoapClient coapClient = new CoapClient();
-		coapClient.setURI("coap://192.168.3.50/ultrasonicsensor");
+		coapClient.setURI("coap://" + ipAddress + "/ultrasonicsensor");
 		CoapResponse coapResponse = coapClient.post(reqJson, MediaTypeRegistry.APPLICATION_JSON);
 		String resJson = coapResponse.getResponseText();
 		coapClient.shutdown();
@@ -264,7 +265,7 @@ public class HomeController {
 		String reqJson = jsonObject.toString();
 
 		CoapClient coapClient = new CoapClient();
-		coapClient.setURI("coap://192.168.3.50/lcd");
+		coapClient.setURI("coap://" + ipAddress + "/lcd");
 		CoapResponse coapResponse = coapClient.post(reqJson, MediaTypeRegistry.APPLICATION_JSON);
 		String resJson = coapResponse.getResponseText();
 		coapClient.shutdown();
@@ -284,7 +285,7 @@ public class HomeController {
 		String reqJson = jsonObject.toString();
 
 		CoapClient coapClient = new CoapClient();
-		coapClient.setURI("coap://192.168.3.50/fronttire");
+		coapClient.setURI("coap://" + ipAddress + "/fronttire");
 		CoapResponse coapResponse = coapClient.post(reqJson, MediaTypeRegistry.APPLICATION_JSON);
 		String resJson = coapResponse.getResponseText();
 		coapClient.shutdown();
@@ -306,7 +307,7 @@ public class HomeController {
 		String reqJson = jsonObject.toString();
 
 		CoapClient coapClient = new CoapClient();
-		coapClient.setURI("coap://192.168.3.50/backtire");
+		coapClient.setURI("coap://" + ipAddress + "/backtire");
 		CoapResponse coapResponse = coapClient.post(reqJson, MediaTypeRegistry.APPLICATION_JSON);
 		String resJson = coapResponse.getResponseText();
 		coapClient.shutdown();
