@@ -86,52 +86,73 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="155.0" layoutY="199.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
-                           <font>
-                              <Font name="Roboto Medium" size="14.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="220.0" layoutY="199.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
-                           <font>
-                              <Font name="Roboto Medium" size="14.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="287.0" layoutY="199.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
-                           <font>
-                              <Font name="Roboto Medium" size="14.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="155.0" layoutY="239.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
-                           <font>
-                              <Font name="Roboto Medium" size="14.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="220.0" layoutY="239.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
-                           <font>
-                              <Font name="Roboto Medium" size="14.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="287.0" layoutY="239.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
-                           <font>
-                              <Font name="Roboto Medium" size="14.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="489.0" layoutY="159.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #DD4B39;" text="■" textFill="WHITE">
+                        <Slider fx:id="sliderSpeed" layoutX="233.0" layoutY="104.0" orientation="VERTICAL" prefHeight="155.0" prefWidth="18.0" />
+                        <Button fx:id="btnBackTireRun" layoutX="286.0" layoutY="104.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #2E64FE;" text="▲" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <Button layoutX="489.0" layoutY="104.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #2E64FE;" text="▲" textFill="WHITE">
+                        <Button fx:id="btnBackTireStop" layoutX="286.0" layoutY="159.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #DD4B39;" text="■" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <Slider layoutX="436.0" layoutY="104.0" orientation="VERTICAL" prefHeight="155.0" prefWidth="18.0" />
-                        <Button layoutX="489.0" layoutY="217.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #FAAC58;" text="▼" textFill="WHITE">
+                        <Button fx:id="btnBackTireBack" layoutX="286.0" layoutY="217.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #FAAC58;" text="▼" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
+                        <Button fx:id="btnSpeed1" layoutX="59.0" layoutY="104.0" prefHeight="44.0" prefWidth="50.0" style="-fx-background-color: #BCA9F5;" text="1" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnSpeed2" layoutX="144.0" layoutY="104.0" prefHeight="44.0" prefWidth="50.0" style="-fx-background-color: #9F81F7;" text="2" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnSpeed3" layoutX="59.0" layoutY="160.0" prefHeight="44.0" prefWidth="50.0" style="-fx-background-color: #8258FA;" text="3" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnSpeed4" layoutX="144.0" layoutY="160.0" prefHeight="44.0" prefWidth="50.0" style="-fx-background-color: #642EFE;" text="4" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnSpeed5" layoutX="59.0" layoutY="217.0" prefHeight="44.0" prefWidth="50.0" style="-fx-background-color: #4000FF;" text="5" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnSpeed6" layoutX="144.0" layoutY="217.0" prefHeight="44.0" prefWidth="50.0" style="-fx-background-color: #3A01DF;" text="6" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="lblSpeed" layoutX="203.0" layoutY="48.0" text="speed">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="59.0" layoutY="40.0" prefHeight="44.0" prefWidth="135.0" style="-fx-background-color: #82FA58;" text="SPEED" textFill="#0045eb">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="286.0" layoutY="40.0" prefHeight="44.0" prefWidth="137.0" style="-fx-background-color: #82FA58;" text="DIRECTION" textFill="#0045eb">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Circle fill="DODGERBLUE" layoutX="523.0" layoutY="182.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label fx:id="lblDirection" layoutX="436.0" layoutY="48.0" prefHeight="28.0" prefWidth="114.0" text="direction">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
               </content>
             </Tab>
