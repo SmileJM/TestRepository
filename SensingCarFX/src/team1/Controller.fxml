@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="440.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team1.ControllerController">
+    <children>
+        <Label layoutX="19.0" layoutY="17.0" prefHeight="30.0" prefWidth="392.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Controller" />
+      <Separator layoutX="3.0" layoutY="50.0" prefHeight="4.0" prefWidth="680.0" />
+      <HBox layoutX="248.0" layoutY="316.0" spacing="10.0" />
+      <HBox layoutX="248.0" layoutY="396.0" spacing="10.0" />
+      <TabPane layoutX="5.0" layoutY="59.0" prefHeight="378.0" prefWidth="673.0" tabMinHeight="50.0" tabMinWidth="70.0">
+         <tabs>
+            <Tab closable="false" text="Front Tire">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="296.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">
+                     <children>
+                        <Slider fx:id="frontTireSlider" layoutX="61.0" layoutY="275.0" max="120.0" min="60.0" value="90.0" />
+                        <Button fx:id="frontTireClearBtn" layoutX="370.0" layoutY="267.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #DD4B39;" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="14.0" />
+                           </font>
+                        </Button>
+                        <Circle fill="DODGERBLUE" layoutX="131.0" layoutY="129.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab closable="false" text="Back Tire">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="14.0" layoutY="77.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="441.0" layoutY="77.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #DD4B39;" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="320.0" layoutY="77.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #00C0EF;" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="79.0" layoutY="77.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="146.0" layoutY="77.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="14.0" layoutY="117.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="79.0" layoutY="117.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="146.0" layoutY="117.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #ddffff;" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="14.0" />
+                           </font>
+                        </Button>
+                        <Slider layoutX="239.0" layoutY="7.0" orientation="VERTICAL" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab closable="false" text="Ultrasonic Sensor">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="131.0" layoutY="81.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #F39C12;" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="317.0" layoutY="81.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #F39C12;" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="244.0" layoutY="81.0" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: #F3ff12;" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="14.0" />
+                           </font>
+                        </Button>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab closable="false" text="LCD">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField layoutX="93.0" layoutY="35.0" />
+                        <TextField layoutX="93.0" layoutY="81.0" />
+                        <Button layoutX="379.0" layoutY="63.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #00C0EF;" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="379.0" layoutY="104.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #00A65A;" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Medium" size="14.0" />
+                           </font>
+                        </Button>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      
+    </children>
+    
+</AnchorPane>
