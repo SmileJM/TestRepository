@@ -86,8 +86,17 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Slider fx:id="sliderSpeed" layoutX="233.0" layoutY="104.0" orientation="VERTICAL" prefHeight="155.0" prefWidth="18.0" />
-                        <Button fx:id="btnBackTireRun" layoutX="286.0" layoutY="104.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #2E64FE;" text="▲" textFill="WHITE">
+                        <Group fx:id="backTire" layoutX="530.0" layoutY="192.0">
+                           <children>
+                              <Circle fill="#ff0000bb" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#44505b" layoutY="-69.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#44505b" layoutX="69.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#44505b" layoutY="69.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#44505b" layoutX="-69.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </Group>
+                        <Slider fx:id="sliderSpeed" layoutX="233.0" layoutY="104.0" max="4095.0" orientation="VERTICAL" prefHeight="155.0" prefWidth="18.0" />
+                        <Button fx:id="btnBackTireForward" layoutX="286.0" layoutY="104.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #2E64FE;" text="▲" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -97,7 +106,7 @@
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnBackTireBack" layoutX="286.0" layoutY="217.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #FAAC58;" text="▼" textFill="WHITE">
+                        <Button fx:id="btnBackTireBackward" layoutX="286.0" layoutY="217.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #FAAC58;" text="▼" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -147,7 +156,6 @@
                               <Font size="20.0" />
                            </font>
                         </Button>
-                        <Circle fill="DODGERBLUE" layoutX="523.0" layoutY="182.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
                         <Label fx:id="lblDirection" layoutX="436.0" layoutY="48.0" prefHeight="28.0" prefWidth="114.0" text="direction">
                            <font>
                               <Font size="24.0" />
