@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.*?>
@@ -32,18 +33,21 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="296.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">
                      <children>
-                        <Slider fx:id="sliderFrontTire" layoutX="206.0" layoutY="251.0" max="120.0" min="60.0" value="90.0" />
+                        <Slider fx:id="sliderFrontTire" layoutX="170.0" layoutY="251.0" max="120.0" min="60.0" value="90.0">
+                           <effect>
+                              <InnerShadow color="#fe2ef7" />
+                           </effect></Slider>
                         <Button fx:id="btnFrontTireClear" layoutX="472.0" layoutY="159.0" prefHeight="39.0" prefWidth="121.0" style="-fx-background-color: #2ECCFA;" text="HADE ON" textFill="WHITE">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Button>
-                        <Label fx:id="lblFrontTireAngle" layoutX="441.0" layoutY="246.0" text="Label">
+                        <Label fx:id="lblFrontTireAngle" layoutX="410.0" layoutY="244.0" text="Label">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <Group fx:id="circleFrontControl" layoutX="276.0" layoutY="133.0">
+                        <Group fx:id="circleFrontControl" layoutX="240.0" layoutY="133.0">
                            <children>
                               <Circle fill="DODGERBLUE" opacity="0.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
                               <Arc layoutX="15.0" layoutY="-15.0" length="270.0" radiusX="100.0" radiusY="100.0" rotate="90.0" startAngle="45.0" stroke="TRANSPARENT" strokeType="INSIDE" type="ROUND">
@@ -59,7 +63,7 @@
                               </Arc>
                               <Label layoutX="-36.0" layoutY="-70.0" rotate="180.0" text="TEAM 1" textFill="WHITE">
                                  <font>
-                                    <Font name="System Bold" size="20.0" />
+                                    <Font name="System Italic" size="20.0" />
                                  </font>
                               </Label>
                            </children>
@@ -69,12 +73,12 @@
                               <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnHandleL" layoutX="137.0" layoutY="241.0" mnemonicParsing="false" style="-fx-background-color: #F781D8;" text="L">
+                        <Button fx:id="btnHandleL" layoutX="101.0" layoutY="241.0" mnemonicParsing="false" style="-fx-background-color: #F781D8;" text="L">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnHandleR" layoutX="376.0" layoutY="241.0" mnemonicParsing="false" style="-fx-background-color: #F781D8;" text="R">
+                        <Button fx:id="btnHandleR" layoutX="340.0" layoutY="241.0" mnemonicParsing="false" style="-fx-background-color: #F781D8;" text="R">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -88,25 +92,33 @@
                      <children>
                         <Group fx:id="backTire" layoutX="530.0" layoutY="192.0">
                            <children>
-                              <Circle fill="#ff0000bb" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-                              <Circle fill="#44505b" layoutY="-69.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
-                              <Circle fill="#44505b" layoutX="69.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
-                              <Circle fill="#44505b" layoutY="69.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
-                              <Circle fill="#44505b" layoutX="-69.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#000000ce" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#ff1f1f" radius="73.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="WHITE" layoutX="-2.0" layoutY="-41.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="WHITE" layoutX="-35.0" layoutY="22.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="WHITE" layoutX="36.0" layoutY="20.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Label layoutX="-31.0" layoutY="74.0" text="TEAM 1" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Italic" size="18.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </Group>
-                        <Slider fx:id="sliderSpeed" layoutX="233.0" layoutY="104.0" max="4095.0" orientation="VERTICAL" prefHeight="155.0" prefWidth="18.0" />
-                        <Button fx:id="btnBackTireForward" layoutX="286.0" layoutY="104.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #2E64FE;" text="▲" textFill="WHITE">
+                        <Slider fx:id="sliderSpeed" layoutX="233.0" layoutY="104.0" max="4095.0" orientation="VERTICAL" prefHeight="155.0" prefWidth="18.0">
+                           <effect>
+                              <Shadow blurType="ONE_PASS_BOX" color="#25c490" height="0.0" radius="0.0" width="0.0" />
+                           </effect></Slider>
+                        <Button fx:id="btnBackTireForward" layoutX="286.0" layoutY="104.0" prefHeight="44.0" prefWidth="70.0" style="-fx-background-color: #FA5858;" text="▲" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnBackTireStop" layoutX="286.0" layoutY="159.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #DD4B39;" text="■" textFill="WHITE">
+                        <Button fx:id="btnBackTireStop" layoutX="286.0" layoutY="160.0" prefHeight="44.0" prefWidth="70.0" style="-fx-background-color: #F7D358;" text="■" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnBackTireBackward" layoutX="286.0" layoutY="217.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #FAAC58;" text="▼" textFill="WHITE">
+                        <Button fx:id="btnBackTireBackward" layoutX="286.0" layoutY="217.0" prefHeight="44.0" prefWidth="70.0" style="-fx-background-color: #5858FA;" text="▼" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
