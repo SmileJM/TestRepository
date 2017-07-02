@@ -97,7 +97,7 @@
                               <Circle fill="WHITE" layoutX="-2.0" layoutY="-41.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
                               <Circle fill="WHITE" layoutX="-35.0" layoutY="22.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
                               <Circle fill="WHITE" layoutX="36.0" layoutY="20.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
-                              <Label layoutX="-31.0" layoutY="74.0" text="TEAM 1" textFill="WHITE">
+                              <Label layoutX="-31.0" layoutY="73.0" text="TEAM 1" textFill="WHITE">
                                  <font>
                                     <Font name="System Italic" size="18.0" />
                                  </font>
@@ -202,18 +202,40 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField layoutX="93.0" layoutY="35.0" />
-                        <TextField layoutX="93.0" layoutY="81.0" />
-                        <Button layoutX="379.0" layoutY="63.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #00C0EF;" textFill="WHITE">
+                        <TextField fx:id="txtLcdLine0" layoutX="389.0" layoutY="119.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #F2F2F2; -fx-border-color: #1C1C1C;">
                            <font>
-                              <Font name="Roboto Medium" size="14.0" />
+                              <Font size="18.0" />
+                           </font></TextField>
+                        <Button fx:id="btnLcdSend" layoutX="389.0" layoutY="212.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #00C0EF;" text="SEND" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
                            </font>
                         </Button>
-                        <Button layoutX="379.0" layoutY="104.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #00A65A;" textFill="WHITE">
+                        <Button fx:id="btnLcdClear" layoutX="499.0" layoutY="212.0" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #3ADF00;" text="CLEAR" textFill="WHITE">
                            <font>
-                              <Font name="Roboto Medium" size="14.0" />
+                              <Font size="16.0" />
                            </font>
                         </Button>
+                        <Button layoutX="43.0" layoutY="72.0" mnemonicParsing="false" prefHeight="172.0" prefWidth="290.0" style="-fx-background-color: #2E2E2E;" textFill="#f8dad0" />
+                        <Button layoutX="69.0" layoutY="88.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="238.0" style="-fx-background-color: #FBEFF2;" />
+                        <Label fx:id="lblLcdLine0" layoutX="90.0" layoutY="121.0" prefHeight="30.0" prefWidth="191.0" text="message1" textFill="#151515">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblLcdLine1" layoutX="90.0" layoutY="168.0" prefHeight="30.0" prefWidth="191.0" text="message1" textFill="#151515">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Group layoutY="22.0" />
+                        <TextField fx:id="txtLcdLine1" layoutX="389.0" layoutY="166.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #F2F2F2; -fx-border-color: #1C1C1C;">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <Arc fill="#2e2e2e" layoutX="85.0" layoutY="244.0" length="180.0" radiusX="16.0" radiusY="38.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                        <Arc fill="#2e2e2e" layoutX="291.0" layoutY="244.0" length="180.0" radiusX="16.0" radiusY="38.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
                      </children></AnchorPane>
                </content>
             </Tab>
