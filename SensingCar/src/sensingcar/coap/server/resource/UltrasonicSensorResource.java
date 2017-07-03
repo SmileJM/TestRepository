@@ -64,6 +64,7 @@ public class UltrasonicSensorResource extends CoapResource {
         } else if (angle >= maxAngle) {
             angle = maxAngle;
         }
+        angle = 180 - angle;
         currAngle = angle;
         servoMotor.setAngle(angle);
     }
@@ -99,7 +100,7 @@ public class UltrasonicSensorResource extends CoapResource {
             }
             JSONObject responseJsonObject = new JSONObject();
             responseJsonObject.put("result", "success");
-            responseJsonObject.put("angle", String.valueOf(currAngle));
+            responseJsonObject.put("angle", String.valueOf(180 - currAngle));
             responseJsonObject.put("distance", String.valueOf(currDistance));
             String responseJson = responseJsonObject.toString();
             exchange.respond(responseJson);
