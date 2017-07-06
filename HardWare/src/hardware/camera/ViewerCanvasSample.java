@@ -11,7 +11,7 @@ public class ViewerCanvasSample extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		StackPane root = new StackPane();
 		ViewerCanvas viewer = new ViewerCanvas(320, 240);
-		viewer.setCurrentURL(new URL("http://192.168.3.50:50001/?action=stream"));
+		viewer.setCurrentURL(new URL("http://192.168.3.9:50001/?action=stream"));
 		root.getChildren().add(viewer);
 
 		Scene scene = new Scene(root);

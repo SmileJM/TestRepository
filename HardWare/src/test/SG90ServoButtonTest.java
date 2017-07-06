@@ -1,64 +1,52 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package test;
 
 import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
-import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
-import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 import hardware.button.Button;
 import hardware.motor.SG90Servo;
 import java.io.IOException;
 
+/**
+ *
+ * @author kang
+ */
 public class SG90ServoButtonTest {
-// 버튼 4개 눌러서
-//    그에 맞는 각도로 이동시키기
 
-    public static void main(String[] args) throws IOException {
-        Button button1 = new Button(RaspiPin.GPIO_00);
-        Button button2 = new Button(RaspiPin.GPIO_02);
-        Button button3 = new Button(RaspiPin.GPIO_03);
-        Button button4 = new Button(RaspiPin.GPIO_04);
+	public static void main(String[] args) throws IOException {
+		SG90Servo servo = new SG90Servo(RaspiPin.GPIO_01, 8, 27);
+		Button btn0 = new Button(RaspiPin.GPIO_23);
+		Button btn90 = new Button(RaspiPin.GPIO_24);
+		Button btn180 = new Button(RaspiPin.GPIO_25);
 
-        SG90Servo servo = new SG90Servo(RaspiPin.GPIO_01, 8, 24);
-
-        button1.setGpioPinListenerDigital(new GpioPinListenerDigital() {
-            @Override
-            public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-                if (event.getState() == PinState.LOW) {
-                    System.out.println("60 도");
-                    servo.setAngle(60);
-                }
-            }
-        });
-        button2.setGpioPinListenerDigital(new GpioPinListenerDigital() {
-            @Override
-            public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-                if (event.getState() == PinState.LOW) {
-                    System.out.println("120 도");
-                    servo.setAngle(120);
-                }
-            }
-        });
-        button3.setGpioPinListenerDigital(new GpioPinListenerDigital() {
-            @Override
-            public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-                if (event.getState() == PinState.LOW) {
-                    System.out.println("180 도");
-                    servo.setAngle(180);
-                }
-            }
-        });
-        button4.setGpioPinListenerDigital(new GpioPinListenerDigital() {
-            @Override
-            public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-                if (event.getState() == PinState.LOW) {
-                    System.out.println("0 도");
-                    servo.setAngle(0);
-                }
-            }
-        });
-        System.out.println("Ready...");
-
-        System.in.read();
-    }
+		btn0.setGpioPinListenerDigital(e -> {
+			if (e.getState() == PinState.HIGH) {
+				//System.out.println("High"); // 때을때
+			} else {
+				servo.setAngle(0); // 눌렀을때 
+			}
+		});
+		btn90.setGpioPinListenerDigital(e -> {
+			if (e.getState() == PinState.HIGH) {
+				//System.out.println("High"); // 때을때
+			} else {
+				servo.setAngle(90); // 눌렀을때 
+			}
+		});
+		btn180.setGpioPinListenerDigital(e -> {
+			if (e.getState() == PinState.HIGH) {
+				//System.out.println("High"); // 때을때
+			} else {
+				servo.setAngle(180); // 눌렀을때 
+			}
+		});
+		
+		System.out.println("ready....");
+		System.in.read();
+	}
 
 }

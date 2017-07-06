@@ -1,0 +1,18 @@
+package com.mycompany.myapplication.receiver;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
+
+import com.mycompany.myapplication.service.BackgroundService;
+
+public class BootCompletedReceiver extends BroadcastReceiver {
+    private static final String TAG = "BootCompletedReceiver";
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        Log.i(TAG, "BootCompletedReceiver-onReceive");
+        Intent intent2 = new Intent(context, BackgroundService.class);
+        context.startService(intent2);
+    }
+}

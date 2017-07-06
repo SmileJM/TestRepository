@@ -25,55 +25,50 @@ import sensingcar.coap.server.resource.TrackingSensorResource;
 import sensingcar.coap.server.resource.UltrasonicSensorResource;
 
 public class CoapResourceServer {
-
-    // Field
-    private static final Logger logger = LoggerFactory.getLogger(CoapResourceServer.class);
-    private CoapServer coapServer;
-
-    // static block(californium 의 자체 로그 출력 금지)
-    static {
-        CaliforniumLogger.initialize();
-        CaliforniumLogger.setLevel(Level.OFF);
-        // ScandiumLogger > Proxy를 만들어주는
-        ScandiumLogger.initialize();
-        ScandiumLogger.setLevel(Level.OFF);
-    }
-
-    // Constructor
-    public CoapResourceServer() throws Exception {
-        coapServer = new CoapServer();
-        for(InetAddress addr : EndpointManager.getEndpointManager().getNetworkInterfaces()){
-            if(!addr.isLinkLocalAddress()) {
-                  coapServer.addEndpoint(new CoapEndpoint(new InetSocketAddress(addr, CoAP.DEFAULT_COAP_PORT)));
-            }
-        }
-//        InetSocketAddress isa1 = new InetSocketAddress("192.168.3.50", 5683);
-//        InetSocketAddress isa2 = new InetSocketAddress("localhost", 5683);
-//        coapServer.addEndpoint(new CoapEndpoint(isa1));
-//        coapServer.addEndpoint(new CoapEndpoint(isa2));
-        coapServer.add(new BackTireResource());
-        coapServer.add(new FrontTireResource());
-        coapServer.add(new BuzzerResource());
-        coapServer.add(new LaserEmitterResource());
-        coapServer.add(new CameraResource());
-        coapServer.add(new RGBLedResource());
-        coapServer.add(new LcdResource());
-        coapServer.add(new UltrasonicSensorResource());
-        coapServer.add(new ThermistorSensorResource());
-        coapServer.add(new PhotoresistorSensorResource());
-        coapServer.add(new TrackingSensorResource());
-        coapServer.add(new GasSensorResource());
-    }
-
-    // Method
-    public void start() {
-        logger.info("실행");
-        coapServer.start();
-    }
-
-    public void stop() {
-        coapServer.stop();
-        logger.info("실행");
-        coapServer.destroy();
-    }
+	//Field
+	private static final Logger logger = LoggerFactory.getLogger(CoapResourceServer.class);	
+	private CoapServer coapServer;
+	
+	//static block(californium의 자체 로그 출력 금지)
+	static {
+		CaliforniumLogger.initialize();
+		CaliforniumLogger.setLevel(Level.OFF);
+		ScandiumLogger.initialize();
+		ScandiumLogger.setLevel(Level.OFF);
+	}
+	
+	//Constructor
+	public CoapResourceServer() throws Exception {
+		coapServer = new CoapServer();
+		for(InetAddress addr : EndpointManager.getEndpointManager().getNetworkInterfaces()){
+			if(!addr.isLinkLocalAddress()){
+				coapServer.addEndpoint(new CoapEndpoint(new InetSocketAddress(addr, CoAP.DEFAULT_COAP_PORT)));
+			}
+		}
+		
+		coapServer.add(new BackTireResource());
+		coapServer.add(new FrontTireResource());
+		coapServer.add(new BuzzerResource());
+		coapServer.add(new LaserEmitterResource());
+		coapServer.add(new CameraResource());
+		coapServer.add(new RGBLedResource());
+		coapServer.add(new LcdResource());
+		coapServer.add(new UltrasonicSensorResource());
+		coapServer.add(new ThermistorSensorResource());
+		coapServer.add(new PhotoresistorSensorResource());
+		coapServer.add(new TrackingSensorResource());
+		coapServer.add(new GasSensorResource());
+	}
+	
+	//Method
+	public void start() {
+		logger.info("실행");
+		coapServer.start();
+	}
+	
+	public void stop() {
+		logger.info("실행");
+		coapServer.stop();
+		coapServer.destroy();
+	}
 }

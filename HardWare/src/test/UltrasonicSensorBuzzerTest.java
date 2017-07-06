@@ -1,25 +1,23 @@
 package test;
 
-import com.pi4j.io.gpio.RaspiPin;
 import hardware.buzzer.ActiveBuzzer;
+import com.pi4j.io.gpio.RaspiPin;
 import hardware.sensor.UltrasonicSensor;
-import java.io.IOException;
 
-public class UltrasonicSensorBuzzerTest {
+public class UltraSonicSensorBuzzerTest {
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        ActiveBuzzer activeBuzzer = new ActiveBuzzer(RaspiPin.GPIO_03);
-        UltrasonicSensor ultrasonicSensor = new UltrasonicSensor(RaspiPin.GPIO_00, RaspiPin.GPIO_01);
+	public static void main(String[] args) throws InterruptedException {
+		UltrasonicSensor test = new UltrasonicSensor(RaspiPin.GPIO_00, RaspiPin.GPIO_01);
+		ActiveBuzzer buzzer = new ActiveBuzzer(RaspiPin.GPIO_02);
 
-        while (true) {
-            if (ultrasonicSensor.getDistance() < 20) {
-                activeBuzzer.on();
-            } else {
-                activeBuzzer.off();
-            }
-//            System.out.println(ultrasonicSensor.getDistance());
-//            Thread.sleep(1000);
-        }
-//        System.in.read();
-    }
+		while (true) {
+			int distance = test.getDistance();
+			if (distance < 20) {
+				buzzer.on();
+			}
+			System.out.println("distance(cm)" + distance);
+			Thread.sleep(1000);
+			buzzer.off();
+		}
+	}
 }

@@ -4,6 +4,7 @@ import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.Pin;
+import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
 
 /**
@@ -35,7 +36,7 @@ public class LaserEmitter {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        LaserEmitter laserEmitter = new LaserEmitter(RaspiPin.GPIO_25);
+        LaserEmitter laserEmitter = new LaserEmitter(RaspiPin.GPIO_00);
         for (int i = 0; i < 5; i++) {
             laserEmitter.shot();
             Thread.sleep(3000);

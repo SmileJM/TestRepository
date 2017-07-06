@@ -1,31 +1,37 @@
 package test;
 
+import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
+import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
+import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 import hardware.buzzer.ActiveBuzzer;
 import hardware.converter.PCF8591;
 import hardware.led.DualColorLed;
 import hardware.sensor.FlameSensor;
 
 public class FlameSensorBuzzerDualLedTest {
-
-    // 온도 높으면 부저 + R 
-    public static void main(String[] args) throws Exception {
-        DualColorLed led = new DualColorLed(RaspiPin.GPIO_01, RaspiPin.GPIO_03);
-        ActiveBuzzer activeBuzzer = new ActiveBuzzer(RaspiPin.GPIO_00);
-        PCF8591 pcf8591 = new PCF8591(0x48, PCF8591.AIN0);
-        FlameSensor flame = new FlameSensor(pcf8591, RaspiPin.GPIO_02);
-
-        while (true) {
-            double value = flame.getValue();
-            System.out.println(value);
-            if (value < 50) {
-                activeBuzzer.on();
-                led.red();
-            } else {
-                activeBuzzer.off();
-                led.green();
-            }
-            Thread.sleep(1000);
-        }
-    }
+	public static void main(String[] args) throws Exception {
+		PCF8591 pcf8591= new PCF8591(0x48, PCF8591.AIN0);
+		FlameSensor test = new FlameSensor(pcf8591, RaspiPin.GPIO_00);
+		ActiveBuzzer buzzer = new ActiveBuzzer(RaspiPin.GPIO_01);
+		DualColorLed led = new DualColorLed(RaspiPin.GPIO_02, RaspiPin.GPIO_03);
+		
+		led.green();
+		//Digital 핀의 상태를 이용
+		test.setGpioPinListenerDigital(new GpioPinListenerDigital() {
+			@Override
+			public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent gpdsce) {
+				if(gpdsce.getState()==PinState.LOW){
+					buzzer.on();
+					led.red();
+				}else{
+					buzzer.off();
+					led.green();
+				}
+			}
+		});
+		
+		System.in.read();
+	}
+	
 }
