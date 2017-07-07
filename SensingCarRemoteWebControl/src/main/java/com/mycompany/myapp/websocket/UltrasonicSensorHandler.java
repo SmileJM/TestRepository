@@ -30,7 +30,7 @@ public class UltrasonicSensorHandler extends TextWebSocketHandler implements App
 	private List<WebSocketSession> list = new Vector();
 	private CoapClient coapClient;
 	private CoapObserveRelation coapObserveRelation;
-	private String ipAddress="192.168.0.5";
+	private String ipAddress="192.168.3.50";
 	@PostConstruct
 	public void init() {
 		coapClient = new CoapClient();

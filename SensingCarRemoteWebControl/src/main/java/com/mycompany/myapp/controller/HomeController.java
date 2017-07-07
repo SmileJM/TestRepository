@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	private String ipAddress = "192.168.0.5";
+	private String ipAddress = "192.168.3.50";
 
 	@RequestMapping("/")
 	public String home(Model model) {
