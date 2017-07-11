@@ -61,7 +61,7 @@ public class MqttPublisher {
     public static void main(String[] args) throws Exception {
         MqttPublisher publisher = new MqttPublisher();
         // 매 1초 단위로 온도 메시지 보냄
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 5000; i++) {
             publisher.publish("temperature: " + i);
             Thread.sleep(1000);
         }
