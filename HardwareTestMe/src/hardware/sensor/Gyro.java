@@ -26,6 +26,10 @@ public class Gyro {
     private double gyroY_scaled;
     private double gyroZ_scaled;
 
+    private String strAcclX;
+    private String strAcclY;
+    private String strAcclZ;
+
     // Method
     int readWord2C(int addr) {
         int val;
@@ -64,8 +68,8 @@ public class Gyro {
             acclX_scaled = acclX / 16384.0;
             acclY_scaled = acclY / 16384.0;
             acclZ_scaled = acclZ / 16384.0;
-            System.out.println("\t\tacclZ: " + acclZ);
-//            System.out.println("acclX: " + acclX + "\t\tacclY: " + acclY + "\t\tacclZ: " + acclZ);
+//            System.out.println("\t\tacclZ: " + acclZ);
+            System.out.println("acclX: " + acclX + "\t\tacclY: " + acclY + "\t\tacclZ: " + acclZ);
 //            System.out.println("My acclX_scaled: " + acclX_scaled + " | My acclY_scaled: " + acclY_scaled + " | My acclZ_scaled: " + acclZ_scaled);
 //            System.out.println("My acclX_scaled: " + acclX_scaled);
 //            System.out.println("My acclY_scaled: " + acclY_scaled);
@@ -88,7 +92,7 @@ public class Gyro {
             gyroY_scaled = gyroY / 131.0;
             gyroZ_scaled = gyroZ / 131.0;
 
-//            System.out.println("gyroX :" + gyroX + "\t\tgyroY :" + gyroY + "\t\tgyroZ :" + gyroZ);
+            System.out.println("gyroX :" + gyroX + "\t\tgyroY :" + gyroY + "\t\tgyroZ :" + gyroZ);
 //            System.out.println("My gyroX_scaled: " + gyroX_scaled + " | My gyroY_scaled: " + gyroY_scaled + " | My gyroZ_scaled: " + gyroZ_scaled);
 //            System.out.println("My gyroX_scaled: " + gyroX_scaled);
 //            System.out.println("My gyroY_scaled: " + gyroY_scaled);
@@ -98,13 +102,63 @@ public class Gyro {
         }
     }
 
+    public String getAcclX() {
+        acclX = readWord2C(0x3B);
+        if (acclX > 1000) {
+            strAcclX = "left";
+        } else if (acclX < -1000) {
+            strAcclX = "right";
+        } else if (acclX > -500 && acclX < 500) {
+            strAcclX = "center";
+        }
+        return strAcclX;
+    }
+
+    public String getAcclY() {
+        acclY = readWord2C(0x3D);
+
+        if (acclY > 1000) {
+            strAcclY = "go";
+        } else if (acclY < -1000) {
+            strAcclY = "back";
+        } else if (acclY > -500 && acclY < 500) {
+            strAcclY = "stop";
+        }
+        return strAcclY;
+    }
+
+    public String getAcclZ() {
+        acclZ = readWord2C(0x3F);
+
+        if (acclZ > 0) {
+            strAcclZ = "top";
+        } else if (acclZ < 0) {
+            strAcclZ = "bottop";
+        }
+        return strAcclZ;
+    }
+
+    public void init() {
+        linuxFilehandle = wiringPiI2CSetup(i2cAddress);
+        wiringPiI2CWriteReg8(linuxFilehandle, 0x6B, 0x00);
+    }
+
     public static void main(String[] args) throws Exception {
         linuxFilehandle = wiringPiI2CSetup(i2cAddress);
         wiringPiI2CWriteReg8(linuxFilehandle, 0x6B, 0x00);
 
         Gyro gyro = new Gyro();
-        gyro.getAccl();
+//        gyro.getAccl();
 //        gyro.getGyro();
-
+        String directionX;
+        String directionY;
+        String directionZ;
+        while (true) {
+            directionX = gyro.getAcclX();
+            directionY = gyro.getAcclY();
+            directionZ = gyro.getAcclZ();
+            Thread.sleep(200);
+            System.out.println("X: " + gyro.acclX + directionX + "\tY: " + directionY + "\tZ: " + directionZ);
+        }
     }
 }
