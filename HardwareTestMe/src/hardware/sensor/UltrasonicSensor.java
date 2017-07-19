@@ -101,7 +101,6 @@ public class UltrasonicSensor {
 //
 //            }
 //        }
-
         Thread thread1 = new Thread(() -> {
             getValue("1", us1);
         });

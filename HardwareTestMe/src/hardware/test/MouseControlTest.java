@@ -22,13 +22,9 @@ public class MouseControlTest {
 
         coapClient = new CoapClient();
         coapClient.setURI("coap://" + ipAddress + "/mouse");
-        System.out.println("acclX " + acclX +"acclY " + acclY +"acclZ " + acclZ);
+//        System.out.println("acclX " + acclX + "acclY " + acclY + "acclZ " + acclZ);
         coapClient.post(json, MediaTypeRegistry.APPLICATION_JSON);
         coapClient.shutdown();
-    }
-
-    public void getTest() throws Exception {
-
     }
 
     // Method
@@ -46,7 +42,7 @@ public class MouseControlTest {
             zValue = gyro.getAcclZ();
 
             test.mouse(xValue, yValue, zValue);
-            System.out.println("xValue: " + xValue + "\tyValue: " + yValue + "\tzValue: " + zValue);
+//            System.out.println("xValue: " + xValue + "\tyValue: " + yValue + "\tzValue: " + zValue);
 //            test.getTest();
         }
     }
