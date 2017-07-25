@@ -1,4 +1,4 @@
-package com.mycompany.myapplication.activity;
+package com.mycompany.myapplication.activity.activity;
 
 import android.content.Intent;
 import android.hardware.Sensor;
@@ -19,7 +19,6 @@ public class SensorDataActivity extends AppCompatActivity implements SensorEvent
     private TextView txtSensorName;
     private TextView[] txtAccel = new TextView[3];
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +36,6 @@ public class SensorDataActivity extends AppCompatActivity implements SensorEvent
         if (passedIntent != null) {
             txtSensorName.setText(sensor.getName());
         }
-
     }
 
     @Override
@@ -51,7 +49,7 @@ public class SensorDataActivity extends AppCompatActivity implements SensorEvent
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        txtSensorAccuracy.setText("Sensor Accuracy : " + getSensorAccuracyAsString(accuracy));
+        txtSensorAccuracy.setText("Sensor Accuracy: " + getSensorAccuracyAsString(accuracy));
     }
 
     private String getSensorAccuracyAsString(int accuracy) {

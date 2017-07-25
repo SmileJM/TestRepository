@@ -1,4 +1,4 @@
-package com.mycompany.myapplication.activity;
+package com.mycompany.myapplication.activity.activity;
 
 import android.content.Intent;
 import android.hardware.Sensor;

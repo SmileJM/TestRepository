@@ -85,42 +85,32 @@ public class UltrasonicSensor {
     //Method
     public static void main(String[] args) throws Exception {
         UltrasonicSensor us1 = new UltrasonicSensor(RaspiPin.GPIO_04, RaspiPin.GPIO_05);
-        UltrasonicSensor us2 = new UltrasonicSensor(RaspiPin.GPIO_06, RaspiPin.GPIO_26);
-        UltrasonicSensor us3 = new UltrasonicSensor(RaspiPin.GPIO_27, RaspiPin.GPIO_28);
+//        UltrasonicSensor us2 = new UltrasonicSensor(RaspiPin.GPIO_06, RaspiPin.GPIO_26);
+//        UltrasonicSensor us3 = new UltrasonicSensor(RaspiPin.GPIO_27, RaspiPin.GPIO_28);
 //        UltrasonicSensor us4 = new UltrasonicSensor(RaspiPin.GPIO_24, RaspiPin.GPIO_25);
-        UltrasonicSensor us5 = new UltrasonicSensor(RaspiPin.GPIO_22, RaspiPin.GPIO_23);
+//        UltrasonicSensor us5 = new UltrasonicSensor(RaspiPin.GPIO_22, RaspiPin.GPIO_23);
 
-//        while (true) {
-//            System.out.println("1 Sensor: " + us1.getDistance() + "cm");
-//            System.out.println("2 Sensor: " + us2.getDistance() + "cm");
-//            System.out.println("3 Sensor: " + us3.getDistance() + "cm");
-//            System.out.println("5 Sensor: " + us5.getDistance() + "cm");
-//            try {
-//                Thread.sleep(2000);
-//            } catch (InterruptedException ex) {
-//
-//            }
-//        }
+
         Thread thread1 = new Thread(() -> {
             getValue("1", us1);
         });
-        Thread thread2 = new Thread(() -> {
-            getValue("2", us2);
-        });
-        Thread thread3 = new Thread(() -> {
-            getValue("3", us3);
-        });
+//        Thread thread2 = new Thread(() -> {
+//            getValue("2", us2);
+//        });
+//        Thread thread3 = new Thread(() -> {
+//            getValue("3", us3);
+//        });
 //        Thread thread4 = new Thread(() -> {
 //            getValue("4", us4);
 //        });
-        Thread thread5 = new Thread(() -> {
-            getValue("5", us5);
-        });
+//        Thread thread5 = new Thread(() -> {
+//            getValue("5", us5);
+//        });
         thread1.start();
-        thread2.start();
-        thread3.start();
+//        thread2.start();
+//        thread3.start();
 //        thread4.start();
-        thread5.start();
+//        thread5.start();
     }
 
     private static void getValue(String name, UltrasonicSensor us) {
