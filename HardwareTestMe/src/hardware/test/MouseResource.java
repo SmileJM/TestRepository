@@ -70,8 +70,7 @@ public class MouseResource extends CoapResource {
         } else if (moveToY > height) {
             moveToY = height;
         }
-
-        // 마우스 이동
+//         마우스 이동
         Robot robot = new Robot();
         robot.mouseMove(moveToX, moveToY);
         System.out.println(x + ", " + y);
@@ -103,6 +102,8 @@ public class MouseResource extends CoapResource {
             responseJsonObject.put("acclY", String.valueOf(acclY));
             responseJsonObject.put("acclZ", String.valueOf(acclZ));
             String responseJson = responseJsonObject.toString();
+
+//            System.out.println("acclX: " + acclX + "acclY: " + acclY + "acclZ: " + acclZ);
             exchange.respond(responseJson);
         } catch (Exception e) {
             logger.info(e.toString());

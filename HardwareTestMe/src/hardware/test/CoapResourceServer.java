@@ -35,7 +35,8 @@ public class CoapResourceServer {
                 coapServer.addEndpoint(new CoapEndpoint(new InetSocketAddress(addr, CoAP.DEFAULT_COAP_PORT)));
             }
         }
-        coapServer.add(new MouseResource());
+//        coapServer.add(new MouseResource());
+        coapServer.add(new AcclResource());
     }
 
     //Method

@@ -72,9 +72,9 @@ public class GyroDirection {
         while (true) {
             directionX = gyro.getAcclX();
             directionY = gyro.getAcclY();
-//            directionZ = gyro.getAcclZ();
-            Thread.sleep(200);
-            System.out.println("X: " + directionX + "\tY: " + directionY);// + "\tZ: " + directionZ);
+            directionZ = gyro.getAcclZ();
+//            Thread.sleep(10);
+            System.out.println("X: " + directionX + "\tY: " + directionY + "\tZ: " + directionZ);
         }
     }
 }
