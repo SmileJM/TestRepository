@@ -57,7 +57,10 @@
 					<td style=" border-left: 0px; border-right: 0px">${b.bno}</td>
 					<td style="text-align: left;  border-left: 0px; border-right: 0px">
 						<a href="boardDetail?bno=${b.bno}" >
-							${b.btitle}				
+							${b.btitle}
+							<c:if test="${b.count > 0}" >
+							(${b.count})
+							</c:if>
 							<c:set var="now" value="<%= new java.util.Date() %>"/> 
 							<fmt:formatDate var="today" value="${now}" pattern="yyyy-MM-dd"/>
 							<fmt:formatDate var="bdate" value="${b.bdate}" pattern="yyyy-MM-dd"/>

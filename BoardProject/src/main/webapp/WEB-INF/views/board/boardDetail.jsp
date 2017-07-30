@@ -78,11 +78,11 @@
 			} else */ 
 				if( $("#bccomment").val() == "") {
 				$("#bccomment").val("");
-				$("#btitle").attr("placeholder", "내용을 입력하세요!");
+				$("#bccomment").attr("placeholder", "내용을 입력하세요!");
 				$("#bccomment").focus();
 				return ;
 			} 
-				return $("#form1").submit();
+			return $("#form1").submit();
 		}
 	</script>
 </head>
@@ -120,8 +120,7 @@
 			<div class="btn btn-danger" style="border-radius: 50px; width: 100px; height: 100px; line-height: 30px;" onclick="handleBtnLike()">
 				${board.blikecount}<br/>
 				<img src="../resources/image/thumbsup.png" style="width: 30px; height: 30px;"/>
-			</div>
-			
+			</div>			
 		</div>
 		<hr/>
 		<div class="form-group" align="right">
@@ -132,9 +131,17 @@
 		</div>		
 		<hr/>
 		<!-- 댓글 리스트 -->
-		<div class="form-group">
-			${boardcomment.bccomment}
-		</div>
+		<table>
+			<c:forEach var="comment" items="${list}">
+				<fmt:formatDate var="bcdateDay" value="${comment.bcdate}" pattern="yyyy-MM-dd"/>
+				<fmt:formatDate var="bcdateTime" value="${comment.bcdate}" pattern="HH:mm:ss"/>
+				<tr>
+					<td>${comment.bccomment}</td>
+					<td>${comment.bcwriter}</td>
+					<td>${bcdateDay}<br/>${bcdateTime}</td>
+				</tr>			
+			</c:forEach>
+		</table>
 		<!-- 댓글 -->
 		<div class="form-group">
 			<div class="input-group">
@@ -144,13 +151,12 @@
 				<textArea rows="5" cols="30" class="form-control" placeholder="내용" 
 					name="bccomment" id="bccomment"></textArea>
 				<!-- 세션 아이디 -->
-				<input type="hidden" class="form-control"  name="bcwriter"  id="bcwriter" value="session id"/>
+				<input type="hidden" class="form-control"  name="bcwriter"  id="bcwriter" value="session id"/>				
 			</div>
 		</div>
 		<div class="form-group" align="right">
 			<input type="button" class="btn btn-success" value="등록"  onclick="handleBtnComment()" />		
 		</div>
-
 	</form>
 	</div>
 </body>

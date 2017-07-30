@@ -22,8 +22,9 @@ public interface BoardService {
 	// rowsPerPage, String btitle);
 	
 	// BoardComment
-	public BoardComment boardCommentWrite(BoardComment comment);
+	public void boardCommentWrite(BoardComment comment);
 	public List<BoardComment>boardCommentList(int bcno);
+	
 	
 
 }

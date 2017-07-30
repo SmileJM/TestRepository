@@ -11,12 +11,11 @@
 			select	boardcomment_bcno_seq.currval from dual
 		</selectKey>
 		insert into boardcomment (bno, bcno, bcwriter, bcdate, bccomment )
-		values	(#{bno}, boardcomment_bcno_seq.nextval, #{bcwriter}, sysdate, #{bccomment}	)
+		values (#{bno}, boardcomment_bcno_seq.nextval, #{bcwriter}, sysdate, #{bccomment}	)
 	</insert>
 	
 	<select id="selectcommentlist" parameterType="com.mycompany.myapp.dto.BoardComment"
 		resultType="com.mycompany.myapp.dto.BoardComment">
-		select bccomment, bcwriter, bcdate from boardcomment order by bcno desc
-	
+		select bccomment, bcwriter, bcdate from boardcomment where bno = #{bno} order by bcno desc	
 	</select>
 </mapper>

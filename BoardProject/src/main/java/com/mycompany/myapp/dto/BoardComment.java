@@ -20,10 +20,10 @@ public class BoardComment {
 	public void setBcno(int bcno) {
 		this.bcno = bcno;
 	}
-	public String getBcuserid() {
+	public String getBcwriter() {
 		return bcwriter;
 	}
-	public void setBcuserid(String bcwriter) {
+	public void setBcwriter(String bcwriter) {
 		this.bcwriter = bcwriter;
 	}
 	public Date getBcdate() {
@@ -38,7 +38,4 @@ public class BoardComment {
 	public void setBccomment(String bccomment) {
 		this.bccomment = bccomment;
 	}
-	
-	
-	
 }

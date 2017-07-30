@@ -21,4 +21,5 @@ public interface BoardDao {
 	// BoardComment
 	public int boardCommentInsert(BoardComment comment);
 	public List<BoardComment>boardCommentList(int bcno);
+	
 }

@@ -78,14 +78,13 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardComment boardCommentWrite(BoardComment comment) {
-		dao.boardCommentInsert(comment);
-		return null;
+	public void boardCommentWrite(BoardComment comment) {
+		dao.boardCommentInsert(comment);		
 	}
 
 	@Override
-	public List<BoardComment> boardCommentList(int bcno) {
-		List<BoardComment> list = dao.boardCommentList(bcno);
+	public List<BoardComment> boardCommentList(int bno) {
+		List<BoardComment> list = dao.boardCommentList(bno);
 		return list;
 	}
 	

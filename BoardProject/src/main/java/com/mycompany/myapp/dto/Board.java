@@ -18,6 +18,15 @@ public class Board {
 	private String bfilecontent;
 	MultipartFile battach;
 
+	private int count;
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
 
 	public MultipartFile getBattach() {
 		return battach;

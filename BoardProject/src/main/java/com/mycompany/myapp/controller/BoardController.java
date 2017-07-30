@@ -124,6 +124,9 @@ public class BoardController {
 	@RequestMapping("/board/boardDetail")
 	public String boardDetail(int bno, Model model) {
 		Board Board = service.getBoard(bno);
+		List<BoardComment> list = service.boardCommentList(bno);
+		// view 로 넘겨줄 데이터
+		model.addAttribute("list", list);
 		model.addAttribute("board", Board);
 		return "board/boardDetail";
 	}
@@ -229,15 +232,6 @@ public class BoardController {
 	@RequestMapping(value = "/board/boardCommentWrite", method = RequestMethod.POST)
 	public String boardCommentWrite(BoardComment comment) {		
 		service.boardCommentWrite(comment);
-		return "redirect:/board/boardDetail";
-	}
-	@RequestMapping("/board/boardCommentList")
-	public String boardCommentList(int bcno, Model model) {
-		// 현재 페이지의 데이터 가져오기
-		List<BoardComment> list = service.boardCommentList(bcno);
-		// view 로 넘겨줄 데이터
-		model.addAttribute("list", list);
-		// view 이름 리턴
-		return "board/boardDetail";
+		return "redirect:/board/boardDetail?bno=" + comment.getBno();
 	}
 }

@@ -26,16 +26,17 @@
 	</insert>
 
 	<select id="selectPage" parameterType="map"
-		resultType="com.mycompany.myapp.dto.Board">
-		select * from ( select rownum as r, bno, boriginalfilename,
-		btitle, bwriter,
-		bdate, bhitcount, blikecount
-		from ( select bno,
-		boriginalfilename, btitle, bwriter, bdate, bhitcount,
-		blikecount from
-		board order by bno desc
-		) where rownum &lt;=#{endNum}) where r
-		&gt;=#{startNum}
+		resultType="com.mycompany.myapp.dto.Board">	
+		select distinct a.*, ( select count(*) from boardcomment where bno =a.bno ) as count
+		from ( select rownum as r, bno, boriginalfilename, btitle, bwriter,	bdate, bhitcount, blikecount
+			from ( select  bno, boriginalfilename, btitle, bwriter, bdate, bhitcount, blikecount 
+				from board order by bno desc
+			) 
+			where rownum &lt;=#{endNum}
+		) a, 
+		boardcomment b  
+		where r &gt;=#{startNum} and a.bno = b.bno(+)
+		order by a.bno desc
 	</select>
 	<select id="countAll" resultType="int">
 		select count(*) from board

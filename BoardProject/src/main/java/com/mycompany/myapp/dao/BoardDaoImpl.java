@@ -94,10 +94,9 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public List<BoardComment> boardCommentList(int bcno) {	
-		List<BoardComment> list = sqlSessionTemplate.selectList("boardcomment.selectcommentlist", bcno);
+	public List<BoardComment> boardCommentList(int bno) {	
+		List<BoardComment> list = sqlSessionTemplate.selectList("boardcomment.selectcommentlist", bno);
 		return list;
 	}
-	
 	
 }
