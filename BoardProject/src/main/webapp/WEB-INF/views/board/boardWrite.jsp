@@ -76,8 +76,8 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-pencil"></span>
 				</span>
-				<textArea rows="10" cols="30" class="form-control" placeholder="내용" 
-					name="bcontent"></textArea>
+				<p><textArea rows="10" cols="30" class="form-control" placeholder="내용" 
+					name="bcontent"></textArea></p>
 			</div>
 		</div>
 		<div class="form-group">

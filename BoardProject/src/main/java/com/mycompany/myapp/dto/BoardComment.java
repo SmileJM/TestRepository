@@ -36,6 +36,9 @@ public class BoardComment {
 		return bccomment;
 	}
 	public void setBccomment(String bccomment) {
-		this.bccomment = bccomment;
+		this.bccomment = bccomment.replace("<", "&lt;");
+		this.bccomment = bccomment.replace(">", "&gt;");
+		this.bccomment = bccomment.replace("  ", "&nbsp;&nbsp;");
+		this.bccomment = bccomment.replace("\n", "<br/>");
 	}
 }

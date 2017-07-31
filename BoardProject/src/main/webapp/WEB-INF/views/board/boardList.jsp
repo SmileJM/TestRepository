@@ -56,7 +56,7 @@
 				<tr>
 					<td style=" border-left: 0px; border-right: 0px">${b.bno}</td>
 					<td style="text-align: left;  border-left: 0px; border-right: 0px">
-						<a href="boardDetail?bno=${b.bno}" >
+						<a href="boardDetail?bno=${b.bno}&pageNo=${pageNo}" >
 							${b.btitle}
 							<c:if test="${b.count > 0}" >
 							(${b.count})

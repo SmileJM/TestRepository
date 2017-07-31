@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="IoTFinalProjectDB" id="2A013317-37F8-4E5E-209C-C42E31D535D1" version="3.5">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:00:16 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>2A013317-37F8-4E5E-209C-C42E31D535D1</designId>
+</OSDM_Design>

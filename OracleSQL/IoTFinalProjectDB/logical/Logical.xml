@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="320E3497-573F-C473-F883-29074C59C976" mainViewID="F853F064-D9E4-FEAA-F8C3-1CE5FDF93E08">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:00:16 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

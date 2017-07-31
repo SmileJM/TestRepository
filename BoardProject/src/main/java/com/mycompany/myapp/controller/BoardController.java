@@ -122,12 +122,22 @@ public class BoardController {
 	}
 
 	@RequestMapping("/board/boardDetail")
-	public String boardDetail(int bno, Model model) {
-		Board Board = service.getBoard(bno);
+	public String boardDetail(int bno, int pageNo, Model model) {
+		Board board = service.getBoard(bno);
+		
+		String content = board.getBcontent();
+		content = content.replace("<", "&lt;");
+		content = content.replace(">", "&gt;");
+		content = content.replace("  ", "&nbsp;&nbsp;");
+		content = content.replace("\n", "<br/>");
+		board.setBcontent(content);
+		
 		List<BoardComment> list = service.boardCommentList(bno);
+
 		// view 로 넘겨줄 데이터
 		model.addAttribute("list", list);
-		model.addAttribute("board", Board);
+		model.addAttribute("board", board);
+		model.addAttribute("pageNo", pageNo);
 		return "board/boardDetail";
 	}
 
@@ -145,21 +155,22 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/board/boardUpdate", method = RequestMethod.GET)
-	public String boardUpdateGet(int bno, Model model) {
-		Board Board = service.getBoard(bno);
-		model.addAttribute("board", Board);
+	public String boardUpdateGet(int bno, int pageNo, Model model) {
+		Board board = service.getBoard(bno);
+		model.addAttribute("board", board);
+		model.addAttribute("pageNo", pageNo);
 		return "board/boardUpdate";
 	}
 
 	@RequestMapping("/board/boardLike")
-	public String boardLike(int bno, Model model) {
+	public String boardLike(int bno, int pageNo, Model model) {
 		Board board = service.getBoardLike(bno);
 		model.addAttribute("board", board);
-		return "board/boardDetail";
+		return "redirect:/board/boardDetail?bno="+bno + "&pageNo=" +pageNo;
 	}
 	
 	@RequestMapping(value = "/board/boardUpdate", method = RequestMethod.POST)
-	public String boardUpdatePost(Board Board, HttpServletRequest req) throws IllegalStateException, IOException {
+	public String boardUpdatePost(Board Board, HttpServletRequest req, int pageNo) throws IllegalStateException, IOException {
 		// 첨부 파일이 변경되었는지 검사
 		if (!Board.getBattach().isEmpty()) {
 			// 첨부 파일을 서버 로컬 시스템에 저장
@@ -175,7 +186,8 @@ public class BoardController {
 		}
 		// 게시물 수정 처리
 		service.boardUpdate(Board);
-		return "redirect:/board/boardDetail?bno=" + Board.getBno();
+		System.out.println(pageNo);
+		return "redirect:/board/boardDetail?bno=" + Board.getBno() + "&pageNo=" + pageNo;
 	}
 
 	@RequestMapping("/board/boardImage")
@@ -230,8 +242,8 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/board/boardCommentWrite", method = RequestMethod.POST)
-	public String boardCommentWrite(BoardComment comment) {		
+	public String boardCommentWrite(BoardComment comment, int pageNo) {		
 		service.boardCommentWrite(comment);
-		return "redirect:/board/boardDetail?bno=" + comment.getBno();
+		return "redirect:/board/boardDetail?bno=" + comment.getBno() + "&pageNo=" + pageNo;
 	}
 }

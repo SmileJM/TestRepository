@@ -6,8 +6,6 @@ import com.mycompany.myapp.dto.Board;
 import com.mycompany.myapp.dto.BoardComment;
 
 public interface BoardService {
-	
-
 	// Board
 	public void boardWrite(Board Board);	
 	public List<Board> boardListPage(int pageNo, int rowsPerPage);
@@ -24,7 +22,4 @@ public interface BoardService {
 	// BoardComment
 	public void boardCommentWrite(BoardComment comment);
 	public List<BoardComment>boardCommentList(int bcno);
-	
-	
-
 }

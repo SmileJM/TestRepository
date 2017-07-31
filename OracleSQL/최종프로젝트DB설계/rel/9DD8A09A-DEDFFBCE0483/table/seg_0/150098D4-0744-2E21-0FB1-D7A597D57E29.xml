@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="150098D4-0744-2E21-0FB1-D7A597D57E29" name="order">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 01:54:13 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<ordsAlias>table_10</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ono" id="6E0B3739-4CCA-65FB-8F4F-04EBB89AB4FE">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 01:55:53 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="member_mid" id="C9E3FF85-D2DF-0C1D-2C4A-C6E03E3493D4">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 01:55:24 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7AD27A5A-331A-4C93-968D-DD1BBCAE0B0A" referredColumn="FFE5A7E0-59A9-A7C1-B906-D0B3E6AE2BCB"/>
+</associations>
+</Column>
+<Column name="odate" id="8A6350CF-3FFC-EF62-4B83-895C3124DED8">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 01:57:10 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="550A6264-5907-18D0-3DB8-62AA778ED8AC" name="order_PK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 01:55:53 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6E0B3739-4CCA-65FB-8F4F-04EBB89AB4FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="52DC2043-84E3-2DEF-E00F-4E9BA572CA35" name="order_member_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 01:55:24 UTC</createdTime>
+<ownerDesignName>최종프로젝트DB설계</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C9E3FF85-D2DF-0C1D-2C4A-C6E03E3493D4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

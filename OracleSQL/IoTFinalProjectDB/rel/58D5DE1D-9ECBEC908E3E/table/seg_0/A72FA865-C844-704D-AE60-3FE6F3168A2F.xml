@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A72FA865-C844-704D-AE60-3FE6F3168A2F" name="member">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:07:28 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="meail" id="9E17142D-51C5-4E50-9E30-9398A635195D">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:17:32 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mname" id="6BE2DEEB-BDFC-E403-CC74-1C09C23319C2">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:17:32 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="moriginalfilename" id="90370C96-CCF7-7212-923B-2BD833CB08A1">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:17:32 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="msavedfilename" id="EC02F02D-5103-3A99-9862-6E79C444AB7A">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:17:32 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mfilecontent" id="CA490AB6-9EE2-AC39-D6C5-B0A9AD29308D">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:17:32 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mlevel" id="508CB950-EC0F-AB58-2638-FD64C95CB780">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:27:27 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FA65E8B1-8A90-BDDC-531B-5FF7A318B0F2" name="member_PK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:27:27 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9E17142D-51C5-4E50-9E30-9398A635195D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

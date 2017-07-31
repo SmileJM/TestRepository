@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0A395444-25CF-B4FC-DBD1-9FFAD3F197DF" name="likecount">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 05:43:15 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="memail" id="83A65F3C-B125-FF67-8D30-9886D630B500">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 05:43:34 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="02D2BCAA-C274-E7EF-F91A-5D16FA263683" referredColumn="AC41BC55-943D-0ACA-BCA3-D694E98B84A1"/>
+</associations>
+</Column>
+<Column name="mname" id="7BB02A9E-5603-92A3-3CB5-658397CCE758">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 05:43:34 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="02D2BCAA-C274-E7EF-F91A-5D16FA263683" referredColumn="16159B57-7617-8324-D54D-D0332E2E8969"/>
+</associations>
+</Column>
+<Column name="bno" id="0E1E5300-179C-53BA-0918-5B16C95C281C">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 05:43:47 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DD8D6F0B-5624-EC71-3371-F49E0CD35D51" referredColumn="C03DA122-1ADA-1BC6-FE6C-471798720AE0"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="467827B8-BFBD-F3F2-F030-2B2E1E1A45BF" name="likecount_member_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 05:43:34 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="83A65F3C-B125-FF67-8D30-9886D630B500"/>
+<colUsage columnID="7BB02A9E-5603-92A3-3CB5-658397CCE758"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E3894526-16FE-8D99-F538-0F8C9BA652BB" name="likecount_board_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 05:43:47 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0E1E5300-179C-53BA-0918-5B16C95C281C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="0BB6389F-254B-4FAB-B8A5-96B9AD00EC02">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:00:16 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>

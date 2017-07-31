@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="29597898-F480-F42F-69BD-271084E96E6F" containerWithKeyObject="2B82E592-98FC-6601-2077-460A7C1A4191" localFKIndex="8028685C-20BD-0065-70A9-AE450AEB5F35" name="boardcomment_board_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 05:42:41 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>56D97E81-765B-3434-0E35-6C0FABEA2FCC</referredTableID>
+<keyObject>6407107F-3840-042E-9448-F6147AF7D370</keyObject>
+<referredKeyID>6407107F-3840-042E-9448-F6147AF7D370</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

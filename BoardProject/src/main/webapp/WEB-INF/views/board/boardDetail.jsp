@@ -3,20 +3,17 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no">
-<title>JSP Page</title>
-<link
-	href="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/css/bootstrap.min.css"
-	rel="stylesheet" type="text/css" />
-<script
-	src="<%=application.getContextPath()%>/resources/jquery/jquery-3.2.1.min.js"
-	type="text/javascript"></script>
-<script
-	src="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/js/bootstrap.min.js"
-	type="text/javascript"></script>
+	<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, user-scalable=no">
+	<title>JSP Page</title>
+	<link	href="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/css/bootstrap.min.css"
+			rel="stylesheet" type="text/css" />
+	<script	src="<%=application.getContextPath()%>/resources/jquery/jquery-3.2.1.min.js"
+				type="text/javascript"></script>
+	<script	src="<%=application.getContextPath()%>/resources/bootstrap-3.3.7/js/bootstrap.min.js"
+				type="text/javascript"></script>			
 	<script>
 		function handleBtnUpdate() {
 			var bpassword = $("#bpassword").val();
@@ -33,7 +30,7 @@
 				success: function(data) {
 					if(data.result =="success") {
 						// console.log("success");
-						location.href="boardUpdate?bno=${board.bno}";
+						location.href="boardUpdate?bno=${board.bno}&pageNo=${pageNo}";
 					} else {
 						$("#bpassword").val("");
 						$("#bpassword").attr("placeholder", "비밀번호를 입력하셔야 합니다.");
@@ -66,7 +63,7 @@
 			});
 		}
 		function handleBtnLike() {
-			location.href="boardLike?bno=${board.bno}";		
+			location.href="boardLike?bno=${board.bno}&pageNo=${pageNo}";		
 		}
 		
 		function handleBtnComment(){
@@ -112,9 +109,8 @@
 				<img src="boardImage?bno=${board.bno }" style="max-width: 980px;"/>
 			</c:if>
 		</div>
-		<div class="form-group" style="text-align: center;">
-			<%-- <textArea rows="10" cols="30" class="form-control" placeholder="내용"  name="bcontent" readonly="readonly" style="background-color: white; border: 0px;">${board.bcontent }</textArea> --%>
-			<p>${board.bcontent }</p>
+		<div class="form-group" style="text-align: center;">			
+			<p class="text-justify" >${board.bcontent}</p>
 		</div>
 		<div class="form-group" style="text-align: center;">
 			<div class="btn btn-danger" style="border-radius: 50px; width: 100px; height: 100px; line-height: 30px;" onclick="handleBtnLike()">
@@ -125,21 +121,21 @@
 		<hr/>
 		<div class="form-group" align="right">
 			<input type="password" id="bpassword" placeholder="비밀번호"	name="bpassword"  style="width: 150px; height: 33px;"  maxlength="10"/>
-			<a href="boardList" class="btn btn-primary" >목록</a>
+			<a href="boardList?pageNo=${pageNo}" class="btn btn-primary" >목록</a>
 			<input type="button" class="btn btn-warning" value="수정"  onclick="handleBtnUpdate()" />
 			<input type="button" class="btn btn-danger" value="삭제"    onclick="handleBtnDelete()"/>			
 		</div>		
 		<hr/>
 		<!-- 댓글 리스트 -->
-		<table>
-			<c:forEach var="comment" items="${list}">
+		<table class="table table-bordered table-striped table-hover ">
+			<c:forEach var="comment" items="${list}" varStatus="status">
 				<fmt:formatDate var="bcdateDay" value="${comment.bcdate}" pattern="yyyy-MM-dd"/>
 				<fmt:formatDate var="bcdateTime" value="${comment.bcdate}" pattern="HH:mm:ss"/>
-				<tr>
-					<td>${comment.bccomment}</td>
-					<td>${comment.bcwriter}</td>
-					<td>${bcdateDay}<br/>${bcdateTime}</td>
-				</tr>			
+					<tr >				
+						<td style="width: 15%; ">${comment.bcwriter}</td>
+						<td style="width: 70%"><p>${comment.bccomment}</p></td>
+						<td style="width: 15%; text-align: right">${bcdateDay}<br/>${bcdateTime}</td>
+					</tr>			
 			</c:forEach>
 		</table>
 		<!-- 댓글 -->
@@ -152,6 +148,7 @@
 					name="bccomment" id="bccomment"></textArea>
 				<!-- 세션 아이디 -->
 				<input type="hidden" class="form-control"  name="bcwriter"  id="bcwriter" value="session id"/>				
+				<input type="hidden" class="form-control"  name="pageNo"  id="pageNo" value="${pageNo}"/>				
 			</div>
 		</div>
 		<div class="form-group" align="right">

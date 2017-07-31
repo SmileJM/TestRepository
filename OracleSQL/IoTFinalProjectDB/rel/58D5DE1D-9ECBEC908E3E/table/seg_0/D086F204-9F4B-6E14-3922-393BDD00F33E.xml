@@ -1,0 +1,177 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D086F204-9F4B-6E14-3922-393BDD00F33E" name="board">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:17:56 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="bno" id="4985E766-3CCD-0633-7618-64A37F52EA22">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:18:13 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="btitle" id="37E26AF6-A7AC-140F-D163-735BD5FB9BCA">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:26:31 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bcontent" id="F392CC09-5968-A647-C6BD-B4DD31E85303">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:26:31 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bwriter" id="24D36255-A7CB-A54C-BB9F-17D0F6461325">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:26:31 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bdate" id="08895F55-BE4C-3189-ACC9-957D8FBF570B">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:26:31 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bpassword" id="93EDED30-0B66-2786-17D9-6DE1ABCEFC2C">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:26:31 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bhitcount" id="7413D4E1-7981-8F12-DFA9-144A63AFF579">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:26:31 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="blikecount" id="E0F2AAFC-E510-9397-D323-F7D57B2F7D44">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:26:31 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="boriginalfilename" id="7E2361FA-8AF3-DF9C-2440-69BFA0C42455">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:26:31 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bsavedfilename" id="568B8EA1-0565-FB83-F16C-5B2110CF9B36">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:26:31 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bfilecontent" id="8CAFB9EE-EBF1-4082-DD7A-06A06AB21ABC">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:26:31 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="meail" id="169D2714-D562-8952-2F27-2E0800200554">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:27:56 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FCCF3216-4DAB-9DE0-7F2C-D5D6E958EB7C" referredColumn="9E17142D-51C5-4E50-9E30-9398A635195D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9E05F72D-FE09-78AB-2218-7490798084D7" name="board_PK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:26:31 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4985E766-3CCD-0633-7618-64A37F52EA22"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A0AE401D-856C-4F90-7E9B-3D3EED15A0AE" name="board_member_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 03:27:56 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="169D2714-D562-8952-2F27-2E0800200554"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

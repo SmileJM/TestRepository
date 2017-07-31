@@ -80,6 +80,7 @@
 			</div>
 		</div>
 		<div align="right">
+		<input type="hidden" class="form-control"  name="pageNo"  id="pageNo" value="${pageNo}"/>		
 		<input type="submit" class="btn btn-info" value="등록" />
 		</div>
 	</form>

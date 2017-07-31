@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1E682376-D55A-BA9D-7F6E-867BD0FB1B54" name="member">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 05:26:58 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="memail" id="AC41BC55-943D-0ACA-BCA3-D694E98B84A1">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 05:29:06 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mname" id="16159B57-7617-8324-D54D-D0332E2E8969">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 05:29:06 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="moriginalfilename" id="6A6EA963-8FD4-7E5C-4E0B-D29D5D680C6C">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 05:29:06 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="msavedfilename" id="F65D75B3-2404-3531-5E5A-3D231C311148">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 05:29:06 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mfilecontent" id="AB8381AC-4191-D51A-6FFD-F893C148317A">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 05:29:06 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mlevel" id="DF957FE1-B558-3FE9-51F8-8DBA7C17C0E0">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 05:29:06 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="528E649A-0698-E6E4-F6D2-B4F6AE2C1795" name="member_PK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-07-31 05:29:06 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AC41BC55-943D-0ACA-BCA3-D694E98B84A1"/>
+<colUsage columnID="16159B57-7617-8324-D54D-D0332E2E8969"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
