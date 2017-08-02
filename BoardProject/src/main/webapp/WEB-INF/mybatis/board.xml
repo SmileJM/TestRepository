@@ -5,38 +5,35 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="board">
-
 	<insert id="insert" parameterType="com.mycompany.myapp.dto.Board">
-		<selectKey keyProperty="bno" resultType="int" order="AFTER">
-			select	board_bno_seq.currval from dual
-		</selectKey>
 		insert into board (
-			bno, btitle, BCONTENT, BWRITER, BDATE,
+			btitle, BCONTENT, BWRITER, BDATE,
 			BPASSWORD, BHITCOUNT, BLIKECOUNT,
 			BORIGINALFILENAME, BSAVEDFILENAME,
-			BFILECONTENT)
+			BFILECONTENT, MEMAIL)
 		values	(
-			board_bno_seq.nextval, #{btitle},
+			#{btitle},
 			#{bcontent},
-			#{bwriter}, sysdate,
+			#{bwriter},  current_timestamp,
 			#{bpassword}, 0, 0,
 			#{boriginalfilename},
 			#{bsavedfilename},
-			#{bfilecontent})
+			#{bfilecontent},
+			'email@test')
 	</insert>
 
 	<select id="selectPage" parameterType="map"
 		resultType="com.mycompany.myapp.dto.Board">	
 		select distinct a.*, ( select count(*) from boardcomment where bno =a.bno ) as count
-		from ( select rownum as r, bno, boriginalfilename, btitle, bwriter,	bdate, bhitcount, blikecount
+		from ( select bno, boriginalfilename, btitle, bwriter,	bdate, bhitcount, blikecount
 			from ( select  bno, boriginalfilename, btitle, bwriter, bdate, bhitcount, blikecount 
 				from board order by bno desc
-			) 
-			where rownum &lt;=#{endNum}
-		) a, 
+			) as c 			
+		) a left join  
 		boardcomment b  
-		where r &gt;=#{startNum} and a.bno = b.bno(+)
+		on  a.bno = b.bno
 		order by a.bno desc
+		limit #{startNum}, #{endNum}
 	</select>
 	<select id="countAll" resultType="int">
 		select count(*) from board
@@ -55,12 +52,12 @@
 	
 	<update id="update" parameterType="com.mycompany.myapp.dto.Board">
 	<if test="boriginalfilename != null">
-	update board set btitle=#{btitle}, bcontent=#{bcontent}, bpassword=#{bpassword}, bdate=sysdate, boriginalfilename=#{boriginalfilename}, 
+	update board set btitle=#{btitle}, bcontent=#{bcontent}, bpassword=#{bpassword}, bdate=current_timestamp, boriginalfilename=#{boriginalfilename}, 
 	bsavedfilename=#{bsavedfilename}, bfilecontent=#{bfilecontent} where bno=#{bno}
 	</if>	
 	
 	<if test="boriginalfilename == null">
-	update board set btitle=#{btitle}, bcontent=#{bcontent}, bpassword=#{bpassword}, bdate=sysdate where bno=#{bno}
+	update board set btitle=#{btitle}, bcontent=#{bcontent}, bpassword=#{bpassword}, bdate=current_timestamp where bno=#{bno}
 	</if>
 	</update>
 	

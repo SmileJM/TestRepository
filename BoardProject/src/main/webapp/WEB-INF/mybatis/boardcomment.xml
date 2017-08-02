@@ -7,11 +7,8 @@
 <mapper namespace="boardcomment">
 
 	<insert id="insert" parameterType="com.mycompany.myapp.dto.BoardComment">
-		<selectKey keyProperty="bcno" resultType="int" order="AFTER">
-			select	boardcomment_bcno_seq.currval from dual
-		</selectKey>
-		insert into boardcomment (bno, bcno, bcwriter, bcdate, bccomment )
-		values (#{bno}, boardcomment_bcno_seq.nextval, #{bcwriter}, sysdate, #{bccomment}	)
+		insert into boardcomment (bno,  bcwriter, bcdate, bccomment )
+		values (#{bno},  #{bcwriter}, current_timestamp, #{bccomment}	)
 	</insert>
 	
 	<select id="selectcommentlist" parameterType="com.mycompany.myapp.dto.BoardComment"
