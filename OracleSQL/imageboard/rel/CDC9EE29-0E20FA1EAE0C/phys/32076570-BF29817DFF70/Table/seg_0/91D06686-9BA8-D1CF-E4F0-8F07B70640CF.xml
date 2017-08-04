@@ -1,0 +1,44 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="ACCOUNT" directorySegmentName="seg_0" id="91D06686-9BA8-D1CF-E4F0-8F07B70640CF">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<schemaObject>8301E891-2C7A-BAA8-81F3-B91F8768A80A</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>8A1CE9D6-38D0-4A1F-50EE-E04E1FB6CD90</segment>
+<tableSpace>0F1808AF-EE73-3782-0D34-EB667713791D</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="ANO" id="343A061C-C80B-69E3-B6AC-E3E8E0547652">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="AOWNER" id="BB426D66-9CAE-FA8A-F09F-CFD7BEE3D0B6">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ABALANCE" id="FD511E3C-4E58-FEC5-118C-94FDC359B7F9">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="ACCOUNT_PK" id="A4953F09-351B-9BC7-F012-552A0BB0E384">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<schemaObject>8301E891-2C7A-BAA8-81F3-B91F8768A80A</schemaObject>
+<segment>E47EB9B3-620F-609A-748A-021383B27142</segment>
+<tableSpace>0F1808AF-EE73-3782-0D34-EB667713791D</tableSpace>
+<indexSegment>E47EB9B3-620F-609A-748A-021383B27142</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

@@ -1,0 +1,83 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F8B49B1C-6457-D1E8-969C-0E965A84AD5B" name="BOARDMEMBER">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:01:49 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<ordsAlias>table_10</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MEMAIL" id="FADBFF23-B9AD-308F-45AA-2E725D87F268">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:03:25 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MNAME" id="5654A125-5FA4-FCAD-BAD2-4023DB6BF2CE">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:03:25 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MORIGINALFILENAME" id="B6F6D624-02CD-EAFC-79DC-F961D844686D">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:03:25 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MSAVEDFILENAME" id="0978BC2E-F0F5-75A4-1A8E-CBBB2950C876">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:03:25 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MFILECONTENT" id="D58E6446-00FC-3122-0FB2-A1F59CE153BB">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:03:25 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FD1F8DEE-0073-C458-A59F-00B48182CDCB" name="MEMBER_PK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:03:25 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FADBFF23-B9AD-308F-45AA-2E725D87F268"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.mycompany.myapp.dto.BoardComment;
 import com.mycompany.myapp.dto.ImageBoard;
 import com.mycompany.myapp.service.ImageBoardService;
 
@@ -35,11 +36,10 @@ public class ImageBoardController {
 
 	@Autowired
 	private ServletContext servletContext;
-
 	/*
-	 * -------------------------------------------------------------------
+	 * 
 	 * ImageBoard
-	 * -------------------------------------------------------------------
+	 * 
 	 */
 	@RequestMapping("/board/imageBoardList")
 	public String board(@RequestParam(defaultValue = "1") int pageNo, Model model) {
@@ -76,13 +76,21 @@ public class ImageBoardController {
 		// view 이름 리턴
 		return "board/imageBoardList";
 	}
-
+	/*
+	 * 
+	 * boardWriteGet
+	 * 
+	 */
 	@RequestMapping(value = "/board/imageBoardWrite", method = RequestMethod.GET)
 	public String boardWriteGet() {
 		LOGGER.info("실행됨");
 		return "board/imageBoardWrite";
 	}
-
+	/*
+	 * 
+	 * boardWritePost
+	 * 
+	 */
 	@RequestMapping(value = "/board/imageBoardWrite", method = RequestMethod.POST)
 	public String boardWritePost(ImageBoard board, HttpServletRequest req) throws IllegalStateException, IOException {
 
@@ -109,11 +117,28 @@ public class ImageBoardController {
 		String no = req.getParameter("type");
 		return "redirect:/board/imageBoardList?type=" + no;
 	}
-
+	/*
+	 * 
+	 * boardDetail
+	 * 
+	 */
 	@RequestMapping("/board/imageBoardDetail")
-	public String boardDetail(int bno, Model model) {
+	public String boardDetail(int bno, int pageNo, Model model) {
 		ImageBoard board = service.getImageBoard(bno);
+		
+		String content = board.getBcontent();
+		content = content.replace("<", "&lt;");
+		content = content.replace(">", "&gt;");
+		content = content.replace("  ", "&nbsp;&nbsp;");
+		content = content.replace("\n", "<br/>");
+		board.setBcontent(content);
+		
+		List<BoardComment> list = service.boardCommentList(bno);
+
+		// view 로 넘겨줄 데이터
+		model.addAttribute("list", list);
 		model.addAttribute("board", board);
+		model.addAttribute("pageNo", pageNo);
 		return "board/imageBoardDetail";
 	}
 

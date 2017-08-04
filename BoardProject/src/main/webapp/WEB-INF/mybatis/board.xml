@@ -33,7 +33,8 @@
 		boardcomment b  
 		on  a.bno = b.bno
 		order by a.bno desc
-		limit #{startNum}, #{endNum}
+		limit #{startNum}, 10
+<!-- 		limit #{startNum}, #{endNum} -->
 	</select>
 	<select id="countAll" resultType="int">
 		select count(*) from board

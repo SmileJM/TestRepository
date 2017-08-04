@@ -1,0 +1,161 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FF634BD8-7521-5929-369B-59EFD834447B" schemaObject="8301E891-2C7A-BAA8-81F3-B91F8768A80A" name="BOARD">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>96039BEC-468A-FE82-FD45-B2F9607DA7A1</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="BNO" id="E410946C-D67D-289E-1640-C9E9D66EE94F">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>EDB9B7F9-E9C3-FA6E-6B78-F6DDF4B31229</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BTITLE" id="0DB08089-BB5F-C7D1-FF06-C7386423D0EF">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>7148A38F-6457-50F4-35C8-690A3748476B</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BCONTENT" id="B6D26D78-CF0D-A931-D044-54C3E2482E86">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>D543D35D-C559-D4A9-5A81-B703A493E4FC</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 BYTE</dataTypeSize>
+<ownDataTypeParameters>4000 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BWRITER" id="FBEAD470-7D3E-3E33-B06A-D9339EFFC897">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>2B242523-84D8-C6F8-4415-6CBBD4663DF6</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BDATE" id="6197C5B3-F174-DDD2-7FA8-0F0BBA57E372">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>00B7DF43-8591-94EF-BA96-1264D6C4969D</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BPASSWORD" id="390AF450-2478-54BA-AD9E-5266ACAB69CE">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>0A45FB13-79FA-1A79-D416-86EABB3E38A8</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BHITCOUNT" id="5AB49990-6A46-CA41-04BB-A82580D35299">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>815ADF01-8F2F-161B-C4F9-AB83B2CEE699</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BORIGINALFILENAME" id="0541BE5A-0DC9-E17F-F4BC-6E4CCA2860E7">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>318001D0-FEF9-F66C-D540-1A94510862C4</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BSAVEDFILENAME" id="69EB6353-4CFE-1308-1610-78C8A2E6026B">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>605AB903-2190-99D9-A1D8-81F0E4FF92A9</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BFILECONTENT" id="EB063E26-A3DB-C8B6-F33B-A90C06886716">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>2DF32FB5-DAFA-0109-FD66-57F6B1A7D04D</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="57BA4D52-470D-83CB-4DA3-CE94150E597C" name="BOARD_PK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>A8BB0D5A-DE46-1BD2-AD85-2D4E6B5275AA</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E410946C-D67D-289E-1640-C9E9D66EE94F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A231A1DF-CBBF-1CE7-4FD7-688CB68FB742" schemaObject="8301E891-2C7A-BAA8-81F3-B91F8768A80A" name="BOARD_PK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>4F881B9F-E98C-BC40-2C06-85E285ECD704</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E410946C-D67D-289E-1640-C9E9D66EE94F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

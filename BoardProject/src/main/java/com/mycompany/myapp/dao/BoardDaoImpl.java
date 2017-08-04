@@ -37,7 +37,7 @@ public class BoardDaoImpl implements BoardDao {
 	public List<Board> boardSelectPage(int pageNo, int rowsPerPage) {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("endNum", pageNo * rowsPerPage);
-		map.put("startNum", (pageNo - 1) * rowsPerPage + 1);
+		map.put("startNum", (pageNo - 1) * rowsPerPage );
 		List<Board> list = sqlSessionTemplate.selectList("board.selectPage", map);
 		return list;
 	}

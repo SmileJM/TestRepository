@@ -152,6 +152,7 @@
 			</div>
 		</div>
 		<div class="form-group" align="right">
+			<input type="password" id="bcpassword" placeholder="비밀번호"	name="bpassword"  style="width: 150px; height: 33px;"  maxlength="10"/>
 			<input type="button" class="btn btn-success" value="등록"  onclick="handleBtnComment()" />		
 		</div>
 	</form>

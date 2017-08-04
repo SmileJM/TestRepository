@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="BOARD" directorySegmentName="seg_0" id="FF634BD8-7521-5929-369B-59EFD834447B">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<schemaObject>8301E891-2C7A-BAA8-81F3-B91F8768A80A</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>8A1CE9D6-38D0-4A1F-50EE-E04E1FB6CD90</segment>
+<tableSpace>0F1808AF-EE73-3782-0D34-EB667713791D</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="BORIGINALFILENAME" id="0541BE5A-0DC9-E17F-F4BC-6E4CCA2860E7">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BTITLE" id="0DB08089-BB5F-C7D1-FF06-C7386423D0EF">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BPASSWORD" id="390AF450-2478-54BA-AD9E-5266ACAB69CE">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BHITCOUNT" id="5AB49990-6A46-CA41-04BB-A82580D35299">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<defaultValue>0</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="BDATE" id="6197C5B3-F174-DDD2-7FA8-0F0BBA57E372">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BSAVEDFILENAME" id="69EB6353-4CFE-1308-1610-78C8A2E6026B">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BCONTENT" id="B6D26D78-CF0D-A931-D044-54C3E2482E86">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BNO" id="E410946C-D67D-289E-1640-C9E9D66EE94F">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BFILECONTENT" id="EB063E26-A3DB-C8B6-F33B-A90C06886716">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BWRITER" id="FBEAD470-7D3E-3E33-B06A-D9339EFFC897">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="BOARD_PK" id="A231A1DF-CBBF-1CE7-4FD7-688CB68FB742">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<schemaObject>8301E891-2C7A-BAA8-81F3-B91F8768A80A</schemaObject>
+<segment>E47EB9B3-620F-609A-748A-021383B27142</segment>
+<tableSpace>0F1808AF-EE73-3782-0D34-EB667713791D</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="BOARD_PK" id="57BA4D52-470D-83CB-4DA3-CE94150E597C">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<segment>E47EB9B3-620F-609A-748A-021383B27142</segment>
+<tableSpace>0F1808AF-EE73-3782-0D34-EB667713791D</tableSpace>
+<existingIndex>A231A1DF-CBBF-1CE7-4FD7-688CB68FB742</existingIndex>
+<indexSegment>E47EB9B3-620F-609A-748A-021383B27142</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

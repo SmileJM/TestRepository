@@ -1,0 +1,166 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D754A444-F40F-72F3-8803-C8F3A0828BE0" schemaObject="8301E891-2C7A-BAA8-81F3-B91F8768A80A" name="MEMBER">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>225FAC18-AA24-DF0C-AC77-85846E123734</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MID" id="A84B4741-8B8A-411F-42C3-4A1E39404747">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>AD663500-1402-2E31-25D6-3D37A8FAB08B</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<ownDataTypeParameters>15 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MNAME" id="C6274602-B36C-BDE7-0A78-3B0603FB769A">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>30413E7D-7931-337C-4B7B-1A570B2F9FE2</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MPASSWORD" id="2F0CAFAD-7D77-0076-5704-C41169F64DEF">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>382713A7-90A3-6614-6D60-FB6E6B347535</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<ownDataTypeParameters>15 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MDATE" id="64C86BE6-CFF8-BABB-F8ED-9E080A493810">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>A9D155C5-8A15-8234-DC84-EBF9DFDC8D8B</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MTEL" id="4DFB1DB9-BE72-0E4F-2B26-DE6A0FBB7EA9">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>318BCAEE-94F5-48A1-94F9-78824D0FEEC9</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEMAIL" id="F5698C91-C64C-51C3-1742-3602B9E51B90">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>5D228B55-06E5-FC62-B34C-773F1D68D3BB</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MAGE" id="80E4E385-389B-4675-9A51-29088A7CBC14">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>21B407C2-EC43-1E43-B1B1-789B05F1D988</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MADDRESS" id="2CF65CE8-5C7F-68E0-313A-C03C8688D935">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>896BD875-E98B-1930-D54E-31174E86532F</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MORIGINALFILENAME" id="D4203995-BC43-C0D9-50B9-67343A5A0ABE">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>58F31427-FA8E-95F7-AED4-F2A25BD941B2</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MSAVEDFILENAME" id="0C703A4E-AD51-4E6E-81CC-198E0DE11890">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>7A84830A-BDD2-08FF-0299-8FBCF871113D</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MFILECONTENT" id="6EDB63BD-7BB3-A04F-447C-3A64C33059F4">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>3DA35A46-4D66-6C30-0BE1-E2010A606646</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 BYTE</dataTypeSize>
+<ownDataTypeParameters>200 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="678F0BBF-F44D-0386-FB8F-1A2698B06328" schemaObject="8301E891-2C7A-BAA8-81F3-B91F8768A80A" name="MEMBER_PK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<importedID>05AAB778-12E3-74C5-2E74-24B5759DAE5A</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A84B4741-8B8A-411F-42C3-4A1E39404747"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

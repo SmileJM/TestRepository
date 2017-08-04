@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="MEMBER" directorySegmentName="seg_0" id="D754A444-F40F-72F3-8803-C8F3A0828BE0">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<schemaObject>8301E891-2C7A-BAA8-81F3-B91F8768A80A</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>8A1CE9D6-38D0-4A1F-50EE-E04E1FB6CD90</segment>
+<tableSpace>0F1808AF-EE73-3782-0D34-EB667713791D</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="MSAVEDFILENAME" id="0C703A4E-AD51-4E6E-81CC-198E0DE11890">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MADDRESS" id="2CF65CE8-5C7F-68E0-313A-C03C8688D935">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MPASSWORD" id="2F0CAFAD-7D77-0076-5704-C41169F64DEF">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MTEL" id="4DFB1DB9-BE72-0E4F-2B26-DE6A0FBB7EA9">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MDATE" id="64C86BE6-CFF8-BABB-F8ED-9E080A493810">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MFILECONTENT" id="6EDB63BD-7BB3-A04F-447C-3A64C33059F4">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MAGE" id="80E4E385-389B-4675-9A51-29088A7CBC14">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MID" id="A84B4741-8B8A-411F-42C3-4A1E39404747">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MNAME" id="C6274602-B36C-BDE7-0A78-3B0603FB769A">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MORIGINALFILENAME" id="D4203995-BC43-C0D9-50B9-67343A5A0ABE">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MEMAIL" id="F5698C91-C64C-51C3-1742-3602B9E51B90">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="MEMBER_PK" id="678F0BBF-F44D-0386-FB8F-1A2698B06328">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<schemaObject>8301E891-2C7A-BAA8-81F3-B91F8768A80A</schemaObject>
+<segment>E47EB9B3-620F-609A-748A-021383B27142</segment>
+<tableSpace>0F1808AF-EE73-3782-0D34-EB667713791D</tableSpace>
+<indexSegment>E47EB9B3-620F-609A-748A-021383B27142</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

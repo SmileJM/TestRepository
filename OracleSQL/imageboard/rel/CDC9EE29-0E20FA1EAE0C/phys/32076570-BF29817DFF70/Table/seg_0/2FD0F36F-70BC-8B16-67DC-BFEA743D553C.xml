@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="IMAGEBOARD2" directorySegmentName="seg_0" id="2FD0F36F-70BC-8B16-67DC-BFEA743D553C">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<schemaObject>8301E891-2C7A-BAA8-81F3-B91F8768A80A</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>8A1CE9D6-38D0-4A1F-50EE-E04E1FB6CD90</segment>
+<tableSpace>0F1808AF-EE73-3782-0D34-EB667713791D</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="BWRITER" id="2212EAE0-6DD9-7AD6-0CE8-F9F29F4EFDAA">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BPASSWORD" id="2977CF8B-7BD2-3AF5-EBBA-E9D771B8C787">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BSAVEDFILENAME" id="2C575CE7-B4B6-CC31-7B9D-CCF78B5D5CC4">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BORIGINALFILENAME" id="62A3982A-BB69-A762-FCE9-1C5EBAEDFF02">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BCONTENT" id="75EF9ECA-F354-B3DA-F83E-23289EBB8B5A">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BLIKECOUNT" id="A0A98DB9-18D0-B8DE-72E9-76213C58B06B">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BFILECONTENT" id="A7F38FE1-758A-B401-A928-F6E54E300070">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BNO" id="AE9A38B8-1DC3-9EC7-FABD-E791ECE626BE">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BTITLE" id="CCCE8982-676E-C0B1-4AFC-42D60DEE22C2">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BDATE" id="F180A604-EE88-83BA-0EA6-F4A0D633E0C2">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BHITCOUNT" id="F6410FE8-1726-A5B7-1576-7450CB2D63AA">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+</TableProxyOraclev11g>

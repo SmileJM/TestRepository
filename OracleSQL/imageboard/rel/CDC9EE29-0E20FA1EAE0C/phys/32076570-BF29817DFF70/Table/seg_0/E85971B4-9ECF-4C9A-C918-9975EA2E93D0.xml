@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="comment" directorySegmentName="seg_0" id="E85971B4-9ECF-4C9A-C918-9975EA2E93D0">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:50:30 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="CCOMMENT" id="2C5C61B0-8C4E-7F2D-714B-BC1909C49D9B">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:54:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BNO" id="3CC60473-575F-9144-740F-57AEB9BCE65B">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:59:59 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CDATE" id="3EDD79D2-F8A2-2DFC-B52F-E97F2F9823D9">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:54:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CNO" id="5C652B3B-829E-57F1-7B39-8D2B28E4F940">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:54:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CPASSWORD" id="64E36332-3B59-E2EC-EB4C-0D0890D1FB62">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:59:45 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CWRITER" id="E1DB04DE-1022-1F4D-1B9A-1B9820B3A6B2">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:54:11 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="comment_IMAGEBOARD_FK" id="0A51F9B8-C41B-9724-7CF9-FC3AF693E12C">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:59:59 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="comment_PK" id="29F217FA-4E62-3C76-C878-32B9562140B3">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:54:39 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

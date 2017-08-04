@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="MEMBER" directorySegmentName="seg_0" id="F8B49B1C-6457-D1E8-969C-0E965A84AD5B">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:01:49 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="MSAVEDFILENAME" id="0978BC2E-F0F5-75A4-1A8E-CBBB2950C876">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:03:25 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MNAME" id="5654A125-5FA4-FCAD-BAD2-4023DB6BF2CE">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:03:25 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MORIGINALFILENAME" id="B6F6D624-02CD-EAFC-79DC-F961D844686D">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:03:25 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MFILECONTENT" id="D58E6446-00FC-3122-0FB2-A1F59CE153BB">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:03:25 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MEMAIL" id="FADBFF23-B9AD-308F-45AA-2E725D87F268">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:03:25 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="MEMBER_PK" id="FD1F8DEE-0073-C458-A59F-00B48182CDCB">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:03:25 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

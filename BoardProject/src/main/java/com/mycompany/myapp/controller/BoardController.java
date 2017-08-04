@@ -120,7 +120,11 @@ public class BoardController {
 
 		return "redirect:/board/boardList";
 	}
-
+	/*
+	 * 
+	 * boardDetail
+	 * 
+	 */
 	@RequestMapping("/board/boardDetail")
 	public String boardDetail(int bno, int pageNo, Model model) {
 		Board board = service.getBoard(bno);

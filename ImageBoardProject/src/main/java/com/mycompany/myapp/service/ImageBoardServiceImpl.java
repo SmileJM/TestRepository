@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 
 import com.mycompany.myapp.dao.ImageBoardDao;
+import com.mycompany.myapp.dto.BoardComment;
 import com.mycompany.myapp.dto.Exam12Member;
 import com.mycompany.myapp.dto.ImageBoard;
 
@@ -119,5 +120,16 @@ public class ImageBoardServiceImpl implements ImageBoardService {
 		board.setBlikecount(board.getBlikecount() + 1);
 		dao.imageBoardUpdateBlikecount(bno, board.getBlikecount());
 		return board;
+	}
+	
+	@Override
+	public void boardCommentWrite(BoardComment comment) {
+		dao.boardCommentInsert(comment);		
+	}
+
+	@Override
+	public List<BoardComment> boardCommentList(int bno) {
+		List<BoardComment> list = dao.boardCommentList(bno);
+		return list;
 	}
 }

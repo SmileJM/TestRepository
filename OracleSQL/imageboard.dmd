@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="imageboard" id="593EDB1E-F791-CA2F-EB5D-8E21364CBB8A" version="3.5">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 09:49:17 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>593EDB1E-F791-CA2F-EB5D-8E21364CBB8A</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="31EBBD11-4F88-CF65-7628-48D274022F2D">
+<designStoragePath>C:\</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

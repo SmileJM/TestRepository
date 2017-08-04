@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.mycompany.myapp.dto.BoardComment;
 import com.mycompany.myapp.dto.Exam12Member;
 import com.mycompany.myapp.dto.ImageBoard;
 
@@ -130,5 +131,25 @@ public class ImageBoardDaoImpl implements ImageBoardDao {
 		map.put("bno", bno);
 		map.put("blikecount", blikecount);
 		sqlSessionTemplate.update("imageBoard.updateBlikecount", map);
+	}
+	
+	/*************************************************************************************
+	 * 
+	 * BoardComment
+	 * 
+	 *************************************************************************************/
+
+	@Override
+	public int boardCommentInsert(BoardComment comment) {
+		sqlSessionTemplate.insert("boardcomment.insert", comment);
+		int cno = comment.getCno();
+		LOGGER.info(cno + "");
+		return cno;
+	}
+
+	@Override
+	public List<BoardComment> boardCommentList(int bno) {	
+		List<BoardComment> list = sqlSessionTemplate.selectList("boardcomment.selectcommentlist", bno);
+		return list;
 	}
 }

@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6D8D3B39-16FE-912F-F4E8-E0BEE34FA42D" name="LIKECOUNT">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:01:01 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<ordsAlias>table_9</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="BNO" id="003DEA3A-9B86-F84A-A759-F4D4D71A7ECE">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:05:18 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FA1B50DF-7CB2-967C-79D4-BDE1DB640DC9" referredColumn="636535E5-1449-76EB-589F-8341D73B5746"/>
+</associations>
+</Column>
+<Column name="MEMAIL" id="6A5B0FEF-F13A-DC6A-3FDE-F544A6050722">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:07:54 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FFB54C9B-ECE3-9DFC-6EB3-3F5B8E95CD7C" referredColumn="FADBFF23-B9AD-308F-45AA-2E725D87F268"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D06E86CB-0202-C725-00E9-419A6479DA8A" name="LIKECOUNT_IMAGEBOARD_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:05:18 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="003DEA3A-9B86-F84A-A759-F4D4D71A7ECE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="98D6A2EA-D8F4-5F5F-B996-A053A89EFBB7" name="LIKECOUNT_MEMBER_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:07:54 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6A5B0FEF-F13A-DC6A-3FDE-F544A6050722"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

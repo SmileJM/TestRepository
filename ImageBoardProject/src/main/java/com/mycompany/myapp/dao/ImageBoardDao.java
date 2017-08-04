@@ -2,6 +2,7 @@ package com.mycompany.myapp.dao;
 
 import java.util.List;
 
+import com.mycompany.myapp.dto.BoardComment;
 import com.mycompany.myapp.dto.Exam12Member;
 import com.mycompany.myapp.dto.ImageBoard;
 
@@ -27,6 +28,8 @@ public interface ImageBoardDao {
 	public void imageBoardUpdateBlikecount(int bno, int blikecount);
 //	public List<Exam12ImageBoard> imageBoardSelectPage(int pageNo, int rowsPerPage, String btitle);
 	
-
+	// BoardComment
+	public int boardCommentInsert(BoardComment comment);
+	public List<BoardComment>boardCommentList(int cno);
 
 }

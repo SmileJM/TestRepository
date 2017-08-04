@@ -2,6 +2,7 @@ package com.mycompany.myapp.service;
 
 import java.util.List;
 
+import com.mycompany.myapp.dto.BoardComment;
 import com.mycompany.myapp.dto.Exam12Member;
 import com.mycompany.myapp.dto.ImageBoard;
 
@@ -32,5 +33,8 @@ public interface ImageBoardService {
 	public ImageBoard getImageBoardLike(int bno);
 	// public List<Exam12ImageBoard> getImageBoardSearch(int pageNo, int
 	// rowsPerPage, String btitle);
-
+	
+	// BoardComment
+		public void boardCommentWrite(BoardComment comment);
+		public List<BoardComment>boardCommentList(int bcno);
 }

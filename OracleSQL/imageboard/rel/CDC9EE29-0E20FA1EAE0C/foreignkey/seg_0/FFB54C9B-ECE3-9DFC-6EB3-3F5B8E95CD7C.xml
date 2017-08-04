@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="FFB54C9B-ECE3-9DFC-6EB3-3F5B8E95CD7C" containerWithKeyObject="6D8D3B39-16FE-912F-F4E8-E0BEE34FA42D" localFKIndex="98D6A2EA-D8F4-5F5F-B996-A053A89EFBB7" name="LIKECOUNT_MEMBER_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-03 10:07:54 UTC</createdTime>
+<ownerDesignName>imageboard</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>F8B49B1C-6457-D1E8-969C-0E965A84AD5B</referredTableID>
+<keyObject>FD1F8DEE-0073-C458-A59F-00B48182CDCB</keyObject>
+<referredKeyID>FD1F8DEE-0073-C458-A59F-00B48182CDCB</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

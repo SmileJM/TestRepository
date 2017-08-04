@@ -5,18 +5,17 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="imageBoard">
-
 	<insert id="insert" parameterType="com.mycompany.myapp.dto.ImageBoard">
 		<selectKey keyProperty="bno" resultType="int" order="AFTER">
-			select	imageboard2_bno_seq.currval from dual
+			select	imageboard_bno_seq.currval from dual
 		</selectKey>
-		insert into imageboard2 (
+		insert into imageboard (
 			bno, btitle, BCONTENT, BWRITER, BDATE,
 			BPASSWORD, BHITCOUNT, BLIKECOUNT,
 			BORIGINALFILENAME, BSAVEDFILENAME,
 			BFILECONTENT)
 		values	(
-			imageboard2_bno_seq.nextval, #{btitle},
+			imageboard_bno_seq.nextval, #{btitle},
 			#{bcontent},
 			#{bwriter}, sysdate,
 			#{bpassword}, 0, 0,
@@ -33,37 +32,37 @@
 		from ( select bno,
 		boriginalfilename, btitle, bwriter, bdate, bhitcount,
 		blikecount from
-		imageboard2 order by bno desc
+		imageboard order by bno desc
 		) where rownum &lt;=#{endNum}) where r
 		&gt;=#{startNum}
 	</select>
 	<select id="countAll" resultType="int">
-		select count(*) from imageboard2
+		select count(*) from imageboard
 	</select>
 	<select id="selectByBno"  parameterType="int" resultType="com.mycompany.myapp.dto.ImageBoard">
-		select * from imageboard2 where bno=#{bno}
+		select * from imageboard where bno=#{bno}
 	</select>
 	
 	<update id="updateBhitcount" parameterType="map">
-	update imageboard2 set bhitcount=#{bhitcount} where bno=#{bno}
+	update imageboard set bhitcount=#{bhitcount} where bno=#{bno}
 	</update>
 	
 	<delete id="delete">
-	delete from imageboard2 where bno=#{bno}
+	delete from imageboard where bno=#{bno}
 	</delete>
 	
 	<update id="update" parameterType="com.mycompany.myapp.dto.ImageBoard">
 	<if test="boriginalfilename != null">
-	update imageboard2 set btitle=#{btitle}, bcontent=#{bcontent}, bpassword=#{bpassword}, bdate=sysdate, boriginalfilename=#{boriginalfilename}, 
+	update imageboard set btitle=#{btitle}, bcontent=#{bcontent}, bpassword=#{bpassword}, bdate=sysdate, boriginalfilename=#{boriginalfilename}, 
 	bsavedfilename=#{bsavedfilename}, bfilecontent=#{bfilecontent} where bno=#{bno}
 	</if>	
 	
 	<if test="boriginalfilename == null">
-	update imageboard2 set btitle=#{btitle}, bcontent=#{bcontent}, bpassword=#{bpassword}, bdate=sysdate where bno=#{bno}
+	update imageboard set btitle=#{btitle}, bcontent=#{bcontent}, bpassword=#{bpassword}, bdate=sysdate where bno=#{bno}
 	</if>
 	</update>
 	
 	<update id="updateBlikecount" parameterType="map">
-	update imageboard2 set blikecount=#{blikecount} where bno=#{bno}
+	update imageboard set blikecount=#{blikecount} where bno=#{bno}
 	</update>
 </mapper>

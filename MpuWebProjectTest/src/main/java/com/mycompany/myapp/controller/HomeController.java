@@ -63,7 +63,8 @@ public class HomeController {
 		Facebook facebook = connection == null ? new FacebookTemplate(accessToken) : connection.getApi();
 
 		UserOperations userOperations = facebook.userOperations();
-
+		
+		return facebook;
 	}
 
 	OAuth2Operations oAuth2Operations = connectionFactory.getOAuthOperations();
