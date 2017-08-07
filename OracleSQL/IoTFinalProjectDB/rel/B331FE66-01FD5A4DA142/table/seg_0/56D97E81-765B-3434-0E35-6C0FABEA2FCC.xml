@@ -124,7 +124,7 @@
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="memail" id="028E0A6C-6F60-EF82-2471-C12520F945BE">
+<Column name="bwriter" id="028E0A6C-6F60-EF82-2471-C12520F945BE">
 <createdBy>Administrator</createdBy>
 <createdTime>2017-07-31 05:39:04 UTC</createdTime>
 <ownerDesignName>IoTFinalProjectDB</ownerDesignName>
@@ -137,21 +137,6 @@
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="208D3E00-F88D-1C1C-5D8B-5FBA9C2C3A92" referredColumn="AC41BC55-943D-0ACA-BCA3-D694E98B84A1"/>
-</associations>
-</Column>
-<Column name="bwriter" id="49965AE7-075C-E1DA-C16D-0DAD139AD73C">
-<createdBy>Administrator</createdBy>
-<createdTime>2017-07-31 05:39:04 UTC</createdTime>
-<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="208D3E00-F88D-1C1C-5D8B-5FBA9C2C3A92" referredColumn="16159B57-7617-8324-D54D-D0332E2E8969"/>
 </associations>
 </Column>
 </columns>
@@ -175,7 +160,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="028E0A6C-6F60-EF82-2471-C12520F945BE"/>
-<colUsage columnID="49965AE7-075C-E1DA-C16D-0DAD139AD73C"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

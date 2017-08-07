@@ -30,7 +30,7 @@
 				success: function(data) {
 					if(data.result =="success") {
 						// console.log("success");
-						location.href="boardUpdate?bno=${board.bno}&pageNo=${pageNo}";
+						location.href="boardUpdate?bno=${board.bno}&pageNo=${pageNo}&memail=${member.memail}";
 					} else {
 						$("#bpassword").val("");
 						$("#bpassword").attr("placeholder", "비밀번호를 입력하셔야 합니다.");
@@ -53,7 +53,10 @@
 				success: function(data) {
 					if(data.result =="success") {
 						console.log("success");
-						location.href="boardDelete?bno=${board.bno}";
+						check = confirm("삭제하시겠습니까?");
+						if (check) { 
+							location.href="boardDelete?bno=${board.bno}";
+						 }
 					} else {
 						$("#bpassword").val("");
 						$("#bpassword").attr("placeholder", "비밀번호를 입력하셔야 합니다.");
@@ -63,7 +66,12 @@
 			});
 		}
 		function handleBtnLike() {
-			location.href="boardLike?bno=${board.bno}&pageNo=${pageNo}";		
+			console.log($("#bcwriter").val());
+			if($("#bcwriter").val()==""){		
+				alert("로그인 후 이용 가능합니다");
+				return;
+			}
+			location.href="boardLike?bno=${board.bno}&pageNo=${pageNo}&memail=${member.memail}";		
 		}
 		
 		function handleBtnComment(){
@@ -73,7 +81,12 @@
 				$("#btitle").focus();
 				return ;
 			} else */ 
-				if( $("#bccomment").val() == "") {
+
+			if( $("#bcpassword").val() == "") {
+				$("#bcpassword").attr("placeholder", "비밀번호");
+				$("#bcpassword").focus();
+				return ;
+			} else if( $("#bccomment").val() == "") {
 				$("#bccomment").val("");
 				$("#bccomment").attr("placeholder", "내용을 입력하세요!");
 				$("#bccomment").focus();
@@ -112,6 +125,8 @@
 		<div class="form-group" style="text-align: center;">			
 			<p class="text-justify" >${board.bcontent}</p>
 		</div>
+		
+		<!-- Like Count -->
 		<div class="form-group" style="text-align: center;">
 			<div class="btn btn-danger" style="border-radius: 50px; width: 100px; height: 100px; line-height: 30px;" onclick="handleBtnLike()">
 				${board.blikecount}<br/>
@@ -147,12 +162,12 @@
 				<textArea rows="5" cols="30" class="form-control" placeholder="내용" 
 					name="bccomment" id="bccomment"></textArea>
 				<!-- 세션 아이디 -->
-				<input type="hidden" class="form-control"  name="bcwriter"  id="bcwriter" value="session id"/>				
-				<input type="hidden" class="form-control"  name="pageNo"  id="pageNo" value="${pageNo}"/>				
+				<input type="hidden" class="form-control"  name="bcwriter"  id="bcwriter" value="${member.memail }"/>
+				<input type="hidden" class="form-control"  name="pageNo"  id="pageNo" value="${pageNo}"/>							
 			</div>
 		</div>
 		<div class="form-group" align="right">
-			<input type="password" id="bcpassword" placeholder="비밀번호"	name="bpassword"  style="width: 150px; height: 33px;"  maxlength="10"/>
+			<input type="password" id="bcpassword" placeholder="비밀번호"	name="bcpassword"  style="width: 150px; height: 33px;"  maxlength="10"/>
 			<input type="button" class="btn btn-success" value="등록"  onclick="handleBtnComment()" />		
 		</div>
 	</form>

@@ -6,35 +6,38 @@
 
 <mapper namespace="board">
 	<insert id="insert" parameterType="com.mycompany.myapp.dto.Board">
+		<selectKey keyProperty="bno" resultType="int" order="AFTER">
+		select board_bno_seq.currval from dual
+		</selectKey>
 		insert into board (
-			btitle, BCONTENT, BWRITER, BDATE,
+			bno, btitle, BCONTENT, BWRITER, BDATE,
 			BPASSWORD, BHITCOUNT, BLIKECOUNT,
 			BORIGINALFILENAME, BSAVEDFILENAME,
-			BFILECONTENT, MEMAIL)
+			BFILECONTENT)
 		values	(
+			board_bno_seq.nextval,
 			#{btitle},
 			#{bcontent},
-			#{bwriter},  current_timestamp,
+			#{bwriter},  sysdate,
 			#{bpassword}, 0, 0,
 			#{boriginalfilename},
 			#{bsavedfilename},
-			#{bfilecontent},
-			'email@test')
+			#{bfilecontent}
+			)
 	</insert>
 
 	<select id="selectPage" parameterType="map"
 		resultType="com.mycompany.myapp.dto.Board">	
 		select distinct a.*, ( select count(*) from boardcomment where bno =a.bno ) as count
-		from ( select bno, boriginalfilename, btitle, bwriter,	bdate, bhitcount, blikecount
+		from ( select rownum as r, bno, boriginalfilename, btitle, bwriter,	bdate, bhitcount, blikecount
 			from ( select  bno, boriginalfilename, btitle, bwriter, bdate, bhitcount, blikecount 
 				from board order by bno desc
-			) as c 			
-		) a left join  
+			) 
+			where rownum &lt;=#{endNum}
+		) a, 
 		boardcomment b  
-		on  a.bno = b.bno
+		where r &gt;=#{startNum} and a.bno = b.bno(+)
 		order by a.bno desc
-		limit #{startNum}, 10
-<!-- 		limit #{startNum}, #{endNum} -->
 	</select>
 	<select id="countAll" resultType="int">
 		select count(*) from board
@@ -44,7 +47,7 @@
 	</select>
 	
 	<update id="updateBhitcount" parameterType="map">
-	update board set bhitcount=#{bhitcount} where bno=#{bno}
+	update board set bhitcount=#{bhitcount} where bno=#{bno} and #{memail} not in (select memail from hitcount where bno=#{bno})
 	</update>
 	
 	<delete id="delete">
@@ -63,6 +66,10 @@
 	</update>
 	
 	<update id="updateBlikecount" parameterType="map">
+	<!-- 
 	update board set blikecount=#{blikecount} where bno=#{bno}
+		 --> 
+	update board set blikecount=#{blikecount} where bno=#{bno} and #{memail} not in (select memail from likecount where bno=#{bno})
+
 	</update>
 </mapper>

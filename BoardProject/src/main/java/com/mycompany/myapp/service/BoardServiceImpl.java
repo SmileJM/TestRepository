@@ -5,10 +5,12 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mycompany.myapp.dao.BoardDao;
 import com.mycompany.myapp.dto.Board;
 import com.mycompany.myapp.dto.BoardComment;
+import com.mycompany.myapp.dto.Hitcount;
 
 @Component
 public class BoardServiceImpl implements BoardService {
@@ -36,24 +38,33 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
+	public Board getBoard(int bno, String memail) {
+		Board board = dao.boardSelectByBno(bno);
+		board.setBhitcount(board.getBhitcount() + 1);
+
+		int result = dao.boardUpdateBhitcount(bno, memail, board.getBhitcount());
+		if(result == 0){
+			board.setBhitcount(board.getBhitcount() - 1);
+		}
+		return board;
+	}
+	@Override
 	public Board getBoard(int bno) {
-		Board Board = dao.boardSelectByBno(bno);
-		Board.setBhitcount(Board.getBhitcount() + 1);
-		dao.boardUpdateBhitcount(bno, Board.getBhitcount());
-		return Board;
+		Board board = dao.boardSelectByBno(bno);
+		return board;
 	}
 
 	@Override
 	public Board getBoardImg(int bno) {
-		Board Board = dao.boardSelectByBno(bno);
-		return Board;
+		Board board = dao.boardSelectByBno(bno);
+		return board;
 	}
 
 	@Override
 	public String boardCheckBpassword(int bno, String bpassword) {
 		String result = "fail";
-		Board Board = dao.boardSelectByBno(bno);
-		if (Board.getBpassword().equals(bpassword)) {
+		Board board = dao.boardSelectByBno(bno);
+		if (board.getBpassword().equals(bpassword)) {
 			result = "success";
 		}
 		return result;
@@ -70,10 +81,10 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public Board getBoardLike(int bno) {
+	public Board getBoardLike(int bno, String memail) {
 		Board board = dao.boardSelectByBno(bno);
 		board.setBlikecount(board.getBlikecount() + 1);
-		dao.boardUpdateBlikecount(bno, board.getBlikecount());
+		dao.boardUpdateBlikecount(bno, memail, board.getBlikecount());
 		return board;
 	}
 

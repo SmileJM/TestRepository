@@ -23,19 +23,32 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mycompany.myapp.dto.Board;
 import com.mycompany.myapp.dto.BoardComment;
+import com.mycompany.myapp.dto.Member;
 import com.mycompany.myapp.service.BoardService;
 
 @Controller
+@SessionAttributes({ "member" })
 public class BoardController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(BoardController.class);
+	private Member member;
+	
+	public void session(Model model) {
+		member = new Member();		
+		member.setMemail("admin");
+		member.setMname("관리자2");
+		model.addAttribute("member", member);
+	}
+
 	@Resource(name = "boardServiceImpl")
 	private BoardService service;
 
 	@Autowired
 	private ServletContext servletContext;
+
 	/*
 	 * 
 	 * boardList
@@ -73,6 +86,8 @@ public class BoardController {
 		model.addAttribute("startPageNo", startPageNo);
 		model.addAttribute("endPageNo", endPageNo);
 		model.addAttribute("pageNo", pageNo);
+
+		session(model);
 		// view 이름 리턴
 		return "board/boardList";
 	}
@@ -110,7 +125,7 @@ public class BoardController {
 			String savedFileName = new Date().getTime() + "-" + Board.getBoriginalfilename();
 			Board.setBsavedfilename(savedFileName);
 			Board.setBfilecontent(contentType);
-		} else{
+		} else {
 			Board.setBoriginalfilename("");
 			Board.setBsavedfilename("");
 			Board.setBfilecontent("");
@@ -120,6 +135,7 @@ public class BoardController {
 
 		return "redirect:/board/boardList";
 	}
+
 	/*
 	 * 
 	 * boardDetail
@@ -127,21 +143,29 @@ public class BoardController {
 	 */
 	@RequestMapping("/board/boardDetail")
 	public String boardDetail(int bno, int pageNo, Model model) {
-		Board board = service.getBoard(bno);
+		Board board = null;
 		
+		if (member != null) {
+			board = service.getBoard(bno, member.getMemail());
+		} else {
+			board = service.getBoard(bno);
+		}
 		String content = board.getBcontent();
 		content = content.replace("<", "&lt;");
 		content = content.replace(">", "&gt;");
 		content = content.replace("  ", "&nbsp;&nbsp;");
 		content = content.replace("\n", "<br/>");
 		board.setBcontent(content);
-		
+
 		List<BoardComment> list = service.boardCommentList(bno);
 
 		// view 로 넘겨줄 데이터
 		model.addAttribute("list", list);
 		model.addAttribute("board", board);
 		model.addAttribute("pageNo", pageNo);
+
+		session(model);
+
 		return "board/boardDetail";
 	}
 
@@ -159,22 +183,26 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/board/boardUpdate", method = RequestMethod.GET)
-	public String boardUpdateGet(int bno, int pageNo, Model model) {
-		Board board = service.getBoard(bno);
+	public String boardUpdateGet(int bno, String memail, int pageNo, Model model) {
+		Board board = service.getBoard(bno, memail);
 		model.addAttribute("board", board);
 		model.addAttribute("pageNo", pageNo);
 		return "board/boardUpdate";
 	}
 
 	@RequestMapping("/board/boardLike")
-	public String boardLike(int bno, int pageNo, Model model) {
-		Board board = service.getBoardLike(bno);
+	public String boardLike(int bno, int pageNo, String memail, Model model) {
+		// public String boardLike(int bno, int pageNo, Model model) {
+		Board board = service.getBoardLike(bno, memail);
 		model.addAttribute("board", board);
-		return "redirect:/board/boardDetail?bno="+bno + "&pageNo=" +pageNo;
+		session(model);
+		// return "redirect:/board/boardDetail?bno="+bno + "&pageNo=" +pageNo;
+		return "redirect:/board/boardDetail?bno=" + bno + "&pageNo=" + pageNo + "&memail=" + memail;
 	}
-	
+
 	@RequestMapping(value = "/board/boardUpdate", method = RequestMethod.POST)
-	public String boardUpdatePost(Board Board, HttpServletRequest req, int pageNo) throws IllegalStateException, IOException {
+	public String boardUpdatePost(Board Board, HttpServletRequest req, int pageNo)
+			throws IllegalStateException, IOException {
 		// 첨부 파일이 변경되었는지 검사
 		if (!Board.getBattach().isEmpty()) {
 			// 첨부 파일을 서버 로컬 시스템에 저장
@@ -233,7 +261,7 @@ public class BoardController {
 		fis.close();
 		os.close();
 	}
-	
+
 	/*
 	 * 
 	 * BoardComment
@@ -244,10 +272,16 @@ public class BoardController {
 		LOGGER.info("실행됨");
 		return "board/boardCommentWrite";
 	}
-	
+
 	@RequestMapping(value = "/board/boardCommentWrite", method = RequestMethod.POST)
-	public String boardCommentWrite(BoardComment comment, int pageNo) {		
+	public String boardCommentWrite(BoardComment comment, int pageNo) {
 		service.boardCommentWrite(comment);
+		LOGGER.info("getBccomment " + comment.getBccomment());
+		LOGGER.info("getBcno " + comment.getBcno());
+		LOGGER.info("getBcpassword " + comment.getBcpassword());
+		LOGGER.info("getBno " + comment.getBno());
+		LOGGER.info("getBcwriter " + comment.getBcwriter());
+
 		return "redirect:/board/boardDetail?bno=" + comment.getBno() + "&pageNo=" + pageNo;
 	}
 }

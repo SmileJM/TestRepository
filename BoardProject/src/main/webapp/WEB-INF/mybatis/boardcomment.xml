@@ -7,12 +7,22 @@
 <mapper namespace="boardcomment">
 
 	<insert id="insert" parameterType="com.mycompany.myapp.dto.BoardComment">
-		insert into boardcomment (bno,  bcwriter, bcdate, bccomment )
-		values (#{bno},  #{bcwriter}, current_timestamp, #{bccomment}	)
+		<selectKey keyProperty="bcno" resultType="int" order="AFTER">
+		select boardcomment_bcno_seq.currval from dual
+		</selectKey>
+		insert into boardcomment (bno, bcno,  bcwriter, bcdate, bccomment, bcpassword )
+		values (#{bno}, boardcomment_bcno_seq.nextval, #{bcwriter}, sysdate, #{bccomment}, #{bcpassword}	)
 	</insert>
 	
 	<select id="selectcommentlist" parameterType="com.mycompany.myapp.dto.BoardComment"
 		resultType="com.mycompany.myapp.dto.BoardComment">
-		select bccomment, bcwriter, bcdate from boardcomment where bno = #{bno} order by bcno desc	
+		select 
+			bccomment, 
+			<!-- (select distinct mname from member a, boardcomment b where a.MEMAIL = b.BCWRITER and bno=b.bno) as bcwriter, -->
+			bcwriter,
+			bcdate 
+		from boardcomment 
+		where bno = #{bno} 
+		order by bcno asc	
 	</select>
 </mapper>

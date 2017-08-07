@@ -7,22 +7,22 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<!-- Connection Pool(DataSource) 설정 -->
-	<!-- 
+	
 	<bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="oracle.jdbc.OracleDriver" />
 		<property name="jdbcUrl" value="jdbc:oracle:thin:@106.253.56.122:1521:orcl" />
-		<property name="user" value="iot1team1" />
-		<property name="password" value="iot12345" />
+		<property name="user" value="iot1_motion" />
+		<property name="password" value="iot1_motion" />
 		<property name="maxPoolSize" value="1" />
 		<property name="initialPoolSize" value="1" />
 		<property name="acquireIncrement" value="1" />
 		<property name="minPoolSize" value="1" />
 	</bean>
- -->
- 
+
+ <!-- 
  	<bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
-		<!-- <property name= "jdbcUrl" value="jdbc:mysql://52.78.170.231:3306/iot1_motion?allowMultiQueries=true" /> 이렇게 하라는 곳도 있지만 그냥 되는 듯-->
+		<property name= "jdbcUrl" value="jdbc:mysql://52.78.170.231:3306/iot1_motion?allowMultiQueries=true" /> 이렇게 하라는 곳도 있지만 그냥 되는 듯
 		<property name= "jdbcUrl" value="jdbc:mysql://52.78.170.231:3306/iot1_motion" />
 		<property name="user" value="iot1_motion" />
 		<property name="password" value="iot1_motion" />
@@ -31,7 +31,7 @@
 		<property name="acquireIncrement" value="1" />
 		<property name="minPoolSize" value="1" />
 	</bean>
-	
+	 -->
 	<!-- JdbcTemplate 설정 -->
 	<bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource" />

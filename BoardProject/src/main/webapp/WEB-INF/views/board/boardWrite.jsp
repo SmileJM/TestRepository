@@ -36,6 +36,10 @@
 			$("#bpassword").attr("placeholder", "비밀번호를 입력하세요!");	
 			$("#bpassword").focus();
 			return ;
+		} else if( $("#bcontent").val() == "") {
+			$("#bcontent").attr("placeholder", "내용을 입력하세요!");	
+			$("#bcontent").focus();
+			return ;
 		}
 		return $("#form1").submit();
 	}
@@ -60,7 +64,7 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-user"></span>
 				</span> <input type="text" class="form-control" placeholder="작성자"
-					name="bwriter" id="bwriter" maxlength="8"/>
+					name="bwriter" id="bwriter"  value="${member.memail }"maxlength="8"/>
 			</div>
 		</div>
 		<div class="form-group">
@@ -77,7 +81,7 @@
 					class="glyphicon glyphicon-pencil"></span>
 				</span>
 				<p><textArea rows="10" cols="30" class="form-control" placeholder="내용" 
-					name="bcontent"></textArea></p>
+					name="bcontent" id="bcontent"></textArea></p>
 			</div>
 		</div>
 		<div class="form-group">

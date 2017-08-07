@@ -6,8 +6,16 @@ public class BoardComment {
 	private int bno;
 	private int bcno;
 	private String bcwriter;
+	private String bcpassword;
 	private Date bcdate;
 	private String bccomment;
+	
+	public String getBcpassword() {
+		return bcpassword;
+	}
+	public void setBcpassword(String bcpassword) {
+		this.bcpassword = bcpassword;
+	}
 	public int getBno() {
 		return bno;
 	}

@@ -41,7 +41,18 @@
 <ownDataTypeParameters>1000,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="memail" id="728B4834-1427-E265-098D-0A21738949C5">
+<Column name="bcpassword" id="0C5E91AD-6268-0C08-C310-1F576E579C4F">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-04 03:42:50 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bcwriter" id="728B4834-1427-E265-098D-0A21738949C5">
 <createdBy>Administrator</createdBy>
 <createdTime>2017-07-31 05:42:20 UTC</createdTime>
 <ownerDesignName>IoTFinalProjectDB</ownerDesignName>
@@ -56,24 +67,9 @@
 <colAssociation fkAssociation="30A19B70-D101-BE55-F3DC-67436C79FB54" referredColumn="AC41BC55-943D-0ACA-BCA3-D694E98B84A1"/>
 </associations>
 </Column>
-<Column name="mname" id="5E3EA2A7-7C8D-C6EE-45A9-DD9E2585087F">
+<Column name="bno" id="CD6A692A-6ACF-7878-C185-490D4BBF49E3">
 <createdBy>Administrator</createdBy>
-<createdTime>2017-07-31 05:42:20 UTC</createdTime>
-<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="30A19B70-D101-BE55-F3DC-67436C79FB54" referredColumn="16159B57-7617-8324-D54D-D0332E2E8969"/>
-</associations>
-</Column>
-<Column name="bno" id="341AC2F5-C9E9-D67D-6002-0513F7BD1977">
-<createdBy>Administrator</createdBy>
-<createdTime>2017-07-31 05:42:41 UTC</createdTime>
+<createdTime>2017-08-04 05:48:40 UTC</createdTime>
 <ownerDesignName>IoTFinalProjectDB</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -83,7 +79,7 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="29597898-F480-F42F-69BD-271084E96E6F" referredColumn="C03DA122-1ADA-1BC6-FE6C-471798720AE0"/>
+<colAssociation fkAssociation="CFFF8F99-FAB8-1851-5ED0-7D2BB3D7216C" referredColumn="C03DA122-1ADA-1BC6-FE6C-471798720AE0"/>
 </associations>
 </Column>
 </columns>
@@ -107,17 +103,16 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="728B4834-1427-E265-098D-0A21738949C5"/>
-<colUsage columnID="5E3EA2A7-7C8D-C6EE-45A9-DD9E2585087F"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="8028685C-20BD-0065-70A9-AE450AEB5F35" name="boardcomment_board_FK">
+<ind_PK_UK id="E1E183A0-C729-DAC7-FC8F-AE91A2771F45" name="boardcomment_board_FK">
 <createdBy>Administrator</createdBy>
-<createdTime>2017-07-31 05:42:41 UTC</createdTime>
+<createdTime>2017-08-04 05:48:40 UTC</createdTime>
 <ownerDesignName>IoTFinalProjectDB</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="341AC2F5-C9E9-D67D-6002-0513F7BD1977"/>
+<colUsage columnID="CD6A692A-6ACF-7878-C185-490D4BBF49E3"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

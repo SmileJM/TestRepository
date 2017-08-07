@@ -12,10 +12,10 @@ public interface BoardDao {
 	public List<Board> boardSelectPage(int pageNo, int rowsPerPage);
 	public int boardCountAll();
 	public Board boardSelectByBno(int bno);
-	public void boardUpdateBhitcount(int bno, int bhitcount);
+	public int boardUpdateBhitcount(int bno, String memail, int bhitcount);
 	public void boardDelete(int bno);
 	public void boardUpdate(Board Board);
-	public void boardUpdateBlikecount(int bno, int blikecount);
+	public void boardUpdateBlikecount(int bno, String memail, int blikecount);
 //	public List<Exam12ImageBoard> imageBoardSelectPage(int pageNo, int rowsPerPage, String btitle);
 	
 	// BoardComment
