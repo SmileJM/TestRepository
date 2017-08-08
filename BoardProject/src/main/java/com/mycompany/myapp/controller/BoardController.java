@@ -87,6 +87,7 @@ public class BoardController {
 		model.addAttribute("endPageNo", endPageNo);
 		model.addAttribute("pageNo", pageNo);
 
+
 		session(model);
 		// view 이름 리턴
 		return "board/boardList";
@@ -158,7 +159,7 @@ public class BoardController {
 		board.setBcontent(content);
 
 		List<BoardComment> list = service.boardCommentList(bno);
-
+		
 		// view 로 넘겨줄 데이터
 		model.addAttribute("list", list);
 		model.addAttribute("board", board);
@@ -215,10 +216,14 @@ public class BoardController {
 			Board.setBoriginalfilename(fileName);
 			Board.setBfilecontent(Board.getBattach().getContentType());
 			Board.setBsavedfilename(savedFileName);
+		} else {
+			Board.setBoriginalfilename("");
+			Board.setBfilecontent("");
+			Board.setBsavedfilename("");
 		}
 		// 게시물 수정 처리
 		service.boardUpdate(Board);
-		System.out.println(pageNo);
+		System.out.println("tkwls");
 		return "redirect:/board/boardDetail?bno=" + Board.getBno() + "&pageNo=" + pageNo;
 	}
 
@@ -261,7 +266,16 @@ public class BoardController {
 		fis.close();
 		os.close();
 	}
-
+	
+	@RequestMapping("/board/boardSearch")
+	public String boardSearch(String category, String bsearch, Model model) {
+		// public String boardLike(int bno, int pageNo, Model model) {
+		List<Board> list = service.boardSearch(category, bsearch);
+		model.addAttribute("list", list);
+//		session(model);
+		// return "redirect:/board/boardDetail?bno="+bno + "&pageNo=" +pageNo;
+		return "redirect:/board/boardList";
+	}
 	/*
 	 * 
 	 * BoardComment
@@ -276,12 +290,25 @@ public class BoardController {
 	@RequestMapping(value = "/board/boardCommentWrite", method = RequestMethod.POST)
 	public String boardCommentWrite(BoardComment comment, int pageNo) {
 		service.boardCommentWrite(comment);
-		LOGGER.info("getBccomment " + comment.getBccomment());
-		LOGGER.info("getBcno " + comment.getBcno());
-		LOGGER.info("getBcpassword " + comment.getBcpassword());
-		LOGGER.info("getBno " + comment.getBno());
-		LOGGER.info("getBcwriter " + comment.getBcwriter());
-
 		return "redirect:/board/boardDetail?bno=" + comment.getBno() + "&pageNo=" + pageNo;
 	}
+	
+	@RequestMapping("/board/boardCommentCheckBpassword")
+	public String boardCommentCheckBpassword(int bcno, String bcpassword, Model model) {
+		String result = service.boardCommentCheckBpassword(bcno, bcpassword);
+		model.addAttribute("result", result);
+		return "board/boardCommentCheckBpassword";
+	}
+	
+	@RequestMapping("/board/boardCommentDelete")
+	public String boardCommentDelete(int bcno, int bno, int pageNo, HttpServletRequest req) {
+		service.boardCommentDelete(bcno);
+		return "redirect:/board/boardDetail?bno=" + bno + "&pageNo=" + pageNo;
+	}
+	
+//	@RequestMapping(value = "/board/boardCommentUpdate", method = RequestMethod.GET)
+//	public String boardCommentUpdate(int bcno, int bno, int pageNo, Model model) {
+//		service.boardCommentUpdate(bcno);
+//		return "redirect:/board/boardDetail?bno=" + bno + "&pageNo=" + pageNo;
+//	}
 }

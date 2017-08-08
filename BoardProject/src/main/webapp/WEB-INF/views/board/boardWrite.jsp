@@ -64,7 +64,7 @@
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-user"></span>
 				</span> <input type="text" class="form-control" placeholder="작성자"
-					name="bwriter" id="bwriter"  value="${member.memail }"maxlength="8"/>
+					name="bwriter" id="bwriter"  value="${member.memail }"maxlength="8" readOnly/>
 			</div>
 		</div>
 		<div class="form-group">

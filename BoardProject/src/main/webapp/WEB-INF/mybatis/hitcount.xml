@@ -14,4 +14,8 @@
 			#{memail}
 		)
 	</insert>	
+	
+	<delete id="delete" parameterType="com.mycompany.myapp.dto.Hitcount">
+	delete from hitcount where bno=#{bno} and memail=#{memail}
+	</delete>
 </mapper>

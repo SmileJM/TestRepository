@@ -94,6 +94,47 @@
 			} 
 			return $("#form1").submit();
 		}
+		
+		function handleLoginCheck() {
+			if($("#bcwriter").val()==""){
+				alert("로그인 후 이용하세요~");				
+				/* 로그인 버튼으로 이동 */
+				document.getElementById('list').focus();
+			} 
+		}
+		
+		/* 덧글 수정/삭제 */
+	
+		function handleBtnCommentUD(bcno, select) {
+			var bcpassword = $("#bcpassword").val();
+			if( bcpassword =="") {
+				$("#bcpassword").attr("placeholder", "비밀번호를 입력하셔야 합니다.");
+				$("#bcpassword").focus();
+				return ;
+			}
+			$.ajax({	
+				url: "boardCommentCheckBpassword",
+				method: "post",
+				data: {"bcno":bcno, "bcpassword":bcpassword},
+				success: function(data) {console.log("1");
+					if(data.result =="success") {
+						console.log("success");
+						check = confirm("삭제하시겠습니까?");
+						if (check && select == 'delete') { 
+							console.log("success");
+							location.href="boardCommentDelete?bno=${board.bno}&pageNo=${pageNo}&bcno=" + bcno;
+						 } else if(check && select == 'update') { 							 
+							location.href="boardCommentUpdate?bno=${board.bno}&pageNo=${pageNo}&bcno=" + bcno;
+						 } 	console.log("success2");
+					} else {
+						console.log("2");
+						$("#bcpassword").val("");
+						$("#bcpassword").attr("placeholder", "비밀번호를 입력하셔야 합니다.");
+						$("#bcpassword").focus();
+					}
+				}
+			});
+		}
 	</script>
 </head>
 <body>
@@ -136,8 +177,8 @@
 		<hr/>
 		<div class="form-group" align="right">
 			<input type="password" id="bpassword" placeholder="비밀번호"	name="bpassword"  style="width: 150px; height: 33px;"  maxlength="10"/>
-			<a href="boardList?pageNo=${pageNo}" class="btn btn-primary" >목록</a>
-			<input type="button" class="btn btn-warning" value="수정"  onclick="handleBtnUpdate()" />
+			<a href="boardList?pageNo=${pageNo}" class="btn btn-primary"  id="list">목록</a>
+			<input type="button" class="btn btn-info" value="수정"  onclick="handleBtnUpdate()" />
 			<input type="button" class="btn btn-danger" value="삭제"    onclick="handleBtnDelete()"/>			
 		</div>		
 		<hr/>
@@ -145,12 +186,33 @@
 		<table class="table table-bordered table-striped table-hover ">
 			<c:forEach var="comment" items="${list}" varStatus="status">
 				<fmt:formatDate var="bcdateDay" value="${comment.bcdate}" pattern="yyyy-MM-dd"/>
-				<fmt:formatDate var="bcdateTime" value="${comment.bcdate}" pattern="HH:mm:ss"/>
-					<tr >				
-						<td style="width: 15%; ">${comment.bcwriter}</td>
-						<td style="width: 70%"><p>${comment.bccomment}</p></td>
-						<td style="width: 15%; text-align: right">${bcdateDay}<br/>${bcdateTime}</td>
-					</tr>			
+				<fmt:formatDate var="bcdateTime" value="${comment.bcdate}" pattern="HH:mm:ss"/>	
+					<c:if test="${comment.bcwriter == member.memail}">
+						<tr >				
+							<td style="width: 15%; ">
+								<img src="http://graph.facebook.com/1297112330399730/picture" class="img-circle"/>&nbsp; ${comment.bcwriter}
+							</td>
+							<td style="width: 65%; border-right: 0px"><p>${comment.bccomment}</p></td>
+							<td style="width: 5%; border-left: 0px" >
+								<input type="hidden" class="form-control"  name="bcno" id="bcno" value="${comment.bcno }"/>
+								<%-- <input type="button" class="btn btn-warning btn-xs" value="수정"  onclick="handleBtnCommentUD(${comment.bcno },'update')" /> --%>
+								<input type="button" class="btn btn-danger btn-xs" value="삭제"    onclick="handleBtnCommentUD(${comment.bcno },'delete')"/>
+							</td>
+							<td style="width: 15%; text-align: right">${bcdateDay}<br/>${bcdateTime}</td>
+						</tr>		
+					</c:if>
+					<c:if test="${comment.bcwriter != member.memail}">
+						<tr >		
+							<td style="width: 15%; ">
+							<img src="http://graph.facebook.com/1297112330399730/picture" class="img-circle"/>&nbsp; ${comment.bcwriter}
+							</td>
+							<td style="width: 70%" colspan=2><p>${comment.bccomment}</p>
+								<input type="hidden" class="form-control"  name="bcno"  id="bcno" value="${comment.bcno }"/>
+							</td>
+							<td style="width: 15%; text-align: right">${bcdateDay}<br/>${bcdateTime}</td>
+						</tr>		
+					</c:if>
+						
 			</c:forEach>
 		</table>
 		<!-- 댓글 -->
@@ -160,7 +222,7 @@
 					class="glyphicon glyphicon-pencil"></span>
 				</span>
 				<textArea rows="5" cols="30" class="form-control" placeholder="내용" 
-					name="bccomment" id="bccomment"></textArea>
+					name="bccomment" id="bccomment" onfocus="handleLoginCheck()" ></textArea>
 				<!-- 세션 아이디 -->
 				<input type="hidden" class="form-control"  name="bcwriter"  id="bcwriter" value="${member.memail }"/>
 				<input type="hidden" class="form-control"  name="pageNo"  id="pageNo" value="${pageNo}"/>							

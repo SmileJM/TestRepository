@@ -66,10 +66,23 @@
 	</update>
 	
 	<update id="updateBlikecount" parameterType="map">
-	<!-- 
-	update board set blikecount=#{blikecount} where bno=#{bno}
-		 --> 
 	update board set blikecount=#{blikecount} where bno=#{bno} and #{memail} not in (select memail from likecount where bno=#{bno})
-
 	</update>
+	
+	<select id="searchtitle" parameterType="map"
+		resultType="com.mycompany.myapp.dto.Board">	
+		select * from board where btitle like '%' || #{btitle} || '%'
+	</select>
+	<select id="searchcontent" parameterType="map"
+		resultType="com.mycompany.myapp.dto.Board">	
+		select * from board where bcontent like '%'#{bcontent}'%'
+	</select>
+	<select id="searchtitlecontent"  parameterType="map"
+		resultType="com.mycompany.myapp.dto.Board">	
+		select * from board where btitle like '%#{btitle}%' or bcontent like '%#{bcontent}%'
+	</select>
+	<select id="searchwriter"  parameterType="map"
+		resultType="com.mycompany.myapp.dto.Board">	
+		select * from board where bwriter like '%#{bwriter}%'
+	</select>
 </mapper>

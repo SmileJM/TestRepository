@@ -24,6 +24,9 @@
 				$("#spanFileName").text(originalfilename);
 			}
 		}
+		function fileDelete() {
+			$("#spanFileName").text("");
+		}
 	</script>
 </head>
 <body>
@@ -74,8 +77,9 @@
 				</span> 
 				<div class="form-control"  style="height: 47px;">
 					<span id="spanFileName">${board.boriginalfilename}</span>
-					<label for="battach" class="btn btn-default">변경</label>
-					<input id="battach" type="file" style="visibility: hidden;" name="battach" onchange="fileChange()" multiple />			
+					<label for="battach" class="btn btn-default">변경</label>		
+					<input type="button" value="삭제" class="btn btn-default" onclick="fileDelete()"  />		
+					<input id="battach" type="file" style="visibility: hidden;" name="battach" onchange="fileChange()" multiple />		
 				</div>
 			</div>
 		</div>

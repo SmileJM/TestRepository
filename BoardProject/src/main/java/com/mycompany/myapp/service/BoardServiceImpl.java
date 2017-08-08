@@ -40,12 +40,7 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public Board getBoard(int bno, String memail) {
 		Board board = dao.boardSelectByBno(bno);
-		board.setBhitcount(board.getBhitcount() + 1);
-
-		int result = dao.boardUpdateBhitcount(bno, memail, board.getBhitcount());
-		if(result == 0){
-			board.setBhitcount(board.getBhitcount() - 1);
-		}
+		dao.boardUpdateBhitcount(bno, memail, board.getBhitcount());
 		return board;
 	}
 	@Override
@@ -83,9 +78,13 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public Board getBoardLike(int bno, String memail) {
 		Board board = dao.boardSelectByBno(bno);
-		board.setBlikecount(board.getBlikecount() + 1);
 		dao.boardUpdateBlikecount(bno, memail, board.getBlikecount());
 		return board;
+	}
+	@Override
+	public List<Board> boardSearch(String category, String bsearch) {
+		List<Board> list = dao.boardSearchBySearch(category, bsearch);		
+		return list;
 	}
 
 	@Override
@@ -98,5 +97,24 @@ public class BoardServiceImpl implements BoardService {
 		List<BoardComment> list = dao.boardCommentList(bno);
 		return list;
 	}
+	
+	@Override
+	public String boardCommentCheckBpassword(int bcno, String bcpassword) {
+		String result = "fail";
+		BoardComment boardcomment = dao.boardSelectByBcno(bcno);
+		if (boardcomment.getBcpassword().equals(bcpassword)) {
+			result = "success";
+		}
+		return result;
+	}
+	
+	@Override
+	public void boardCommentDelete(int bcno) {
+		dao.boardCommentDelete(bcno);
+	}
+//	@Override
+//	public void boardCommentUpdate(int bcno) {
+//		dao.boardCommentUpdate(bcno);
+//	}
 	
 }

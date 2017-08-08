@@ -17,6 +17,7 @@
 	<select id="selectcommentlist" parameterType="com.mycompany.myapp.dto.BoardComment"
 		resultType="com.mycompany.myapp.dto.BoardComment">
 		select 
+			bcno,
 			bccomment, 
 			<!-- (select distinct mname from member a, boardcomment b where a.MEMAIL = b.BCWRITER and bno=b.bno) as bcwriter, -->
 			bcwriter,
@@ -25,4 +26,15 @@
 		where bno = #{bno} 
 		order by bcno asc	
 	</select>
+	
+	<select id="selectByBcno"  parameterType="int" resultType="com.mycompany.myapp.dto.BoardComment">
+		select * from boardcomment where bcno=#{bcno}
+	</select>
+	
+	<delete id="delete">
+	delete from boardcomment where bcno=#{bcno}
+	</delete>
+	<update id="update">
+	update from boardcomment where bcno=#{bcno}
+	</update>
 </mapper>

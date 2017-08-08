@@ -28,3 +28,17 @@ select distinct mname from member a, boardcomment b;
 		from boardcomment 
 		where bno = 9
 		order by bcno asc	;
+    
+update board set bhitcount=5 where bno=1 and 'admin' not in (select memail from hitcount where bno=1);
+insert into hitcount(bno, memail) values ('1', 'admin');
+update board set bhitcount=5 where bno=1 and 'admin' not in (select memail from hitcount where bno=1);
+insert into hitcount (    bno, memail   )   values (    1,    'admin'   );
+
+insert into board (bno, btitle, bwriter, bpassword, bcontent, bdate) values (board_bno_seq.nextval, 'test', 'abc', '123', '테스트합니다', sysdate);
+
+
+select * from board where btitle like '%테스%';
+select * from board where bwriter = 'abc';
+select * from board where bcontent like '%테스%';
+select * from board where btitle like '%테스%';
+select * from board where btitle like '%테스%' or bcontent like '%테스%';

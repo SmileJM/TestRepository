@@ -12,14 +12,18 @@ public interface BoardDao {
 	public List<Board> boardSelectPage(int pageNo, int rowsPerPage);
 	public int boardCountAll();
 	public Board boardSelectByBno(int bno);
-	public int boardUpdateBhitcount(int bno, String memail, int bhitcount);
+	public void boardUpdateBhitcount(int bno, String memail, int bhitcount);
 	public void boardDelete(int bno);
 	public void boardUpdate(Board Board);
 	public void boardUpdateBlikecount(int bno, String memail, int blikecount);
+	public List<Board> boardSearchBySearch(String category, String bsearch);
 //	public List<Exam12ImageBoard> imageBoardSelectPage(int pageNo, int rowsPerPage, String btitle);
 	
 	// BoardComment
 	public int boardCommentInsert(BoardComment comment);
 	public List<BoardComment>boardCommentList(int bcno);
+	public BoardComment boardSelectByBcno(int bcno);
+	public void boardCommentDelete(int bcno);
+//	public void boardCommentUpdate(int bcno);
 	
 }

@@ -59,23 +59,20 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public int boardUpdateBhitcount(int bno, String memail, int bhitcount) {
+	public void boardUpdateBhitcount(int bno, String memail, int bhitcount) {
 		Map<String, String> map = new HashMap<>();
 		map.put("bno", String.valueOf(bno));
 		map.put("memail", memail);
-		map.put("bhitcount", String.valueOf(bhitcount));
+		map.put("bhitcount", String.valueOf(bhitcount+1));
 
-		int result = sqlSessionTemplate.update("board.updateBhitcount", map);				
-
+		int result = sqlSessionTemplate.update("board.updateBhitcount", map);
+		
 		if(result ==1){
 			Hitcount hitcount = new Hitcount();
 			hitcount.setBno(bno);
 			hitcount.setMemail(memail);
-			System.out.println(bno + memail);
-			
 			sqlSessionTemplate.insert("hitcount.insert", hitcount);
 		}
-		return result;
 	}
 
 	@Override
@@ -87,25 +84,47 @@ public class BoardDaoImpl implements BoardDao {
 	public void boardUpdate(Board board) {
 		sqlSessionTemplate.update("board.update", board);
 	}
+	@Override
+	public List<Board> boardSearchBySearch(String category, String bsearch) {
+		System.out.println("category: " + category);
+		System.out.println("bsearch: " + bsearch);
+		Map<String, String >map = new HashMap<>();
+		map.put("btitle", bsearch);
+		map.put("bwriter", bsearch);
+		map.put("bcontent", bsearch);
+		
+		List<Board> list = null;
+		if(category.equals("title")){
+			list = sqlSessionTemplate.selectList("board.searchtitle", map);
+		} else if(category.equals("content")){
+			list = sqlSessionTemplate.selectList("board.searchcontent", map);
+		} else if(category.equals("titlecontent")){
+			list = sqlSessionTemplate.selectList("board.searchtitlecontent", map);
+		} else if(category.equals("writer")){
+			list = sqlSessionTemplate.selectList("board.searchwriter", map);
+		} 
+		System.out.println(list.size());
+		return list;
+	}
 
 	@Override
 	public void boardUpdateBlikecount(int bno, String memail, int blikecount) {
+		System.out.println("blikecount: " + blikecount);
 		Map<String, String> map = new HashMap<>();
 		map.put("bno", String.valueOf(bno));		
-		map.put("blikecount", String.valueOf(blikecount));
+		map.put("blikecount", String.valueOf(blikecount+1));
 		map.put("memail", memail);
-		System.out.println("update");
 		int result = sqlSessionTemplate.update("board.updateBlikecount", map);
-		System.out.println(result);
-		System.out.println("insert");
-		if(result == 1){
-			System.out.println(bno + memail);
-			Likecount likecount = new Likecount();
-			likecount.setBno(bno);
-			likecount.setMemail(memail);
+		System.out.println("result: " + result);
+		Likecount likecount = new Likecount();
+		likecount.setBno(bno);
+		likecount.setMemail(memail);
+		if(result == 1){			
 			sqlSessionTemplate.insert("likecount.insert", likecount);
 		} else {
-			
+			sqlSessionTemplate.delete("likecount.delete", likecount);
+			map.put("blikecount", String.valueOf(blikecount-1));
+			sqlSessionTemplate.update("board.updateBlikecount", map);
 		}
 	}
 	/*************************************************************************************
@@ -127,5 +146,20 @@ public class BoardDaoImpl implements BoardDao {
 		List<BoardComment> list = sqlSessionTemplate.selectList("boardcomment.selectcommentlist", bno);
 		return list;
 	}
+	
+	@Override
+	public BoardComment boardSelectByBcno(int bcno) {
+		BoardComment boardComment = sqlSessionTemplate.selectOne("boardcomment.selectByBcno", bcno);
+		return boardComment;
+	}
+	
+	@Override
+	public void boardCommentDelete(int bcno) {
+		sqlSessionTemplate.delete("boardcomment.delete", bcno);
+	}
+//	@Override
+//	public void boardCommentUpdate(int bcno) {
+//		sqlSessionTemplate.update("boardcomment.update", bcno);
+//	}
 	
 }

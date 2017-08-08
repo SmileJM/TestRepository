@@ -31,7 +31,23 @@
 	type="text/javascript"></script>
 	<script>
 	function handleBtnSearch() {
-		location.href="boardSearch?btitle=${bsearch}";
+		if($("#bsearch").val()=="") {
+			$("#bsearch").attr("placeholder", "검색어를 입력하세요");
+			$("#bsearch").focus();
+			return ;
+		}
+		var category = $("#category").val();
+		var bsearch = $("#bsearch").val();
+		location.href="boardSearch?category="+category+"&bsearch="+bsearch;
+	}
+	function handleLoginCheck() {
+		if($("#bcwriter").val()==""){
+			alert("로그인 후 이용하세요~");				
+			/* 로그인 버튼으로 이동 */
+			document.getElementById('list').focus();
+			return;
+		} 
+		location.href="boardWrite";
 	}
 	</script>
 </head>
@@ -75,15 +91,11 @@
 				</tr>
 			</c:forEach>
 		</table>
-<!-- 		<div  class="input-group"  style="margin-top: 20px; width: 1000px">
-			<input type="text" name="bsearch" id="bsearch" placeholder="검색"	style="background-color: white; width:200px; height: 33px">			
-			<a type="button"  class="btn btn-info"  href="boardSearch?bsearch=김">검색</a>
-			<input type="button"  class="btn btn-info" value="검색 " href="boardList"  onclick="handleBtnSearch()" />
-		</div> -->
+		
 		<div  class="input-group"  style="margin-top: 20px; width: 1000px">
-			<a href="boardList?pageNo=1">[처음]</a>
+			<a href="boardList?pageNo=1">◀</a>&nbsp;
 			<c:if test="${groupNo>1}">
-				<a href="boardList?pageNo=${startPageNo-1}">[이전]</a>
+				<a href="boardList?pageNo=${startPageNo-1}">◁</a>&nbsp;
 			</c:if>
 			<c:forEach var="i" begin="${startPageNo}" end="${endPageNo}">			
 				&nbsp;
@@ -93,13 +105,29 @@
 			</c:forEach>
 
 			<c:if test="${groupNo<totalGroupNo}">
-				<a href="boardList?pageNo=${endPageNo+1}">[다음]</a>
+				<a href="boardList?pageNo=${endPageNo+1}">▷</a>&nbsp;
 			</c:if>
-			<a href="boardList?pageNo=${totalPageNo}">[맨끝]</a>
+			<a href="boardList?pageNo=${totalPageNo}">▶</a>
 		</div>
-		<div style="margin-top: 10px; width: 700; text-align: right">
-			<a href="boardWrite" class="btn btn-success">글쓰기</a>
+		
+		
+		<div  class="input-group"  style="margin-top: 20px; width: 1000px">
+			<select id="category" style="background-color: white; width:80px; height: 33px">
+				<option value="title">제목</option>
+				<option value="content">내용</option>
+				<option value="titlecontent">제목+내용</option>
+				<option value="writer">작성자</option>			
+			</select>&nbsp;	
+			<input type="text" name="bsearch" id="bsearch" placeholder="검색"	style="background-color: white; width:200px; height: 33px">&nbsp;	
+			<!-- <a type="button"  class="btn btn-primary"  href="boardSearch"  onclick="handleBtnSearch()" >검색</a> -->
+			<input type="button"  class="btn btn-primary"  onclick="handleBtnSearch()" value="검색"/>		
 		</div>
+		
+		<div style="margin-top: 10px; width: 700; text-align: right;">
+			<input type="button" class="btn btn-success" value="글쓰기"  onclick="handleLoginCheck()" />			
+			<input type="hidden" class="form-control"  name="bcwriter"  id="bcwriter" value="${member.memail }"/>
+		</div>
+		
 
 		<%-- <table class="table table-bordered table-hover" 
 			style="width: 1000px; text-align: center; border: 0px;">
