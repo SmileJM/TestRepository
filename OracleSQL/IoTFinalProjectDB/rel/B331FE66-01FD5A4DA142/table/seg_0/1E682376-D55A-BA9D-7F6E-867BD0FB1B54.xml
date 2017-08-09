@@ -8,10 +8,22 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="mid" id="9118D6EF-AC57-B0F9-A192-17F3A4980B81">
+<createdBy>Administrator</createdBy>
+<createdTime>2017-08-09 03:05:59 UTC</createdTime>
+<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="memail" id="AC41BC55-943D-0ACA-BCA3-D694E98B84A1">
 <createdBy>Administrator</createdBy>
 <createdTime>2017-07-31 05:29:06 UTC</createdTime>
 <ownerDesignName>IoTFinalProjectDB</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -88,7 +100,8 @@
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="AC41BC55-943D-0ACA-BCA3-D694E98B84A1"/>
+<colUsage columnID="9118D6EF-AC57-B0F9-A192-17F3A4980B81"/>
+<colUsage columnID="16159B57-7617-8324-D54D-D0332E2E8969"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

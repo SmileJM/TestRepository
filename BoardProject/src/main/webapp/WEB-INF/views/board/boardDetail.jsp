@@ -169,9 +169,10 @@
 		
 		<!-- Like Count -->
 		<div class="form-group" style="text-align: center;">
-			<div class="btn btn-danger" style="border-radius: 50px; width: 100px; height: 100px; line-height: 30px;" onclick="handleBtnLike()">
+			<div class="btn btn-danger" style="border-radius: 50px; width: 100px; height: 100px; line-height: 30px; " onclick="handleBtnLike()">
 				${board.blikecount}<br/>
-				<img src="../resources/image/thumbsup.png" style="width: 30px; height: 30px;"/>
+				<span class="glyphicon glyphicon-heart" aria-hidden="true"  style="color: yellow; font-size: 45px"></span>
+				<!-- <img src="../resources/image/thumbsup.png" style="width: 30px; height: 30px;"/> -->
 			</div>			
 		</div>
 		<hr/>
