@@ -16,7 +16,7 @@
 		color: gray;
 	}
 	a:HOVER {
-		color: red;
+		color: skyblue;
 		text-decoration: none;
 	}
 	.glyphicon-th-list, .glyphicon-th-large {
@@ -76,15 +76,20 @@
 					<td style=" border-left: 0px; border-right: 0px">${b.bno}</td>
 					<td style="text-align: left;  border-left: 0px; border-right: 0px">
 						<a href="boardDetail?bno=${b.bno}&pageNo=${pageNo}" >
-							${b.btitle}
-							<c:if test="${b.count > 0}" >
-							(${b.count})
-							</c:if>
+							${b.btitle}&nbsp;
+							<c:if test="${b.boriginalfilename != null}" >
+								<span class="glyphicon glyphicon-picture" aria-hidden="true"  style="color: #BDBDBD"></span>&nbsp;
+							</c:if>							
 							<c:set var="now" value="<%= new java.util.Date() %>"/> 
 							<fmt:formatDate var="today" value="${now}" pattern="yyyy-MM-dd"/>
 							<fmt:formatDate var="bdate" value="${b.bdate}" pattern="yyyy-MM-dd"/>
-							<c:if test="${bdate == today}"><img src="../resources/image/n.png" style="width: 15px"/></c:if>
-							<c:if test="${b.blikecount >= 10}"><img src="../resources/image/hot.gif" style="width: 30px"/></c:if>
+							<c:if test="${bdate == today}"><em style="color: red">new</em>&nbsp;</c:if>
+							<c:if test="${b.count > 0}" >
+								<span class="glyphicon glyphicon-comment" aria-hidden="true"  style="color: #BDBDBD"></span>&nbsp; ${b.count}
+							</c:if>
+							<c:if test="${b.blikecount >= 10}">
+								<span class="glyphicon glyphicon-star" aria-hidden="true" style="color: orange"></span>&nbsp;
+							</c:if>
 						</a>
 					</td>					
 					<td style="border-left: 0px; border-right: 0px">${b.bwriter}</td>
