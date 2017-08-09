@@ -18,8 +18,6 @@ public class BoardServiceImpl implements BoardService {
 	@Resource(name = "boardDaoImpl")
 	private BoardDao dao;
 
-	/////////////////////////////////////////////////////////
-
 	@Override
 	public void boardWrite(Board Board) {
 		dao.boardInsert(Board);
@@ -43,6 +41,7 @@ public class BoardServiceImpl implements BoardService {
 		dao.boardUpdateBhitcount(bno, memail, board.getBhitcount());
 		return board;
 	}
+
 	@Override
 	public Board getBoard(int bno) {
 		Board board = dao.boardSelectByBno(bno);
@@ -81,15 +80,22 @@ public class BoardServiceImpl implements BoardService {
 		dao.boardUpdateBlikecount(bno, memail, board.getBlikecount());
 		return board;
 	}
+
 	@Override
-	public List<Board> boardSearch(String category, String bsearch) {
-		List<Board> list = dao.boardSearchBySearch(category, bsearch);		
+	public List<Board> boardSearchListPage(int pageNo, int rowsPerPage, String category, String bsearch) {
+		List<Board> list = dao.boardSearchBySearch(pageNo, rowsPerPage, category, bsearch);
 		return list;
 	}
 
 	@Override
+	public int boardSearchTotalRows(String category, String bsearch) {
+		int count = dao.boardCountAll(category, bsearch);
+		return count;
+	}
+
+	@Override
 	public void boardCommentWrite(BoardComment comment) {
-		dao.boardCommentInsert(comment);		
+		dao.boardCommentInsert(comment);
 	}
 
 	@Override
@@ -97,7 +103,7 @@ public class BoardServiceImpl implements BoardService {
 		List<BoardComment> list = dao.boardCommentList(bno);
 		return list;
 	}
-	
+
 	@Override
 	public String boardCommentCheckBpassword(int bcno, String bcpassword) {
 		String result = "fail";
@@ -107,14 +113,10 @@ public class BoardServiceImpl implements BoardService {
 		}
 		return result;
 	}
-	
+
 	@Override
 	public void boardCommentDelete(int bcno) {
 		dao.boardCommentDelete(bcno);
 	}
-//	@Override
-//	public void boardCommentUpdate(int bcno) {
-//		dao.boardCommentUpdate(bcno);
-//	}
-	
+
 }

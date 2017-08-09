@@ -17,14 +17,14 @@ public interface BoardService {
 	public void boardDelete(int bno);
 	public void boardUpdate(Board Board);
 	public Board getBoardLike(int bno, String memail);
-	public List<Board> boardSearch(String category, String bsearch);
-	// public List<Exam12ImageBoard> getImageBoardSearch(int pageNo, int
-	// rowsPerPage, String btitle);
 	
+	// search
+	public List<Board> boardSearchListPage(int pageNo, int rowsPerPage, String category, String bsearch);
+	public int boardSearchTotalRows(String category, String bsearch);
+
 	// BoardComment
 	public void boardCommentWrite(BoardComment comment);
 	public List<BoardComment>boardCommentList(int bcno);
 	public String boardCommentCheckBpassword(int bcno, String bcpassword);
 	public void boardCommentDelete(int bcno);
-//	public void boardCommentUpdate(int bcno);
 }

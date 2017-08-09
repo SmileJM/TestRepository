@@ -16,6 +16,6 @@
 	</insert>	
 	
 	<delete id="delete" parameterType="com.mycompany.myapp.dto.Likecount">
-	delete from likecount where bno=#{bno} and memail=#{memail}
+		delete from likecount where bno=#{bno} and memail=#{memail}
 	</delete>
 </mapper>

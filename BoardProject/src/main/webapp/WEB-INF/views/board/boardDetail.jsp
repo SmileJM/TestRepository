@@ -195,7 +195,6 @@
 							<td style="width: 65%; border-right: 0px"><p>${comment.bccomment}</p></td>
 							<td style="width: 5%; border-left: 0px" >
 								<input type="hidden" class="form-control"  name="bcno" id="bcno" value="${comment.bcno }"/>
-								<%-- <input type="button" class="btn btn-warning btn-xs" value="수정"  onclick="handleBtnCommentUD(${comment.bcno },'update')" /> --%>
 								<input type="button" class="btn btn-danger btn-xs" value="삭제"    onclick="handleBtnCommentUD(${comment.bcno },'delete')"/>
 							</td>
 							<td style="width: 15%; text-align: right">${bcdateDay}<br/>${bcdateTime}</td>
@@ -211,8 +210,7 @@
 							</td>
 							<td style="width: 15%; text-align: right">${bcdateDay}<br/>${bcdateTime}</td>
 						</tr>		
-					</c:if>
-						
+					</c:if>						
 			</c:forEach>
 		</table>
 		<!-- 댓글 -->

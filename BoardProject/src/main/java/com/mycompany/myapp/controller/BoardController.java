@@ -35,9 +35,9 @@ import com.mycompany.myapp.service.BoardService;
 public class BoardController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(BoardController.class);
 	private Member member;
-	
+
 	public void session(Model model) {
-		member = new Member();		
+		member = new Member();
 		member.setMemail("admin");
 		member.setMname("관리자2");
 		model.addAttribute("member", member);
@@ -87,7 +87,6 @@ public class BoardController {
 		model.addAttribute("endPageNo", endPageNo);
 		model.addAttribute("pageNo", pageNo);
 
-
 		session(model);
 		// view 이름 리턴
 		return "board/boardList";
@@ -115,10 +114,10 @@ public class BoardController {
 		// 실제 경로를 대입해줌
 		String realPath = servletContext.getRealPath("/WEB-INF/upload/" + fileName);
 		File file = new File(realPath);
-		System.out.println("fileName:" + fileName);
+
 		if (fileName != "") {
 			boolean tt = file.mkdirs();
-			System.out.println(tt);
+
 			Board.getBattach().transferTo(file);
 
 			// 파일 데이터 저장
@@ -145,7 +144,7 @@ public class BoardController {
 	@RequestMapping("/board/boardDetail")
 	public String boardDetail(int bno, int pageNo, Model model) {
 		Board board = null;
-		
+
 		if (member != null) {
 			board = service.getBoard(bno, member.getMemail());
 		} else {
@@ -159,7 +158,7 @@ public class BoardController {
 		board.setBcontent(content);
 
 		List<BoardComment> list = service.boardCommentList(bno);
-		
+
 		// view 로 넘겨줄 데이터
 		model.addAttribute("list", list);
 		model.addAttribute("board", board);
@@ -223,7 +222,7 @@ public class BoardController {
 		}
 		// 게시물 수정 처리
 		service.boardUpdate(Board);
-		System.out.println("tkwls");
+
 		return "redirect:/board/boardDetail?bno=" + Board.getBno() + "&pageNo=" + pageNo;
 	}
 
@@ -234,7 +233,7 @@ public class BoardController {
 		Board Board = service.getBoardImg(bno);
 
 		String fileName = Board.getBoriginalfilename();
-		System.out.println(fileName);
+
 		String encodingFileName;
 		if (userAgent.contains("MSIE") || userAgent.contains("Trident") || userAgent.contains("Edge")) {
 			encodingFileName = URLEncoder.encode(fileName, "UTF-8");
@@ -266,16 +265,48 @@ public class BoardController {
 		fis.close();
 		os.close();
 	}
-	
-	@RequestMapping("/board/boardSearch")
-	public String boardSearch(String category, String bsearch, Model model) {
-		// public String boardLike(int bno, int pageNo, Model model) {
-		List<Board> list = service.boardSearch(category, bsearch);
+
+	@RequestMapping("/board/boardSearchList")
+	public String boardSearchList(@RequestParam(defaultValue = "1") int pageNo, String category, String bsearch,
+			Model model) {
+		// 한 페이지를 구성하는 행 수
+		int rowsPerPage = 10;
+		// 한 그룹을 구성하는 페이지 수
+		int pagesPerGroup = 5;
+		// 총 행 수
+		int totalRows = service.boardSearchTotalRows(category, bsearch);
+		// 총 페이지 수
+		int totalPageNo = (totalRows / rowsPerPage) + ((totalRows % rowsPerPage != 0) ? 1 : 0);
+		// 총 그룹 수
+		int totalGroupNo = (totalPageNo / pagesPerGroup) + ((totalPageNo % pagesPerGroup != 0) ? 1 : 0);
+		// 현재 그룹 번호
+		int groupNo = (pageNo - 1) / pagesPerGroup + 1;
+		// 현재 그룹의 시작 페이지 번호
+		int startPageNo = (groupNo - 1) * pagesPerGroup + 1;
+		// 현재 그룹의 마지막 페이지 번호
+		int endPageNo = startPageNo + pagesPerGroup - 1;
+		if (groupNo == totalGroupNo) {
+			endPageNo = totalPageNo;
+		}
+		// 현재 페이지의 데이터 가져오기
+		List<Board> list = service.boardSearchListPage(pageNo, rowsPerPage, category, bsearch);
+
+		// view 로 넘겨줄 데이터
 		model.addAttribute("list", list);
-//		session(model);
-		// return "redirect:/board/boardDetail?bno="+bno + "&pageNo=" +pageNo;
-		return "redirect:/board/boardList";
+		model.addAttribute("pagesPerGroup", pagesPerGroup);
+		model.addAttribute("totalPageNo", totalPageNo);
+		model.addAttribute("totalGroupNo", totalGroupNo);
+		model.addAttribute("groupNo", groupNo);
+		model.addAttribute("startPageNo", startPageNo);
+		model.addAttribute("endPageNo", endPageNo);
+		model.addAttribute("pageNo", pageNo);
+		model.addAttribute("category", category);
+		model.addAttribute("bsearch", bsearch);
+
+		session(model);
+		return "board/boardSearchList";
 	}
+
 	/*
 	 * 
 	 * BoardComment
@@ -292,23 +323,17 @@ public class BoardController {
 		service.boardCommentWrite(comment);
 		return "redirect:/board/boardDetail?bno=" + comment.getBno() + "&pageNo=" + pageNo;
 	}
-	
+
 	@RequestMapping("/board/boardCommentCheckBpassword")
 	public String boardCommentCheckBpassword(int bcno, String bcpassword, Model model) {
 		String result = service.boardCommentCheckBpassword(bcno, bcpassword);
 		model.addAttribute("result", result);
 		return "board/boardCommentCheckBpassword";
 	}
-	
+
 	@RequestMapping("/board/boardCommentDelete")
 	public String boardCommentDelete(int bcno, int bno, int pageNo, HttpServletRequest req) {
 		service.boardCommentDelete(bcno);
 		return "redirect:/board/boardDetail?bno=" + bno + "&pageNo=" + pageNo;
 	}
-	
-//	@RequestMapping(value = "/board/boardCommentUpdate", method = RequestMethod.GET)
-//	public String boardCommentUpdate(int bcno, int bno, int pageNo, Model model) {
-//		service.boardCommentUpdate(bcno);
-//		return "redirect:/board/boardDetail?bno=" + bno + "&pageNo=" + pageNo;
-//	}
 }
