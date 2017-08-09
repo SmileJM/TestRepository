@@ -27,6 +27,9 @@
 		function fileDelete() {
 			$("#spanFileName").text("");
 		}
+		function btnCancel() {
+			location.href="boardDetail?bno=${board.bno}&pageNo=${pageNo}";
+		}
 	</script>
 </head>
 <body>
@@ -85,6 +88,7 @@
 		</div>
 		<div align="right">
 		<input type="hidden" class="form-control"  name="pageNo"  id="pageNo" value="${pageNo}"/>		
+		<input type="button" class="btn btn-success" value="취소" onclick="btnCancel()"/>
 		<input type="submit" class="btn btn-info" value="등록" />
 		</div>
 	</form>
