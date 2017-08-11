@@ -76,13 +76,6 @@
 		}
 		
 		function handleBtnComment(){
-			/* 로그인 관련 */
-			/* if( $("#btitle").val() == "") {
-				$("#btitle").attr("placeholder", "제목을 입력하세요!");
-				$("#btitle").focus();
-				return ;
-			} else */ 
-
 			if( $("#bcpassword").val() == "") {
 				$("#bcpassword").attr("placeholder", "비밀번호");
 				$("#bcpassword").focus();
@@ -139,27 +132,24 @@
 	</script>
 </head>
 <body>
-	<div style="max-width: 1000px; margin: auto;">	
-	<h4><a href="boardList?pageNo=${pageNo}" class="btn btn-default"  id="list">목록</a>${board.btitle}</h4>
+	<div style="max-width: 1000px; margin: auto; margin-top: 50px">	
+	<h4><a href="boardList?pageNo=${pageNo}" class="btn btn-default"  id="list">목록</a> ${board.btitle}</h4>${member.mid }
 	<hr />
 	<form method="post"  id="form1" action="boardCommentWrite" style="padding: 0px 20px"
 		enctype="multipart/form-data">
-		<div class="form-group">
-			<div class="input-group"> 
-				<%-- <input type="text" class="form-control" placeholder="번호"	name="bno"  value="${board.bno}" style="background-color: white; width:50px;" readonly /> --%>
-				<input type="text" class="form-control"  placeholder="번호"	name="bno"  value="${board.bno}" style="background-color: white; width:50px;" readonly />
-				<span class="input-group-addon"> <span class="glyphicon glyphicon-user"></span></span>
-				<input type="text" class="form-control" placeholder="작성자"	name="bwriter"  value="${board.bwriter}" style="background-color: white;" readonly/>
-				<span class="input-group-addon"> <span class="glyphicon glyphicon-heart"></span></span>
-				<input type="text" class="form-control" placeholder="추천수"	name="blikecount"  value="${board.blikecount}"  style="background-color: white;" readonly/>
-				<span class="input-group-addon"> <span class="glyphicon glyphicon-eye-open"></span></span>
-				<input type="text" class="form-control" placeholder="조회수"	name="bhitcount"  value="${board.bhitcount}"  style="background-color: white;" readonly/>
-				<span class="input-group-addon"> <span class="glyphicon glyphicon-time"></span></span>
-				<fmt:formatDate var="bdate" value="${board.bdate}" pattern="yyyy-MM-dd HH:mm:ss"/>
-				<input type="text" class="form-control" placeholder="날짜"	 name="bdate"  value="${bdate}" style="background-color: white;" readonly/>
-			</div>
-		</div>
-
+		
+		<button type="button" class="btn btn-default" name="bno"  disabled="disabled" style="width: 100px; height: 33px;">${board.bno}</button>
+		<button type="button" class="btn btn-default" disabled="disabled" style="width:40px; background-color: #CEF6EC"><span class="glyphicon glyphicon-user" style="color: #FAAC58"></span></button>
+		<button type="button" class="btn btn-default" name="bwriter"  disabled="disabled" style="width: 250px; height: 33px;">${board.bwriter}</button>
+		<button type="button" class="btn btn-default" disabled="disabled" style="width:40px; background-color: #CEF6EC"><span class="glyphicon glyphicon-heart" style="color: #FAAC58"></span></button>
+		<button type="button" class="btn btn-default" name="blikecount"  disabled="disabled" style="width: 100px; height: 33px;">${board.blikecount}</button>
+		<button type="button" class="btn btn-default" disabled="disabled" style="width:40px; background-color: #CEF6EC"><span class="glyphicon glyphicon-eye-open" style="color: #FAAC58"></span></button>
+		<button type="button" class="btn btn-default" name="bhitcount"  disabled="disabled" style="width: 100px; height: 33px;">${board.bhitcount}</button>
+		<button type="button" class="btn btn-default" disabled="disabled" style="width:40px; background-color: #CEF6EC"><span class="glyphicon glyphicon-time" style="color: #FAAC58"></span></button>
+		<fmt:formatDate var="bdate" value="${board.bdate}" pattern="yyyy-MM-dd HH:mm:ss"/>
+		<button type="button" class="btn btn-default" name="bdate"  disabled="disabled" style="width: 210px; height: 33px;">${bdate}</button>
+		&nbsp;<br/>&nbsp;
+		<!-- <hr/> -->
 		<div class="form-group" style="text-align: center;">
 			<c:if test='${board.boriginalfilename != "" && board.boriginalfilename != null}'>
 				<img src="boardImage?bno=${board.bno }" style="max-width: 980px;"/>

@@ -38,7 +38,7 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public Board getBoard(int bno, String mid) {
 		Board board = dao.boardSelectByBno(bno);
-		dao.boardUpdateBhitcount(bno, mid, board.getBhitcount());
+//		dao.boardUpdateBhitcount(bno, mid, board.getBhitcount());
 		return board;
 	}
 
@@ -46,6 +46,11 @@ public class BoardServiceImpl implements BoardService {
 	public Board getBoard(int bno) {
 		Board board = dao.boardSelectByBno(bno);
 		return board;
+	}
+	@Override
+	public void getBoardHit(int bno, String mid) {
+		Board board = dao.boardSelectByBno(bno);		
+		dao.boardUpdateBhitcount(bno, mid, board.getBhitcount());
 	}
 
 	@Override

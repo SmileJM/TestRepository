@@ -22,6 +22,8 @@
 			if($("#battach")[0].files.length != 0) {
 				var originalfilename = $("#battach")[0].files[0].name;
 				$("#spanFileName").text(originalfilename);
+			}else if($("#spanFileName").val()!=""){
+				$("#spanFileName").text(originalfilename);
 			}
 		}
 		function fileDelete() {

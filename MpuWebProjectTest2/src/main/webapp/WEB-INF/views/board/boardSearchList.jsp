@@ -57,7 +57,7 @@
 </head>
 <body>
 	<jsp:include page="../home.jsp"/>
-	<div style="width: 1000px; margin: auto; text-align: center">
+	<div style="width: 1000px; margin: auto; margin-top: 50px; text-align: center">
 		<h4>게시물 목록</h4>
 		<div style="width: 1000px; margin: auto; text-align: right">
 
@@ -77,7 +77,7 @@
 				<tr>
 					<td style=" border-left: 0px; border-right: 0px">${b.bno}</td>
 					<td style="text-align: left;  border-left: 0px; border-right: 0px">
-						<a href="boardDetail?bno=${b.bno}&pageNo=${pageNo}" >
+						<a href="hitcount?bno=${b.bno}&pageNo=${pageNo}&mid=${member.mid}" >
 							${b.btitle}&nbsp;
 							<c:if test="${b.boriginalfilename != null}" >
 								<span class="glyphicon glyphicon-picture" aria-hidden="true"  style="color: #BDBDBD"></span>&nbsp;

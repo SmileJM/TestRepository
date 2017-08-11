@@ -47,7 +47,7 @@
 	</script>
 </head>
 <body>
-	<div style="max-width: 1000px; margin: auto;">
+	<div style="max-width: 1000px; margin: auto;  margin-top: 50px">
 	<h4>게시물 등록</h4>
 	<hr />
 	<form method="post" action="boardWrite" style="padding: 0px 20px"

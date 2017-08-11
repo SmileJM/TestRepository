@@ -66,7 +66,8 @@ public class BoardDaoImpl implements BoardDao {
 		map.put("bhitcount", String.valueOf(bhitcount + 1));
 
 		int result = sqlSessionTemplate.update("board.updateBhitcount", map);
-
+		System.out.println("bno: " + bno);
+		System.out.println("mid: " + mid);
 		if (result == 1) {
 			Hitcount hitcount = new Hitcount();
 			hitcount.setBno(bno);

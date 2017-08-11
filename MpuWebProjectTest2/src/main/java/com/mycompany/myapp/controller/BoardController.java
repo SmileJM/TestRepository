@@ -134,33 +134,67 @@ public class BoardController {
 	 * boardDetail
 	 * 
 	 */
-
-	@RequestMapping("/board/boardDetail")
-	public String boardDetail(String mid, int bno, int pageNo, Model model) {
+	@RequestMapping("/board/hitcount")
+	public String boardHitcount(String mid, int bno, int pageNo, Model model) {
+		System.out.println("mid: " + mid);
+		System.out.println("bno: " + bno);
+		System.out.println("pageNo: " + pageNo);
+		if (mid != "") {
+			System.out.println("member: " +mid );
+			service.getBoardHit(bno, mid);
+		}
+		return "redirect:/board/boardDetail?bno="+bno+"&pageNo="+pageNo;
+	}
+		@RequestMapping("/board/boardDetail")
+		public String boardDetailGet(int bno, int pageNo, Model model) {
 		Board board = null;
 
-		if (mid != null) {
-			System.out.println("member: " +mid );
-			board = service.getBoard(bno, mid);
-		} else {
-			System.out.println("member null");
-			board = service.getBoard(bno);
-		}
+		board = service.getBoard(bno);
+
 		String content = board.getBcontent();
 		content = content.replace("<", "&lt;");
 		content = content.replace(">", "&gt;");
 		content = content.replace("  ", "&nbsp;&nbsp;");
 		content = content.replace("\n", "<br/>");
 		board.setBcontent(content);
-
+		
 		List<BoardComment> list = service.boardCommentList(bno);
-
+		
 		// view 로 넘겨줄 데이터
 		model.addAttribute("list", list);
 		model.addAttribute("board", board);
 		model.addAttribute("pageNo", pageNo);
 		return "board/boardDetail";
 	}
+//		@RequestMapping("/board/boardDetail")
+//		public String boardDetailGet(String mid, int bno, int pageNo, Model model) {
+//			Board board = null;
+//			System.out.println("mid: " + mid);
+//			System.out.println("bno: " + bno);
+//			System.out.println("pageNo: " + pageNo);
+//			if (mid != null) {
+//				System.out.println("member: " +mid );
+//				board = service.getBoard(bno, mid);
+//			} else {
+//				System.out.println("member null");
+//				board = service.getBoard(bno);
+//			}
+//			String content = board.getBcontent();
+//			content = content.replace("<", "&lt;");
+//			content = content.replace(">", "&gt;");
+//			content = content.replace("  ", "&nbsp;&nbsp;");
+//			content = content.replace("\n", "<br/>");
+//			board.setBcontent(content);
+//			
+//			List<BoardComment> list = service.boardCommentList(bno);
+//			
+//			// view 로 넘겨줄 데이터
+//			model.addAttribute("list", list);
+//			model.addAttribute("board", board);
+//			model.addAttribute("pageNo", pageNo);
+//			model.addAttribute("mid", mid);
+//			return "board/boardDetail";
+//		}
 
 	@RequestMapping("/board/boardCheckBpassword")
 	public String boardCheckBpassword(int bno, String bpassword, Model model) {
