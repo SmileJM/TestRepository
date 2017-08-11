@@ -23,35 +23,16 @@
 <colAssociation fkAssociation="257AE924-147B-761C-6EB3-7FF29E5F280A" referredColumn="C03DA122-1ADA-1BC6-FE6C-471798720AE0"/>
 </associations>
 </Column>
-<Column name="mid" id="E19606A8-FDEC-8E47-6CAA-1D4D73994A9A">
+<Column name="mid" id="E18E957D-43A2-DA7E-1DB7-020D95260797">
 <createdBy>Administrator</createdBy>
-<createdTime>2017-08-09 03:08:09 UTC</createdTime>
+<createdTime>2017-08-11 03:39:53 UTC</createdTime>
 <ownerDesignName>IoTFinalProjectDB</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>30</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="16C69CCB-1C7F-36AA-AB43-1DBBF2D83EB2" referredColumn="9118D6EF-AC57-B0F9-A192-17F3A4980B81"/>
-</associations>
-</Column>
-<Column name="mname" id="30CBFEFB-EB08-3FC5-86C8-455816D87420">
-<createdBy>Administrator</createdBy>
-<createdTime>2017-08-09 03:14:03 UTC</createdTime>
-<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="16C69CCB-1C7F-36AA-AB43-1DBBF2D83EB2" referredColumn="16159B57-7617-8324-D54D-D0332E2E8969"/>
-</associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
@@ -63,17 +44,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="1EEBF20F-A5CA-9332-EFC5-280E911F83F2"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="497E284C-029C-FAE8-A12C-893798094EF1" name="hitcount_member_FK">
-<createdBy>Administrator</createdBy>
-<createdTime>2017-08-09 03:08:09 UTC</createdTime>
-<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="E19606A8-FDEC-8E47-6CAA-1D4D73994A9A"/>
-<colUsage columnID="30CBFEFB-EB08-3FC5-86C8-455816D87420"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

@@ -8,21 +8,6 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="mid" id="A3471522-E60E-F803-B0B4-CF4637973AB6">
-<createdBy>Administrator</createdBy>
-<createdTime>2017-08-09 03:06:23 UTC</createdTime>
-<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="2C878E87-7A54-8C1F-E949-9F9DA1A7C24B" referredColumn="9118D6EF-AC57-B0F9-A192-17F3A4980B81"/>
-</associations>
-</Column>
 <Column name="bno" id="3FFE0D73-F5BF-A0E8-6EC6-E0343169BFDE">
 <createdBy>Administrator</createdBy>
 <createdTime>2017-08-09 03:07:28 UTC</createdTime>
@@ -38,34 +23,19 @@
 <colAssociation fkAssociation="17D04652-B261-3996-838D-7E4B4811BD79" referredColumn="C03DA122-1ADA-1BC6-FE6C-471798720AE0"/>
 </associations>
 </Column>
-<Column name="mname" id="E515996A-916D-50B1-9AAE-9E1D500AEA4F">
+<Column name="mid" id="3DEA2D3A-2EBF-EA1B-B1EA-2D70EFB80EF1">
 <createdBy>Administrator</createdBy>
-<createdTime>2017-08-09 03:14:03 UTC</createdTime>
+<createdTime>2017-08-11 03:39:27 UTC</createdTime>
 <ownerDesignName>IoTFinalProjectDB</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="2C878E87-7A54-8C1F-E949-9F9DA1A7C24B" referredColumn="16159B57-7617-8324-D54D-D0332E2E8969"/>
-</associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="B61D0424-4428-7303-F792-F124A31631FC" name="likecount_member_FK">
-<createdBy>Administrator</createdBy>
-<createdTime>2017-08-09 03:06:23 UTC</createdTime>
-<ownerDesignName>IoTFinalProjectDB</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="A3471522-E60E-F803-B0B4-CF4637973AB6"/>
-<colUsage columnID="E515996A-916D-50B1-9AAE-9E1D500AEA4F"/>
-</indexColumnUsage>
-</ind_PK_UK>
 <ind_PK_UK id="38D8F4F2-615E-9830-CC4A-6ED72BE2DD62" name="likecount_board_FK">
 <createdBy>Administrator</createdBy>
 <createdTime>2017-08-09 03:07:28 UTC</createdTime>

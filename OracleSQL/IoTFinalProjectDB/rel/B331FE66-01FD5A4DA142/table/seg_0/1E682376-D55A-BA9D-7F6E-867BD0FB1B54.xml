@@ -101,7 +101,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="9118D6EF-AC57-B0F9-A192-17F3A4980B81"/>
-<colUsage columnID="16159B57-7617-8324-D54D-D0332E2E8969"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
