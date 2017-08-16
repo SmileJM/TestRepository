@@ -1,7 +1,5 @@
 package com.mycompany.myapp.dto;
 
-import org.springframework.social.facebook.api.CoverPhoto;
-
 public class Member {
 	private String mname;
 	private String memail;

@@ -206,8 +206,17 @@
 							<td style="width: 15%; text-align: right">${bcdateDay}<br/>${bcdateTime}</td>
 						</tr>		
 					</c:if>						
-			</c:forEach>
+			</c:forEach> 
 		</table>
+		${member.mid}1<br/>4
+		${member.mname}2<br/>5
+		${member.mlevel}3<br/>6
+			<div class="form-group" align="right">
+				<c:if test="${member.mlevel == 5}">
+					<input type="button" class="btn btn-danger" value="삭제"
+						onclick="handleBtnDelete()" />
+				</c:if>
+			</div>
 		<!-- 댓글 -->
 		<div class="form-group">
 			<div class="input-group">
