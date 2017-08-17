@@ -38,7 +38,7 @@ public class GyroSensorHandler extends TextWebSocketHandler implements Applicati
 	@PostConstruct
 	public void init(){
 		coapClient = new CoapClient();
-		coapClient.setURI("coap://192.168.3.109/gyroscope");
+		coapClient.setURI("coap://192.168.3.133/gyroscope");
 		
 		System.out.println("test"+coapClient.getURI());
 		

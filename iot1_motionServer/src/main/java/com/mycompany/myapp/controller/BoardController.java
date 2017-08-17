@@ -106,7 +106,8 @@ public class BoardController {
 		File file = new File(realPath);
 
 		if (fileName != "") {
-			boolean tt = file.mkdirs();
+			file.mkdirs();
+//			boolean tt = file.mkdirs();
 
 			Board.getBattach().transferTo(file);
 
