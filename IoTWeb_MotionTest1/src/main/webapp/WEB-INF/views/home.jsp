@@ -225,8 +225,14 @@
 									<a href="<%=application.getContextPath()%>/board/boardList">
 										<span class="hidden-tablet">Question Board</span>
 									</a>
-
 								</li>
+								<c:if test="${member.mlevel == 5}">
+									<li class="item-282 deeper dropdown">
+										<a href="<%=application.getContextPath()%>/admin/memberList">
+											<span class="hidden-tablet">Member Board</span>
+										</a>
+									</li>
+								</c:if>										
 							</ul>
 
 							<div class="clearfix"></div>
