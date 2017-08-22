@@ -1,23 +1,21 @@
 package com.mycompany.myapp.controller;
 
 import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-import java.util.TimeZone;
-import java.util.Vector;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.User;
 import org.springframework.social.facebook.api.impl.FacebookTemplate;
@@ -30,24 +28,27 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.socket.TextMessage;
-import org.springframework.web.socket.WebSocketSession;
 
 import com.mycompany.myapp.dto.Member;
 import com.mycompany.myapp.service.MemberService;
 import com.mycompany.myapp.websocket.GyroSensorHandler;
+import com.mycompany.myapp.websocket.IfraredraySensorHandler;
+import com.mycompany.myapp.websocket.UltrasonicSensorHandler;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
-@SessionAttributes({ "member", "log", "id" })
+@SessionAttributes({ "member", "log", "id", "mid" })
 public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	String log = "log";
 
 	private static String mqttId = "";
+
+	@Autowired
+	private ApplicationContext applicationContext;
 
 	@Resource(name = "memberServiceImpl")
 	private MemberService service;
@@ -80,7 +81,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/fb")
-	public String fb(HttpServletRequest request, Model model) throws IOException {
+	public String fb(HttpServletRequest request, Model model, HttpSession session) throws IOException, MqttException {
 		String accessToken = (String) request.getSession().getAttribute("facebookToken");
 		Facebook facebook = new FacebookTemplate(accessToken);
 
@@ -92,7 +93,7 @@ public class HomeController {
 			model.addAttribute("profile", profile);
 
 			// 멤버객체 생성
-			member = new Member();
+			Member member = new Member();
 
 			// 필드에 저장
 			if (profile.getEmail() == null) {
@@ -118,23 +119,72 @@ public class HomeController {
 				log = "login";
 				model.addAttribute("log", log);
 				model.addAttribute("member", member);
-				System.out.println("login member.getMid(): " + member.getMid() );
+				model.addAttribute("mid", member.getMid());
+				
 				// Mqtt
-				myClientId = MqttClient.generateClientId();
-				topicRequest = "/" + member.getMid() + "/gyro/request";
-				topicResponse = "/" + member.getMid() + "/gyro/response";
-
+//				MqttClientTest mqtt = new MqttClientTest();
+				System.out.println("session: " + session);
+//				mqtt.getMqtt(session);
 				String url = "tcp://106.253.56.122:1883";
-				try {
-					mqttClient = new MqttClient(url, myClientId);
-					mqttClient.setCallback(callback);
-					mqttClient.connect();
-					subscribe();
-					Thread.sleep(1000);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-
+				String myClientId = MqttClient.generateClientId();
+				MqttClient mqttClient = new MqttClient(url, myClientId);
+				String mid =  member.getMid();
+				String json1 = "";
+				System.out.println("myClientId: " + myClientId);
+				mqttClient.setCallback(new MqttCallback() {
+					@Override
+					public void deliveryComplete(IMqttDeliveryToken token) {
+						logger.info("");
+					}
+					@Override
+					public void messageArrived(String topic, MqttMessage mm) throws Exception {	
+						logger.info("");						
+						String mid = (String) session.getAttribute("mid");
+					
+						String json = new String(mm.getPayload());						
+						GyroSensorHandler gyroSensorHandler = (GyroSensorHandler) applicationContext.getBean("gyroSensorHandler");
+						IfraredraySensorHandler ifraredraySensorHandler = (IfraredraySensorHandler) applicationContext.getBean("ifraredraySensorHandler");
+						UltrasonicSensorHandler ultrasonicSensorHandler = (UltrasonicSensorHandler) applicationContext.getBean("ultrasonicSensorHandler");
+						System.out.println("mid: " + mid);
+						System.out.println(" json" +  json);
+						System.out.println(" topic" +  topic);
+						if(topic.indexOf("gyro")>0){
+							System.out.println("gyro");
+							gyroSensorHandler.sendMessage(mid, json, "gyro");
+						} else if(topic.indexOf("ifraredray")>0){
+							ifraredraySensorHandler.sendMessage(mid, json, "ifraredray");
+							System.out.println("ifraredray");
+						}else if(topic.indexOf("ultrasonic")>0){
+							ultrasonicSensorHandler.sendMessage(mid, json, "ultrasonic");
+							System.out.println("ultrasonic");
+						}
+//						gyroSensorHandler.sendMessage(mid, json);
+//						JSONObject jsonObject = new JSONObject(json);
+						
+//						if( jsonObject.getString("yawAngle") != null) {
+//							gyroSensorHandler.sendMessage(mid, json);
+//						} else if ( jsonObject.getString("yawAngle") != null) {
+//							
+//						}
+					}
+					@Override
+					public void connectionLost(Throwable cause) {
+						logger.info("");
+						try {
+							if(mqttClient != null) {
+								mqttClient.disconnect();
+								mqttClient.close();
+//								mqttClient = null;
+							}
+						} catch (MqttException ex) {
+							ex.printStackTrace();
+						}
+					}
+				});
+				mqttClient.connect();
+				mqttClient.subscribe("/" + mid + "/#");
+				session.setAttribute("mqttClient", mqttClient);
+				
 				return "main";
 			}
 		} else {
@@ -142,74 +192,7 @@ public class HomeController {
 		}
 	}
 
-	private List<WebSocketSession> list = new Vector<>();
-	private String myClientId;
-	MqttClient mqttClient;
-	String topicRequest;
-	String topicResponse;
-	Member member;
-	private MqttCallback callback = new MqttCallback() {
-
-		@Override
-		public void deliveryComplete(IMqttDeliveryToken imdt) {
-
-		}
-
-		@Override
-		public void messageArrived(String string, MqttMessage mm) throws Exception {
-			String json = new String(mm.getPayload());
-			JSONObject jsonObject = new JSONObject(json);
-
-			jsonObject.put("mid", member.getMid());
-//			json = jsonObject.toString();
-			
-			double yawAngle = Double.parseDouble(jsonObject.getString("yawAngle"));
-			double pitchAngle = Double.parseDouble(jsonObject.getString("pitchAngle"));
-			double rollAngle = Double.parseDouble(jsonObject.getString("rollAngle"));
-			jsonObject.put("time", getUTCTime(new Date().getTime()));
-			jsonObject.put("yawAngle", yawAngle);
-			jsonObject.put("pitchAngle", pitchAngle);
-			jsonObject.put("rollAngle", rollAngle);
-			json = jsonObject.toString();			
-
-//			GyroSensorHandler.getInstance().send("mid", member.getMid());
-			GyroSensorHandler.getInstance().send("json", json);		
-
-		}
-
-		@Override
-		public void connectionLost(Throwable thrwbl) {
-			try {
-				close();
-			} catch (MqttException ex) {
-				ex.printStackTrace();
-			}
-		}
-	};
-
-	public long getUTCTime(long localTime) {
-		long utcTime = 0;
-		TimeZone tz = TimeZone.getDefault();
-		try {
-			int offset = tz.getOffset(localTime);
-			utcTime = localTime + offset;
-		} catch (Exception e) {
-		}
-		return utcTime;
-	}
-
-	public void close() throws MqttException {
-		if (mqttClient != null) {
-			mqttClient.disconnect();
-			mqttClient.close();
-			mqttClient = null;
-		}
-	}
-
-	public void subscribe() throws MqttException {
-		mqttClient.subscribe(topicResponse);
-	}
-
+	
 	@RequestMapping("/")
 	public String homeGet(Model model) {
 		return "main";
